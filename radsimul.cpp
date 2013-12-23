@@ -21,8 +21,9 @@ RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
     // start with an illum=false (normal view)
     illum = false;
     dl = false;
-    mkillum = false;
     prism2 = false;
+    mkillum = false;
+    bsdf = false;
     glare = false;
 
     // start with model 0
@@ -40,7 +41,6 @@ RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
 void RadianceSimulation::run() {
 
     // starts the simulation with Radiance executables
-    string path=".\\bin\\"; // this defines the path to the Radiance executables
     // the commands are stored in a string
     string command;
 
@@ -48,93 +48,53 @@ void RadianceSimulation::run() {
 
         if (dl) { // use the CIE overcast sky (-c) to predict daylight factor
             // generates a clear sky
-            command = path + "gensky " + toString(month) + " " + toString(day) + " " + toString(hour) + " -m " + toString(meridianW) + " -c -g 0.2 -a " + toString(latitudeN) + " -o " + toString(longitudeW) + " > sky.rad";
+            command = "gensky " + toString(month) + " " + toString(day) + " " + toString(hour) + " -m " + toString(meridianW) + " -c -g 0.2 -a " + toString(latitudeN) + " -o " + toString(longitudeW) + " > sky.rad";
         }
         else {
             // generates a clear sky with sun (+s)
-            command = path + "gensky " + toString(month) + " " + toString(day) + " " + toString(hour) + " -m " + toString(meridianW) + " +s -g 0.2 -a " + toString(latitudeN) + " -o " + toString(longitudeW) + " > sky.rad";
+            command = "gensky " + toString(month) + " " + toString(day) + " " + toString(hour) + " -m " + toString(meridianW) + " +s -g 0.2 -a " + toString(latitudeN) + " -o " + toString(longitudeW) + " > sky.rad";
         }
         shellcmd.addCommand(command,"Generation of the sky in RADIANCE format");
         //cout << command << endl;
         //system(command.c_str());
 
         // rotation of the scene
-        command = path + "xform -rz " + toString(siteOrientation) + " ./sky.rad > skyR.rad";
+        command = "xform -rz " + toString(siteOrientation) + " ./sky.rad > skyR.rad";
         shellcmd.addCommand(command,"Rotation of the sky");
         //cout << command << endl;
         //system(command.c_str());
 
     }
     if (skyChanged || octreeChanged) {
+
         // preparation of the octree
+        string approx = "GLASS";
+        if (prism2) approx = "PRISM2"; // prism2, the -f is for frozen octree (no references to the files)
+        else if (bsdf) approx = "BSDF";
+        // test if mkillum should be used or not
         if (mkillum) {
-            #ifdef MKILLUM
-            command = path + "oconv skyR.rad skyglow.rad base_" + toString(model) + ".rad windowMKILLUM_" + toString(model) + ".rad > base_" + toString(model) + "_0.oct";
-            shellcmd.addCommand(command,"Preparation of the main octree (mkillum)");
+            command = "oconv skyR.rad skyglow.rad base_" + toString(model) + ".rad window" + approx + "_" + toString(model) + ".rad > base_" + toString(model) + "_0.oct";
+            shellcmd.addCommand(command,QString::fromStdString("Preparation of the main octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
-            command = path + "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" windowMKILLUM_" + toString(model) + ".rad > illums_" + toString(model) + ".rad";
-            shellcmd.addCommand(command,"Preparation of the secondary sources (mkillum)");
+            command = "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" window" + approx + "_" + toString(model) + ".rad > illums_" + toString(model) + ".rad";
+            shellcmd.addCommand(command,QString::fromStdString("Preparation of the secondary sources (mkillum)"));
             //cout << command << endl;
             //system(command.c_str());
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the secondary octree (mkillum)");
+            command = "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
+            shellcmd.addCommand(command,QString::fromStdString("Preparation of the secondary octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
-            #else
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad windowBSDF_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the octree (bsdf)");
-            //cout << command << endl;
-            //system(command.c_str());
-            #endif
-        }
-        else if (prism2) { // prism2, the -f is for frozen octree (no references to the files)
-            #ifdef MKILLUM
-            command = path + "oconv skyR.rad skyglow.rad base_" + toString(model) + ".rad windowPRISM2_" + toString(model) + ".rad > base_" + toString(model) + "_0.oct";
-            shellcmd.addCommand(command,"Preparation of the main octree (prism2)");
-            //cout << command << endl;
-            //system(command.c_str());
-            command = path + "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" windowPRISM2_" + toString(model) + ".rad > illums_" + toString(model) + ".rad";
-            shellcmd.addCommand(command,"Preparation of the secondary sources (prism2)");
-            //cout << command << endl;
-            //system(command.c_str());
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the secondary octree (prism2)");
-            //cout << command << endl;
-            //system(command.c_str());
-            #else
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad windowPRISM2_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the octree (prism2)");
-            //cout << command << endl;
-            //system(command.c_str());
-            #endif
         }
         else {
-            #ifdef MKILLUM
-            command = path + "oconv skyR.rad skyglow.rad base_" + toString(model) + ".rad windowGLASS_" + toString(model) + ".rad > base_" + toString(model) + "_0.oct";
-            shellcmd.addCommand(command,"Preparation of the main octree (glass)");
+            command = "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad window" + approx + "_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
+            shellcmd.addCommand(command,QString::fromStdString("Preparation of the octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
-            command = path + "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" windowGLASS_" + toString(model) + ".rad > illums_" + toString(model) + ".rad";
-            shellcmd.addCommand(command,"Preparation of the secondary sources (glass)");
-            //cout << command << endl;
-            //system(command.c_str());
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the secondary octree (glass)");
-            //cout << command << endl;
-            //system(command.c_str());
-            #else
-            command = path + "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad windowGLASS_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
-            shellcmd.addCommand(command,"Preparation of the octree (glass)");
-            //cout << command << endl;
-            //system(command.c_str());
-            #endif
         }
-
         // removes the old amb file
         //cout << "rm base.amb" << endl;
         //remove("base.amb");
-
     }
 
     // the sky and octree are generated
@@ -152,7 +112,7 @@ void RadianceSimulation::run() {
 
     if (!illum) {
         // visual case, with human eye filter
-        command = path + "rpict -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
+        command = "rpict -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
                   + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
                   + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
                   + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
@@ -163,12 +123,12 @@ void RadianceSimulation::run() {
 
         if (!glare) {
             // sets the exposure to human eye
-            command = path + "pcond -h base_" + toString(model) + ".hdr > base_" + toString(model) + "_H.hdr";
+            command = "pcond -h base_" + toString(model) + ".hdr > base_" + toString(model) + "_H.hdr";
             shellcmd.addCommand(command,"Conditioning the image for human eye");
             //cout << command << endl;
             //system(command.c_str());
             // transforms the image in bmp
-            command = path + "ra_bmp base_" + toString(model) + "_H.hdr base_" + toString(model) + ".bmp";
+            command = "ra_bmp base_" + toString(model) + "_H.hdr base_" + toString(model) + ".bmp";
             shellcmd.addCommand(command,"Converting the image in BMP format");
             //cout << command << endl;
             //system(command.c_str());
@@ -176,7 +136,7 @@ void RadianceSimulation::run() {
     }
     else if (!glare) {
         // illuminance case, create an illuminance image, -dv
-        command = path + "rpict -i -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
+        command = "rpict -i -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
                   + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
                   + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
                   + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
@@ -186,7 +146,7 @@ void RadianceSimulation::run() {
         //system(command.c_str());
 
         // gets the maximum and minimum points
-        command = path + "pextrem -o base_" + toString(model) + "_I.hdr > extrema.dat";
+        command = "pextrem -o base_" + toString(model) + "_I.hdr > extrema.dat";
         shellcmd.addCommand(command,"Getting the extrema in the illuminance image");
         //cout << command << endl;
         //system(command.c_str());
@@ -277,13 +237,13 @@ void RadianceSimulation::run() {
         output.close();
 
         // uses the falsecolor to produce illuminance contours, -f pc0.cal -e in=isconta
-        command = path + "pcomb -f pc0.cal -f pc1.cal base_" + toString(model) + "_I.hdr > base_" + toString(model) + "_IF.hdr";
+        command = "pcomb -f pc0.cal -f pc1.cal base_" + toString(model) + "_I.hdr > base_" + toString(model) + "_IF.hdr";
         shellcmd.addCommand(command,"Preparation of the falsecolor image");
         //cout << command << endl;
         //system(command.c_str());
 
         // transforms the final image in bmp
-        command = path + "ra_bmp base_" + toString(model) + "_IF.hdr base_" + toString(model) + ".bmp";
+        command = "ra_bmp base_" + toString(model) + "_IF.hdr base_" + toString(model) + ".bmp";
         shellcmd.addCommand(command,"Conversion of the image to BMP format");
         //cout << command << endl;
         //system(command.c_str());
@@ -310,7 +270,7 @@ void RadianceSimulation::run() {
         output.close();
 
         // rtrace the mesh points
-        command = path + "rtrace -w -I -h " + renderingOptions + " base_" + toString(model) + "_1.oct < mesh_" + toString(model) + ".inp | " + path + "rcalc -e \"$1=179.*(0.265*$1+0.67*$2+0.065*$3)\" > mesh_" + toString(model) + ".out";
+        command = "rtrace -w -I -h " + renderingOptions + " base_" + toString(model) + "_1.oct < mesh_" + toString(model) + ".inp | " + "rcalc -e \"$1=179.*(0.265*$1+0.67*$2+0.065*$3)\" > mesh_" + toString(model) + ".out";
         shellcmd.addCommand(command,"Ray-tracing on mesh points (rtrace)");
         //cout << command << endl;
         //system(command.c_str());
@@ -330,7 +290,7 @@ void RadianceSimulation::run() {
 
     if (glare) {
         // start off the glare calculation and binds the image
-        command = path + "evalglare -c base_" + toString(model) + "_G.hdr base_" + toString(model) + ".hdr > glare_" + toString(model) + ".out";
+        command = "evalglare -c base_" + toString(model) + "_G.hdr base_" + toString(model) + ".hdr > glare_" + toString(model) + ".out";
         shellcmd.addCommand(command,"Glare calculation on the image");
         //cout << command << endl;
         //system(command.c_str());
@@ -362,13 +322,13 @@ void RadianceSimulation::run() {
         }
 
         // sets the exposure to human vision
-        command = path + "pcond -h base_" + toString(model) + "_G.hdr > base_" + toString(model) + "_GH.hdr";
+        command = "pcond -h base_" + toString(model) + "_G.hdr > base_" + toString(model) + "_GH.hdr";
         shellcmd.addCommand(command,"Conditionning the image for human eye");
         //cout << command << endl;
         //system(command.c_str());
 
         // transforms the image in bmp
-        command = path + "ra_bmp base_" + toString(model) + "_GH.hdr base_" + toString(model) + ".bmp";
+        command = "ra_bmp base_" + toString(model) + "_GH.hdr base_" + toString(model) + ".bmp";
         shellcmd.addCommand(command,"Conversion of the image in BMP format");
         //cout << command << endl;
         //system(command.c_str());
@@ -385,7 +345,7 @@ void RadianceSimulation::convertBTDF(QString directoryName) {
 
     // generates the BTDF file .cal & .xml
     if (!directoryName.isEmpty()) {
-        string command = "btdf2radiance ./" + directoryName.remove(0,directoryName.lastIndexOf("/")+1).toStdString() + "/*.txt";
+        string command = "btdf2radiance " + directoryName.remove(0,directoryName.lastIndexOf("/")+1).toStdString() + "/*.txt";
         shellcmd.addCommand(command,"Conversion of BTDF in RADIANCE format");
         shellcmd.start();
         //cout << command << endl;

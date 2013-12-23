@@ -73,10 +73,12 @@ private:
     bool illum, dl;
     float maxIlluminance;
 
-    // mkillum calculation (with Radiance)
-    bool mkillum;
     // prism2 approximation of the BTDF (with Radiance)
     bool prism2;
+    // mkillum calculation (with Radiance)
+    bool mkillum;
+    // BSDF approximation for the simulation
+    bool bsdf;
 
     // string containing the radiance parameters
     QString radianceParameters,radianceParametersMkillum;
@@ -138,8 +140,9 @@ public slots:
     void setIlluminance(bool illum) { this->illum = illum; maxIlluminance = 0.f; }
     void setDaylight(bool dl) { this->dl = dl; DF_values.clear(); skyChanged=true; }
     // sets the approximation of the BTDF
-    void setMkillum(bool mkillum) { this->mkillum = mkillum; octreeChanged=true; }
     void setPrism2(bool prism2) { this->prism2 = prism2; octreeChanged=true; }
+    void setMkillum(bool mkillum) { this->mkillum = mkillum; octreeChanged=true; }
+    void setBSDF(bool bsdf) { this->bsdf = bsdf; octreeChanged=true; }
     // for the DF calculation
     void setDFReqIllum(QString value) { this->DF_reqIllum = value.toFloat(); createDFimage(); }
     void setLogScale(bool value) { this->logScale = value; createDFimage(); }

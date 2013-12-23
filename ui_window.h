@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'window.ui'
 **
-** Created: Tue 28. Aug 16:44:46 2012
+** Created: Mon 23. Dec 22:44:13 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
 #include <QtGui/QDial>
 #include <QtGui/QGroupBox>
@@ -54,12 +55,13 @@ public:
     QDial *orientationDial;
     QLabel *label_5;
     QGroupBox *btdfMethod;
-    QRadioButton *mkillum;
     QRadioButton *prism2;
     QRadioButton *glass;
     QLabel *label_12;
     QLabel *label_13;
     QLabel *label_14;
+    QRadioButton *bsdf;
+    QCheckBox *mkillum;
     QLabel *label_6;
     QLabel *label_11;
     QGroupBox *predefinedDay;
@@ -253,12 +255,6 @@ public:
         btdfMethod->setFlat(false);
         btdfMethod->setCheckable(false);
         btdfMethod->setChecked(false);
-        mkillum = new QRadioButton(btdfMethod);
-        mkillum->setObjectName(QString::fromUtf8("mkillum"));
-        mkillum->setGeometry(QRect(80, 120, 82, 17));
-        mkillum->setFont(font);
-        mkillum->setChecked(false);
-        mkillum->setAutoExclusive(true);
         prism2 = new QRadioButton(btdfMethod);
         prism2->setObjectName(QString::fromUtf8("prism2"));
         prism2->setGeometry(QRect(20, 80, 91, 20));
@@ -284,6 +280,15 @@ public:
         label_14->setGeometry(QRect(20, 110, 41, 41));
         label_14->setPixmap(QPixmap(QString::fromUtf8(":/Icon/mkillum.bmp")));
         label_14->setScaledContents(true);
+        bsdf = new QRadioButton(btdfMethod);
+        bsdf->setObjectName(QString::fromUtf8("bsdf"));
+        bsdf->setGeometry(QRect(80, 120, 82, 17));
+        bsdf->setFont(font);
+        bsdf->setChecked(false);
+        bsdf->setAutoExclusive(true);
+        mkillum = new QCheckBox(btdfMethod);
+        mkillum->setObjectName(QString::fromUtf8("mkillum"));
+        mkillum->setGeometry(QRect(130, 0, 70, 17));
         label_6 = new QLabel(VisuCFS);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(60, 350, 31, 16));
@@ -569,7 +574,6 @@ public:
         pushButton_map->setText(QApplication::translate("VisuCFS", "Map", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("VisuCFS", "N", 0, QApplication::UnicodeUTF8));
         btdfMethod->setTitle(QApplication::translate("VisuCFS", "Upper glazing", 0, QApplication::UnicodeUTF8));
-        mkillum->setText(QApplication::translate("VisuCFS", "CFS bsdf", 0, QApplication::UnicodeUTF8));
         prism2->setText(QApplication::translate("VisuCFS", "CFS prism2", 0, QApplication::UnicodeUTF8));
         glass->setText(QApplication::translate("VisuCFS", "glass", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
@@ -582,6 +586,8 @@ public:
         label_12->setText(QString());
         label_13->setText(QString());
         label_14->setText(QString());
+        bsdf->setText(QApplication::translate("VisuCFS", "CFS BSDF", 0, QApplication::UnicodeUTF8));
+        mkillum->setText(QApplication::translate("VisuCFS", "mkillum", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("VisuCFS", "0 h", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("VisuCFS", "23 h", 0, QApplication::UnicodeUTF8));
         predefinedDay->setTitle(QApplication::translate("VisuCFS", "predefined day", 0, QApplication::UnicodeUTF8));

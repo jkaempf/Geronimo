@@ -44,6 +44,7 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     // the connections of the window elements to create the octree
     connect(ui.mkillum, SIGNAL(toggled(bool)), &radSimul, SLOT(setMkillum(bool)));
     connect(ui.prism2, SIGNAL(toggled(bool)), &radSimul, SLOT(setPrism2(bool)));
+    connect(ui.bsdf, SIGNAL(toggled(bool)), &radSimul, SLOT(setBSDF(bool)));
 
     // default values
     ui.latitude->setText("46");

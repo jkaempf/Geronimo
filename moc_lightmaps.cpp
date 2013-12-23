@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'lightmaps.h'
 **
-** Created: Tue 28. Aug 16:44:47 2012
+** Created: Mon 23. Dec 22:44:13 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
