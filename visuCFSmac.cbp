@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="visuCFS" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/visuCFS" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug/" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-arch i386" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/visuCFS" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Release/" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-arch i386" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="/Library/Frameworks/QtCore.framework/Versions/4/Headers" />
+			<Add directory="/Library/Frameworks/QtGui.framework/Versions/4/Headers" />
+			<Add directory="/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers" />
+			<Add directory="/Library/Frameworks/QtNetwork.framework/Versions/4/Headers" />
+		</Compiler>
+		<Linker>
+			<Add option="-arch i386" />
+			<Add option="-framework QtCore" />
+			<Add option="-framework QtGui" />
+			<Add option="-framework QtOpenGL" />
+			<Add option="-framework QtNetwork" />
+			<Add option="-framework OpenGL" />
+			<Add directory="/Library/Frameworks" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="uic window.ui -o ui_window.h" />
+			<Add before="moc glwidget.h -o moc_glwidget.cpp" />
+			<Add before="moc lightmaps.h -o moc_lightmaps.cpp" />
+			<Add before="moc visuCFS.h -o moc_visuCFS.cpp" />
+			<Add before="rcc visuCFS.qrc -o qrc_visuCFS.cpp" />
+		</ExtraCommands>
+		<Unit filename="glwidget.cpp" />
+		<Unit filename="glwidget.h" />
+		<Unit filename="lightmaps.cpp" />
+		<Unit filename="lightmaps.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="moc_glwidget.cpp" />
+		<Unit filename="moc_lightmaps.cpp" />
+		<Unit filename="moc_visuCFS.cpp" />
+		<Unit filename="qrc_visuCFS.cpp" />
+		<Unit filename="ui_window.h" />
+		<Unit filename="visuCFS.cpp" />
+		<Unit filename="visuCFS.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="visuCFS" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\Geronimo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin\Debug\" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-static -static-libgcc" />
+					<Add library="mingw32" />
+					<Add library="qtmaind" />
+					<Add library="QtOpenGLd4" />
+					<Add library="QtNetworkd4" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="QtGuid4" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="oleaut32" />
+					<Add library="imm32" />
+					<Add library="winmm" />
+					<Add library="winspool" />
+					<Add library="msimg32" />
+					<Add library="QtCored4" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="shell32" />
+					<Add library="uuid" />
+					<Add library="ole32" />
+					<Add library="advapi32" />
+					<Add library="ws2_32" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\Geronimo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin\Release\" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-static -static-libgcc" />
+					<Add library="mingw32" />
+					<Add library="qtmain" />
+					<Add library="QtOpenGL4" />
+					<Add library="QtNetwork4" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="QtGui4" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="oleaut32" />
+					<Add library="imm32" />
+					<Add library="winmm" />
+					<Add library="winspool" />
+					<Add library="msimg32" />
+					<Add library="QtCore4" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="shell32" />
+					<Add library="uuid" />
+					<Add library="ole32" />
+					<Add library="advapi32" />
+					<Add library="ws2_32" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="QT" value="C:\Qt\4.8.2" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="$QT\include" />
+			<Add directory="$QT\include\QtCore" />
+			<Add directory="$QT\include\QtGui" />
+			<Add directory="$QT\include\QtOpenGL" />
+			<Add directory="$QT\include\QtNetwork" />
+		</Compiler>
+		<Linker>
+			<Add directory="$QT\lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="$QT\bin\uic window.ui -o ui_window.h" />
+			<Add before="$QT\bin\moc radsimul.h -o moc_radsimul.cpp" />
+			<Add before="$QT\bin\moc glwidget.h -o moc_glwidget.cpp" />
+			<Add before="$QT\bin\moc lightmaps.h -o moc_lightmaps.cpp" />
+			<Add before="$QT\bin\moc visuCFS.h -o moc_visuCFS.cpp" />
+			<Add before="$QT\bin\rcc visuCFS.qrc -o qrc_visuCFS.cpp" />
+		</ExtraCommands>
+		<Unit filename="glwidget.cpp" />
+		<Unit filename="glwidget.h" />
+		<Unit filename="lightmaps.cpp" />
+		<Unit filename="lightmaps.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="moc_glwidget.cpp" />
+		<Unit filename="moc_lightmaps.cpp" />
+		<Unit filename="moc_radsimul.cpp" />
+		<Unit filename="moc_visuCFS.cpp" />
+		<Unit filename="qrc_visuCFS.cpp" />
+		<Unit filename="radsimul.cpp" />
+		<Unit filename="radsimul.h" />
+		<Unit filename="ui_window.h" />
+		<Unit filename="visuCFS.cpp" />
+		<Unit filename="visuCFS.h" />
+		<Unit filename="visuCFS.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

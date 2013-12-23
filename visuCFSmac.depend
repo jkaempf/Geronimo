@@ -1,0 +1,2388 @@
+# depslib dependency file v1.0
+1269420473 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/moc_glwidget.cpp
+	"glwidget.h"
+
+1267631406 /Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/glwidget.h
+	<QGLWidget>
+	<QtOpenGL>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/QGLWidget
+	"qgl.h"
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qgl.h
+	<QtGui/qwidget.h>
+	<QtGui/qpaintengine.h>
+	<QtOpenGL/qglcolormap.h>
+	<QtCore/qmap.h>
+	<QtCore/qscopedpointer.h>
+	<QtCore/qt_windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/QtOpenGL
+	<QtCore/QtCore>
+	<QtGui/QtGui>
+	"qgl.h"
+	"qglcolormap.h"
+	"qglframebufferobject.h"
+	"qglpixelbuffer.h"
+	"qglshaderprogram.h"
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qglcolormap.h
+	<QtGui/qcolor.h>
+	<QtCore/qvector.h>
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qglframebufferobject.h
+	<QtOpenGL/qgl.h>
+	<QtGui/qpaintdevice.h>
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qglpixelbuffer.h
+	<QtOpenGL/qgl.h>
+	<QtGui/qpaintdevice.h>
+
+1275452614 /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers/qglshaderprogram.h
+	<QtOpenGL/qgl.h>
+	<QtGui/qvector2d.h>
+	<QtGui/qvector3d.h>
+	<QtGui/qvector4d.h>
+	<QtGui/qmatrix4x4.h>
+
+1267450564 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/lightmaps.cpp
+	"lightmaps.h"
+
+1267452725 /Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/lightmaps.h
+	<QtCore>
+	<QtGui>
+	<QtNetwork>
+	"sym_iap_util.h"
+	<cmath>
+	<iostream>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/QtCore
+	"qxmlstream.h"
+	"qabstractfileengine.h"
+	"qbuffer.h"
+	"qdatastream.h"
+	"qdebug.h"
+	"qdir.h"
+	"qdiriterator.h"
+	"qfile.h"
+	"qfileinfo.h"
+	"qfilesystemwatcher.h"
+	"qfsfileengine.h"
+	"qiodevice.h"
+	"qprocess.h"
+	"qresource.h"
+	"qsettings.h"
+	"qtemporaryfile.h"
+	"qtextstream.h"
+	"qurl.h"
+	"qtextcodec.h"
+	"qtextcodecplugin.h"
+	"qalgorithms.h"
+	"qbitarray.h"
+	"qbytearray.h"
+	"qbytearraymatcher.h"
+	"qcache.h"
+	"qchar.h"
+	"qcontainerfwd.h"
+	"qcontiguouscache.h"
+	"qcryptographichash.h"
+	"qdatetime.h"
+	"qeasingcurve.h"
+	"qhash.h"
+	"qiterator.h"
+	"qline.h"
+	"qlinkedlist.h"
+	"qlist.h"
+	"qlocale.h"
+	"qmap.h"
+	"qmargins.h"
+	"qpair.h"
+	"qpoint.h"
+	"qqueue.h"
+	"qrect.h"
+	"qregexp.h"
+	"qscopedpointer.h"
+	"qset.h"
+	"qshareddata.h"
+	"qsharedpointer.h"
+	"qsize.h"
+	"qstack.h"
+	"qstring.h"
+	"qstringbuilder.h"
+	"qstringlist.h"
+	"qstringmatcher.h"
+	"qtextboundaryfinder.h"
+	"qtimeline.h"
+	"qvarlengtharray.h"
+	"qvector.h"
+	"qendian.h"
+	"qfeatures.h"
+	"qglobal.h"
+	"qlibraryinfo.h"
+	"qnamespace.h"
+	"qnumeric.h"
+	"qabstracteventdispatcher.h"
+	"qabstractitemmodel.h"
+	"qbasictimer.h"
+	"qcoreapplication.h"
+	"qcoreevent.h"
+	"qeventloop.h"
+	"qmath.h"
+	"qmetaobject.h"
+	"qmetatype.h"
+	"qmimedata.h"
+	"qobject.h"
+	"qobjectcleanuphandler.h"
+	"qobjectdefs.h"
+	"qpointer.h"
+	"qsharedmemory.h"
+	"qsignalmapper.h"
+	"qsocketnotifier.h"
+	"qsystemsemaphore.h"
+	"qtimer.h"
+	"qtranslator.h"
+	"qvariant.h"
+	"qfuture.h"
+	"qfutureinterface.h"
+	"qfuturesynchronizer.h"
+	"qfuturewatcher.h"
+	"qrunnable.h"
+	"qtconcurrentcompilertest.h"
+	"qtconcurrentexception.h"
+	"qtconcurrentfilter.h"
+	"qtconcurrentfilterkernel.h"
+	"qtconcurrentfunctionwrappers.h"
+	"qtconcurrentiteratekernel.h"
+	"qtconcurrentmap.h"
+	"qtconcurrentmapkernel.h"
+	"qtconcurrentmedian.h"
+	"qtconcurrentreducekernel.h"
+	"qtconcurrentresultstore.h"
+	"qtconcurrentrun.h"
+	"qtconcurrentrunbase.h"
+	"qtconcurrentstoredfunctioncall.h"
+	"qtconcurrentthreadengine.h"
+	"qthreadpool.h"
+	"qfactoryinterface.h"
+	"qlibrary.h"
+	"qplugin.h"
+	"qpluginloader.h"
+	"quuid.h"
+	"qatomic.h"
+	"qbasicatomic.h"
+	"qmutex.h"
+	"qreadwritelock.h"
+	"qsemaphore.h"
+	"qthread.h"
+	"qthreadstorage.h"
+	"qwaitcondition.h"
+	"qabstractstate.h"
+	"qabstracttransition.h"
+	"qeventtransition.h"
+	"qfinalstate.h"
+	"qhistorystate.h"
+	"qsignaltransition.h"
+	"qstate.h"
+	"qstatemachine.h"
+	"qabstractanimation.h"
+	"qanimationgroup.h"
+	"qparallelanimationgroup.h"
+	"qpauseanimation.h"
+	"qpropertyanimation.h"
+	"qsequentialanimationgroup.h"
+	"qvariantanimation.h"
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qxmlstream.h
+	<QtCore/qiodevice.h>
+	<QtCore/qstring.h>
+	<QtCore/qvector.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstractfileengine.h
+	<QtCore/qdir.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbuffer.h
+	<QtCore/qiodevice.h>
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qdatastream.h
+	<QtCore/qscopedpointer.h>
+	<QtCore/qiodevice.h>
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qdebug.h
+	<QtCore/qalgorithms.h>
+	<QtCore/qhash.h>
+	<QtCore/qlist.h>
+	<QtCore/qmap.h>
+	<QtCore/qpair.h>
+	<QtCore/qtextstream.h>
+	<QtCore/qstring.h>
+	<QtCore/qvector.h>
+	<QtCore/qset.h>
+	<QtCore/qcontiguouscache.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qdir.h
+	<QtCore/qstring.h>
+	<QtCore/qfileinfo.h>
+	<QtCore/qstringlist.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qdiriterator.h
+	<QtCore/qdir.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfile.h
+	<QtCore/qiodevice.h>
+	<QtCore/qstring.h>
+	<stdio.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfileinfo.h
+	<QtCore/qfile.h>
+	<QtCore/qlist.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfilesystemwatcher.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfsfileengine.h
+	<QtCore/qabstractfileengine.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qiodevice.h
+	<QtCore/qobject.h>
+	<QtCore/qobjectdefs.h>
+	<QtCore/qscopedpointer.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qprocess.h
+	<QtCore/qiodevice.h>
+	<QtCore/qstringlist.h>
+	<QtCore/qshareddata.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qresource.h
+	<QtCore/qstring.h>
+	<QtCore/qlocale.h>
+	<QtCore/qstringlist.h>
+	<QtCore/qlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsettings.h
+	<QtCore/qobject.h>
+	<QtCore/qvariant.h>
+	<QtCore/qstring.h>
+	<QtCore/qstringlist.h>
+	<ctype.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtemporaryfile.h
+	<QtCore/qiodevice.h>
+	<QtCore/qfile.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtextstream.h
+	<QtCore/qiodevice.h>
+	<QtCore/qstring.h>
+	<QtCore/qchar.h>
+	<QtCore/qlocale.h>
+	<QtCore/qscopedpointer.h>
+	<QtCore/qtextcodec.h>
+	<stdio.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qurl.h
+	<QtCore/qbytearray.h>
+	<QtCore/qobjectdefs.h>
+	<QtCore/qpair.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtextcodec.h
+	<QtCore/qstring.h>
+	<QtCore/qlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtextcodecplugin.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+	<QtCore/qlist.h>
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qalgorithms.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbitarray.h
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbytearray.h
+	<QtCore/qatomic.h>
+	<QtCore/qnamespace.h>
+	<string.h>
+	<stdarg.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbytearraymatcher.h
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcache.h
+	<QtCore/qhash.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qchar.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcontainerfwd.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcontiguouscache.h
+	<QtCore/qatomic.h>
+	<limits.h>
+	<new>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcryptographichash.h
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qdatetime.h
+	<QtCore/qstring.h>
+	<QtCore/qnamespace.h>
+	<QtCore/qsharedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qeasingcurve.h
+	<QtCore/qglobal.h>
+	<QtCore/qobjectdefs.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qhash.h
+	<QtCore/qatomic.h>
+	<QtCore/qchar.h>
+	<QtCore/qiterator.h>
+	<QtCore/qlist.h>
+	<QtCore/qpair.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qiterator.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qline.h
+	<QtCore/qpoint.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qlinkedlist.h
+	<QtCore/qiterator.h>
+	<QtCore/qatomic.h>
+	<iterator>
+	<list>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qlist.h
+	<QtCore/qiterator.h>
+	<QtCore/qatomic.h>
+	<QtCore/qalgorithms.h>
+	<iterator>
+	<list>
+	<new>
+	<string.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qlocale.h
+	<QtCore/qstring.h>
+	<QtCore/qobjectdefs.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmap.h
+	<QtCore/qatomic.h>
+	<QtCore/qiterator.h>
+	<QtCore/qlist.h>
+	<map>
+	<new>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmargins.h
+	<QtCore/qnamespace.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpair.h
+	<QtCore/qdatastream.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpoint.h
+	<QtCore/qnamespace.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qqueue.h
+	<QtCore/qlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qrect.h
+	<QtCore/qsize.h>
+	<QtCore/qpoint.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qregexp.h
+	<QtCore/qstring.h>
+	<new>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qscopedpointer.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qset.h
+	<QtCore/qhash.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qshareddata.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsharedpointer.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+	<QtCore/qshareddata.h>
+	<QtCore/qsharedpointer_impl.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsize.h
+	<QtCore/qnamespace.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstack.h
+	<QtCore/qvector.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstring.h
+	<QtCore/qchar.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qatomic.h>
+	<QtCore/qnamespace.h>
+	<Qt3Support/q3cstring.h>
+	<string>
+	<string>
+	<stdarg.h>
+	<QtCore/qstringbuilder.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstringbuilder.h
+	<QtCore/qstring.h>
+	<QtCore/qmap.h>
+	<string.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstringlist.h
+	<QtCore/qalgorithms.h>
+	<QtCore/qdatastream.h>
+	<QtCore/qlist.h>
+	<QtCore/qregexp.h>
+	<QtCore/qstring.h>
+	<QtCore/qstringmatcher.h>
+	<Qt3Support/q3valuelist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstringmatcher.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtextboundaryfinder.h
+	<QtCore/qchar.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtimeline.h
+	<QtCore/qeasingcurve.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qvarlengtharray.h
+	<QtCore/qcontainerfwd.h>
+	<QtCore/qglobal.h>
+	<new>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qvector.h
+	<QtCore/qiterator.h>
+	<QtCore/qatomic.h>
+	<QtCore/qalgorithms.h>
+	<QtCore/qlist.h>
+	<iterator>
+	<vector>
+	<stdlib.h>
+	<string.h>
+	<QtCore/QPointF>
+	<QtCore/QPoint>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qendian.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfeatures.h
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qglobal.h
+	<stddef.h>
+	<QtCore/qconfig.h>
+	<AvailabilityMacros.h>
+	<e32def.h>
+	<QtCore/qfeatures.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qlibraryinfo.h
+	<QtCore/qstring.h>
+	<QtCore/QDate>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qnamespace.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qnumeric.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstracteventdispatcher.h
+	<QtCore/qobject.h>
+	<QtCore/qeventloop.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstractitemmodel.h
+	<QtCore/qvariant.h>
+	<QtCore/qobject.h>
+	<QtCore/qhash.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbasictimer.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcoreapplication.h
+	<QtCore/qobject.h>
+	<QtCore/qcoreevent.h>
+	<QtCore/qeventloop.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qcoreevent.h
+	<QtCore/qnamespace.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qobjectdefs.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qeventloop.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmath.h
+	<math.h>
+	<QtCore/qglobal.h>
+	<e32math.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmetaobject.h
+	<QtCore/qobjectdefs.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmetatype.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+	<QtCore/qdatastream.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmimedata.h
+	<QtCore/qvariant.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qobject.h
+	<QtCore/qobjectdefs.h>
+	<QtCore/qstring.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qlist.h>
+	<QtCore/qcoreevent.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qobjectcleanuphandler.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qobjectdefs.h
+	<QtCore/qnamespace.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpointer.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsharedmemory.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsignalmapper.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsocketnotifier.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsystemsemaphore.h
+	<QtCore/qstring.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtimer.h
+	<QtCore/qbasictimer.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtranslator.h
+	<QtCore/qobject.h>
+	<QtCore/qbytearray.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qvariant.h
+	<QtCore/qatomic.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qlist.h>
+	<QtCore/qmetatype.h>
+	<QtCore/qmap.h>
+	<QtCore/qhash.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfuture.h
+	<QtCore/qglobal.h>
+	<QtCore/qfutureinterface.h>
+	<QtCore/qstring.h>
+	<QtCore/qtconcurrentcompilertest.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfutureinterface.h
+	<QtCore/qglobal.h>
+	<QtCore/qrunnable.h>
+	<QtCore/qmutex.h>
+	<QtCore/qtconcurrentexception.h>
+	<QtCore/qtconcurrentresultstore.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfuturesynchronizer.h
+	<QtCore/qfuture.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfuturewatcher.h
+	<QtCore/qfuture.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qrunnable.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentcompilertest.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentexception.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+	<exception>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentfilter.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentfilterkernel.h>
+	<QtCore/qtconcurrentfunctionwrappers.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentfilterkernel.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentiteratekernel.h>
+	<QtCore/qtconcurrentmapkernel.h>
+	<QtCore/qtconcurrentreducekernel.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentfunctionwrappers.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentiteratekernel.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+	<QtCore/qtconcurrentmedian.h>
+	<QtCore/qtconcurrentthreadengine.h>
+	<iterator>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentmap.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentmapkernel.h>
+	<QtCore/qtconcurrentreducekernel.h>
+	<QtCore/qtconcurrentfunctionwrappers.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentmapkernel.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentiteratekernel.h>
+	<QtCore/qtconcurrentreducekernel.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentmedian.h
+	<QtCore/qglobal.h>
+	<QtCore/qvector.h>
+	<QtCore/qalgorithms.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentreducekernel.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic.h>
+	<QtCore/qlist.h>
+	<QtCore/qmap.h>
+	<QtCore/qmutex.h>
+	<QtCore/qthread.h>
+	<QtCore/qthreadpool.h>
+	<QtCore/qvector.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentresultstore.h
+	<QtCore/qglobal.h>
+	<QtCore/qmap.h>
+	<QtCore/qdebug.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentrun.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentrunbase.h>
+	<QtCore/qtconcurrentstoredfunctioncall.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentrunbase.h
+	<QtCore/qglobal.h>
+	<QtCore/qfuture.h>
+	<QtCore/qrunnable.h>
+	<QtCore/qthreadpool.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentstoredfunctioncall.h
+	<QtCore/qglobal.h>
+	<QtCore/qtconcurrentrunbase.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qtconcurrentthreadengine.h
+	<QtCore/qglobal.h>
+	<QtCore/qthreadpool.h>
+	<QtCore/qfuture.h>
+	<QtCore/qdebug.h>
+	<QtCore/qtconcurrentexception.h>
+	<QtCore/qwaitcondition.h>
+	<QtCore/qatomic.h>
+	<QtCore/qsemaphore.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qthreadpool.h
+	<QtCore/qglobal.h>
+	<QtCore/qthread.h>
+	<QtCore/qrunnable.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfactoryinterface.h
+	<QtCore/qobject.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qlibrary.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qplugin.h
+	<QtCore/qobject.h>
+	<QtCore/qpointer.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpluginloader.h
+	<QtCore/qlibrary.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/quuid.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qatomic.h
+	<QtCore/qglobal.h>
+	<QtCore/qbasicatomic.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qbasicatomic.h
+	<QtCore/qglobal.h>
+	<QtCore/qatomic_bootstrap.h>
+	<QtCore/qatomic_arch.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qmutex.h
+	<QtCore/qglobal.h>
+	<new>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qreadwritelock.h
+	<QtCore/qglobal.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsemaphore.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qthread.h
+	<QtCore/qobject.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qthreadstorage.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qwaitcondition.h
+	<QtCore/qglobal.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstractstate.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstracttransition.h
+	<QtCore/qobject.h>
+	<QtCore/qlist.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qeventtransition.h
+	<QtCore/qabstracttransition.h>
+	<QtCore/qcoreevent.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qfinalstate.h
+	<QtCore/qabstractstate.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qhistorystate.h
+	<QtCore/qabstractstate.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsignaltransition.h
+	<QtCore/qabstracttransition.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstate.h
+	<QtCore/qabstractstate.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qstatemachine.h
+	<QtCore/qstate.h>
+	<QtCore/qcoreevent.h>
+	<QtCore/qlist.h>
+	<QtCore/qobject.h>
+	<QtCore/qset.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qabstractanimation.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qanimationgroup.h
+	<QtCore/qabstractanimation.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qparallelanimationgroup.h
+	<QtCore/qanimationgroup.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpauseanimation.h
+	<QtCore/qanimationgroup.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qpropertyanimation.h
+	<QtCore/qvariantanimation.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qsequentialanimationgroup.h
+	<QtCore/qanimationgroup.h>
+
+1275452613 /Library/Frameworks/QtCore.framework/Versions/4/Headers/qvariantanimation.h
+	<QtCore/qeasingcurve.h>
+	<QtCore/qabstractanimation.h>
+	<QtCore/qvector.h>
+	<QtCore/qvariant.h>
+	<QtCore/qpair.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/QtGui
+	<QtCore/QtCore>
+	"qbitmap.h"
+	"qicon.h"
+	"qiconengine.h"
+	"qiconengineplugin.h"
+	"qimage.h"
+	"qimageiohandler.h"
+	"qimagereader.h"
+	"qimagewriter.h"
+	"qmovie.h"
+	"qpicture.h"
+	"qpictureformatplugin.h"
+	"qpixmap.h"
+	"qpixmapcache.h"
+	"qs60mainapplication.h"
+	"qs60mainappui.h"
+	"qs60maindocument.h"
+	"qvfbhdr.h"
+	"qwsembedwidget.h"
+	"qabstractbutton.h"
+	"qabstractscrollarea.h"
+	"qabstractslider.h"
+	"qabstractspinbox.h"
+	"qbuttongroup.h"
+	"qcalendarwidget.h"
+	"qcheckbox.h"
+	"qcombobox.h"
+	"qcommandlinkbutton.h"
+	"qdatetimeedit.h"
+	"qdial.h"
+	"qdialogbuttonbox.h"
+	"qdockwidget.h"
+	"qfocusframe.h"
+	"qfontcombobox.h"
+	"qframe.h"
+	"qgroupbox.h"
+	"qlabel.h"
+	"qlcdnumber.h"
+	"qlineedit.h"
+	"qmainwindow.h"
+	"qmdiarea.h"
+	"qmdisubwindow.h"
+	"qmenu.h"
+	"qmenubar.h"
+	"qmenudata.h"
+	"qplaintextedit.h"
+	"qprintpreviewwidget.h"
+	"qprogressbar.h"
+	"qpushbutton.h"
+	"qradiobutton.h"
+	"qrubberband.h"
+	"qscrollarea.h"
+	"qscrollbar.h"
+	"qsizegrip.h"
+	"qslider.h"
+	"qspinbox.h"
+	"qsplashscreen.h"
+	"qsplitter.h"
+	"qstackedwidget.h"
+	"qstatusbar.h"
+	"qtabbar.h"
+	"qtabwidget.h"
+	"qtextbrowser.h"
+	"qtextedit.h"
+	"qtoolbar.h"
+	"qtoolbox.h"
+	"qtoolbutton.h"
+	"qvalidator.h"
+	"qworkspace.h"
+	"qinputcontext.h"
+	"qinputcontextfactory.h"
+	"qinputcontextplugin.h"
+	"qgraphicsanchorlayout.h"
+	"qgraphicsgridlayout.h"
+	"qgraphicsitem.h"
+	"qgraphicsitemanimation.h"
+	"qgraphicslayout.h"
+	"qgraphicslayoutitem.h"
+	"qgraphicslinearlayout.h"
+	"qgraphicsproxywidget.h"
+	"qgraphicsscene.h"
+	"qgraphicssceneevent.h"
+	"qgraphicstransform.h"
+	"qgraphicsview.h"
+	"qgraphicswidget.h"
+	"qgenericmatrix.h"
+	"qmatrix4x4.h"
+	"qquaternion.h"
+	"qvector2d.h"
+	"qvector3d.h"
+	"qvector4d.h"
+	"qabstracttextdocumentlayout.h"
+	"qfont.h"
+	"qfontdatabase.h"
+	"qfontinfo.h"
+	"qfontmetrics.h"
+	"qsyntaxhighlighter.h"
+	"qtextcursor.h"
+	"qtextdocument.h"
+	"qtextdocumentfragment.h"
+	"qtextdocumentwriter.h"
+	"qtextformat.h"
+	"qtextlayout.h"
+	"qtextlist.h"
+	"qtextobject.h"
+	"qtextoption.h"
+	"qtexttable.h"
+	"qabstractpagesetupdialog.h"
+	"qabstractprintdialog.h"
+	"qcolordialog.h"
+	"qdialog.h"
+	"qerrormessage.h"
+	"qfiledialog.h"
+	"qfilesystemmodel.h"
+	"qfontdialog.h"
+	"qinputdialog.h"
+	"qmessagebox.h"
+	"qpagesetupdialog.h"
+	"qprintdialog.h"
+	"qprintpreviewdialog.h"
+	"qprogressdialog.h"
+	"qwizard.h"
+	"qaccessible.h"
+	"qaccessible2.h"
+	"qaccessiblebridge.h"
+	"qaccessibleobject.h"
+	"qaccessibleplugin.h"
+	"qaccessiblewidget.h"
+	"qaction.h"
+	"qactiongroup.h"
+	"qapplication.h"
+	"qboxlayout.h"
+	"qclipboard.h"
+	"qcursor.h"
+	"qdesktopwidget.h"
+	"qdrag.h"
+	"qevent.h"
+	"qformlayout.h"
+	"qgesture.h"
+	"qgesturerecognizer.h"
+	"qgridlayout.h"
+	"qkeysequence.h"
+	"qlayout.h"
+	"qlayoutitem.h"
+	"qmime.h"
+	"qpalette.h"
+	"qsessionmanager.h"
+	"qshortcut.h"
+	"qsizepolicy.h"
+	"qsound.h"
+	"qstackedlayout.h"
+	"qtooltip.h"
+	"qwhatsthis.h"
+	"qwidget.h"
+	"qwidgetaction.h"
+	"qwindowdefs.h"
+	"qabstractitemdelegate.h"
+	"qabstractitemview.h"
+	"qabstractproxymodel.h"
+	"qcolumnview.h"
+	"qdatawidgetmapper.h"
+	"qdirmodel.h"
+	"qfileiconprovider.h"
+	"qheaderview.h"
+	"qitemdelegate.h"
+	"qitemeditorfactory.h"
+	"qitemselectionmodel.h"
+	"qlistview.h"
+	"qlistwidget.h"
+	"qproxymodel.h"
+	"qsortfilterproxymodel.h"
+	"qstandarditemmodel.h"
+	"qstringlistmodel.h"
+	"qstyleditemdelegate.h"
+	"qtableview.h"
+	"qtablewidget.h"
+	"qtreeview.h"
+	"qtreewidget.h"
+	"qtreewidgetitemiterator.h"
+	"qbrush.h"
+	"qcolor.h"
+	"qcolormap.h"
+	"qdrawutil.h"
+	"qmatrix.h"
+	"qpaintdevice.h"
+	"qpaintengine.h"
+	"qpainter.h"
+	"qpainterpath.h"
+	"qpen.h"
+	"qpolygon.h"
+	"qprintengine.h"
+	"qprinter.h"
+	"qprinterinfo.h"
+	"qregion.h"
+	"qrgb.h"
+	"qstylepainter.h"
+	"qtransform.h"
+	"qwmatrix.h"
+	"qsymbianevent.h"
+	"qcdestyle.h"
+	"qcleanlooksstyle.h"
+	"qcommonstyle.h"
+	"qgtkstyle.h"
+	"qmotifstyle.h"
+	"qplastiquestyle.h"
+	"qproxystyle.h"
+	"qs60style.h"
+	"qstyle.h"
+	"qstylefactory.h"
+	"qstyleoption.h"
+	"qstyleplugin.h"
+	"qwindowscestyle.h"
+	"qwindowsmobilestyle.h"
+	"qwindowsstyle.h"
+	"qwindowsvistastyle.h"
+	"qwindowsxpstyle.h"
+	"qkeyeventtransition.h"
+	"qmouseeventtransition.h"
+	"qgraphicseffect.h"
+	"qcompleter.h"
+	"qdesktopservices.h"
+	"qsystemtrayicon.h"
+	"qundogroup.h"
+	"qundostack.h"
+	"qundoview.h"
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qbitmap.h
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qicon.h
+	<QtCore/qglobal.h>
+	<QtCore/qsize.h>
+	<QtCore/qlist.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qiconengine.h
+	<QtCore/qglobal.h>
+	<QtCore/qlist.h>
+	<QtGui/qicon.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qiconengineplugin.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qimage.h
+	<QtGui/qtransform.h>
+	<QtGui/qpaintdevice.h>
+	<QtGui/qrgb.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qrect.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qimageiohandler.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qimagereader.h
+	<QtCore/qbytearray.h>
+	<QtGui/qimage.h>
+	<QtGui/qimageiohandler.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qimagewriter.h
+	<QtCore/qbytearray.h>
+	<QtCore/qlist.h>
+	<QtGui/qimageiohandler.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmovie.h
+	<QtCore/qobject.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qlist.h>
+	<QtCore/qobject.h>
+	<QtGui/qimagereader.h>
+	<QtGui/qimage.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpicture.h
+	<QtCore/qstringlist.h>
+	<QtCore/qsharedpointer.h>
+	<QtGui/qpaintdevice.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpictureformatplugin.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpixmap.h
+	<QtGui/qpaintdevice.h>
+	<QtGui/qcolor.h>
+	<QtCore/qnamespace.h>
+	<QtCore/qstring.h>
+	<QtCore/qsharedpointer.h>
+	<QtGui/qimage.h>
+	<QtGui/qtransform.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpixmapcache.h
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qs60mainapplication.h
+	<QtCore/qglobal.h>
+	<aknapp.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qs60mainappui.h
+	<QtCore/qglobal.h>
+	<aknappui.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qs60maindocument.h
+	<QtCore/qglobal.h>
+	<AknDoc.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qvfbhdr.h
+	<QtGui/qcolor.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwsembedwidget.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractbutton.h
+	<QtGui/qicon.h>
+	<QtGui/qkeysequence.h>
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractscrollarea.h
+	<QtGui/qframe.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractslider.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractspinbox.h
+	<QtGui/qwidget.h>
+	<QtGui/qvalidator.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qbuttongroup.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcalendarwidget.h
+	<QtGui/qwidget.h>
+	<QtCore/qdatetime.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcheckbox.h
+	<QtGui/qabstractbutton.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcombobox.h
+	<QtGui/qwidget.h>
+	<QtGui/qabstractitemdelegate.h>
+	<QtCore/qabstractitemmodel.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcommandlinkbutton.h
+	<QtGui/qpushbutton.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdatetimeedit.h
+	<QtCore/qdatetime.h>
+	<QtCore/qvariant.h>
+	<QtGui/qabstractspinbox.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdial.h
+	<QtGui/qabstractslider.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdialogbuttonbox.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdockwidget.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfocusframe.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfontcombobox.h
+	<QtGui/qcombobox.h>
+	<QtGui/qfontdatabase.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qframe.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgroupbox.h
+	<QtGui/qframe.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlabel.h
+	<QtGui/qframe.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlcdnumber.h
+	<QtGui/qframe.h>
+	<QtCore/qbitarray.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlineedit.h
+	<QtGui/qframe.h>
+	<QtCore/qstring.h>
+	<QtCore/qmargins.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmainwindow.h
+	<QtGui/qwidget.h>
+	<QtGui/qtabwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmdiarea.h
+	<QtGui/qabstractscrollarea.h>
+	<QtGui/qtabwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmdisubwindow.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmenu.h
+	<QtGui/qwidget.h>
+	<QtCore/qstring.h>
+	<QtGui/qicon.h>
+	<QtGui/qaction.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmenubar.h
+	<QtGui/qmenu.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmenudata.h
+	<QtCore/qglobal.h>
+	<QtGui/qaction.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qplaintextedit.h
+	<QtGui/qtextedit.h>
+	<QtGui/qabstractscrollarea.h>
+	<QtGui/qtextdocument.h>
+	<QtGui/qtextoption.h>
+	<QtGui/qtextcursor.h>
+	<QtGui/qtextformat.h>
+	<QtGui/qabstracttextdocumentlayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprintpreviewwidget.h
+	<QtGui/qwidget.h>
+	<QtGui/qprinter.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprogressbar.h
+	<QtGui/qframe.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpushbutton.h
+	<QtGui/qabstractbutton.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qradiobutton.h
+	<QtGui/qabstractbutton.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qrubberband.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qscrollarea.h
+	<QtGui/qabstractscrollarea.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qscrollbar.h
+	<QtGui/qwidget.h>
+	<QtGui/qabstractslider.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsizegrip.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qslider.h
+	<QtGui/qabstractslider.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qspinbox.h
+	<QtGui/qabstractspinbox.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsplashscreen.h
+	<QtGui/qpixmap.h>
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsplitter.h
+	<QtGui/qframe.h>
+	<QtGui/qsizepolicy.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstackedwidget.h
+	<QtGui/qframe.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstatusbar.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtabbar.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtabwidget.h
+	<QtGui/qwidget.h>
+	<QtGui/qicon.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextbrowser.h
+	<QtGui/qtextedit.h>
+	<QtCore/qurl.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextedit.h
+	<QtGui/qabstractscrollarea.h>
+	<QtGui/qtextdocument.h>
+	<QtGui/qtextoption.h>
+	<QtGui/qtextcursor.h>
+	<QtGui/qtextformat.h>
+	<QtGui/qtextobject.h>
+	<QtGui/qtextlayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtoolbar.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtoolbox.h
+	<QtGui/qframe.h>
+	<QtGui/qicon.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtoolbutton.h
+	<QtGui/qabstractbutton.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qvalidator.h
+	<QtCore/qobject.h>
+	<QtCore/qstring.h>
+	<QtCore/qregexp.h>
+	<QtCore/qlocale.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qworkspace.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qinputcontext.h
+	<QtCore/qobject.h>
+	<QtCore/qglobal.h>
+	<QtGui/qevent.h>
+	<QtCore/qstring.h>
+	<QtCore/qlist.h>
+	<QtGui/qaction.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qinputcontextfactory.h
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qinputcontextplugin.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsanchorlayout.h
+	<QtGui/qgraphicsitem.h>
+	<QtGui/qgraphicslayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsgridlayout.h
+	<QtGui/qgraphicsitem.h>
+	<QtGui/qgraphicslayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsitem.h
+	<QtCore/qglobal.h>
+	<QtCore/qobject.h>
+	<QtCore/qvariant.h>
+	<QtCore/qrect.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qpainterpath.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsitemanimation.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicslayout.h
+	<QtGui/qgraphicslayoutitem.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicslayoutitem.h
+	<QtCore/qscopedpointer.h>
+	<QtGui/qsizepolicy.h>
+	<QtGui/qevent.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicslinearlayout.h
+	<QtGui/qgraphicsitem.h>
+	<QtGui/qgraphicslayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsproxywidget.h
+	<QtGui/qgraphicswidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsscene.h
+	<QtCore/qobject.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+	<QtGui/qbrush.h>
+	<QtGui/qfont.h>
+	<QtGui/qtransform.h>
+	<QtGui/qmatrix.h>
+	<QtGui/qpen.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicssceneevent.h
+	<QtCore/qcoreevent.h>
+	<QtCore/qpoint.h>
+	<QtCore/qscopedpointer.h>
+	<QtCore/qrect.h>
+	<QtGui/qpolygon.h>
+	<QtCore/qset.h>
+	<QtCore/qhash.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicstransform.h
+	<QtCore/QObject>
+	<QtGui/QVector3D>
+	<QtGui/QTransform>
+	<QtGui/QMatrix4x4>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicsview.h
+	<QtCore/qmetatype.h>
+	<QtGui/qpainter.h>
+	<QtGui/qscrollarea.h>
+	<QtGui/qgraphicsscene.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicswidget.h
+	<QtGui/qfont.h>
+	<QtGui/qgraphicslayoutitem.h>
+	<QtGui/qgraphicsitem.h>
+	<QtGui/qpalette.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgenericmatrix.h
+	<QtCore/qmetatype.h>
+	<QtCore/qdebug.h>
+	<QtCore/qdatastream.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmatrix4x4.h
+	<QtGui/qvector3d.h>
+	<QtGui/qvector4d.h>
+	<QtGui/qquaternion.h>
+	<QtGui/qgenericmatrix.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qquaternion.h
+	<QtGui/qvector3d.h>
+	<QtGui/qvector4d.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qvector2d.h
+	<QtCore/qpoint.h>
+	<QtCore/qmetatype.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qvector3d.h
+	<QtCore/qpoint.h>
+	<QtCore/qmetatype.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qvector4d.h
+	<QtCore/qpoint.h>
+	<QtCore/qmetatype.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstracttextdocumentlayout.h
+	<QtCore/qobject.h>
+	<QtGui/qtextlayout.h>
+	<QtGui/qtextdocument.h>
+	<QtGui/qtextcursor.h>
+	<QtGui/qpalette.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfont.h
+	<QtGui/qwindowdefs.h>
+	<QtCore/qstring.h>
+	<QtCore/qsharedpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfontdatabase.h
+	<QtGui/qwindowdefs.h>
+	<QtCore/qstring.h>
+	<QtGui/qfont.h>
+	<QtCore/qstringlist.h>
+	<QtCore/qlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfontinfo.h
+	<QtGui/qfont.h>
+	<QtCore/qsharedpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfontmetrics.h
+	<QtGui/qfont.h>
+	<QtCore/qsharedpointer.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsyntaxhighlighter.h
+	<QtCore/qglobal.h>
+	<QtCore/qobject.h>
+	<QtGui/qtextobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextcursor.h
+	<QtCore/qstring.h>
+	<QtCore/qshareddata.h>
+	<QtGui/qtextformat.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextdocument.h
+	<QtCore/qobject.h>
+	<QtCore/qsize.h>
+	<QtCore/qrect.h>
+	<QtGui/qfont.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextdocumentfragment.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextdocumentwriter.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextformat.h
+	<QtGui/qcolor.h>
+	<QtGui/qfont.h>
+	<QtCore/qshareddata.h>
+	<QtCore/qvector.h>
+	<QtCore/qvariant.h>
+	<QtGui/qpen.h>
+	<QtGui/qbrush.h>
+	<QtGui/qtextoption.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextlayout.h
+	<QtCore/qstring.h>
+	<QtCore/qnamespace.h>
+	<QtCore/qrect.h>
+	<QtCore/qvector.h>
+	<QtGui/qcolor.h>
+	<QtCore/qobject.h>
+	<QtGui/qevent.h>
+	<QtGui/qtextformat.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextlist.h
+	<QtGui/qtextobject.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextobject.h
+	<QtCore/qobject.h>
+	<QtGui/qtextformat.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtextoption.h
+	<QtCore/qnamespace.h>
+	<QtCore/qchar.h>
+	<QtCore/qmetatype.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtexttable.h
+	<QtCore/qglobal.h>
+	<QtCore/qobject.h>
+	<QtGui/qtextobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractpagesetupdialog.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractprintdialog.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcolordialog.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdialog.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qerrormessage.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfiledialog.h
+	<QtCore/qdir.h>
+	<QtCore/qstring.h>
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfilesystemmodel.h
+	<QtCore/qabstractitemmodel.h>
+	<QtCore/qpair.h>
+	<QtCore/qdir.h>
+	<QtGui/qicon.h>
+	<QtCore/qdiriterator.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfontdialog.h
+	<QtGui/qwindowdefs.h>
+	<QtGui/qdialog.h>
+	<QtGui/qfont.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qinputdialog.h
+	<QtGui/qdialog.h>
+	<QtCore/qstring.h>
+	<QtGui/qlineedit.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmessagebox.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpagesetupdialog.h
+	<QtGui/qabstractpagesetupdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprintdialog.h
+	<QtGui/qabstractprintdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprintpreviewdialog.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprogressdialog.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwizard.h
+	<QtGui/qdialog.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessible.h
+	<QtCore/qglobal.h>
+	<QtCore/qobject.h>
+	<QtCore/qrect.h>
+	<QtCore/qset.h>
+	<QtCore/qvector.h>
+	<QtCore/qvariant.h>
+	<QtGui/qcolor.h>
+	<QtGui/qevent.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessible2.h
+	<QtGui/qaccessible.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessiblebridge.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessibleobject.h
+	<QtGui/qaccessible.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessibleplugin.h
+	<QtGui/qaccessible.h>
+	<QtCore/qfactoryinterface.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaccessiblewidget.h
+	<QtGui/qaccessibleobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qaction.h
+	<QtGui/qkeysequence.h>
+	<QtCore/qstring.h>
+	<QtGui/qwidget.h>
+	<QtCore/qvariant.h>
+	<QtGui/qicon.h>
+	<QtGui/qactiongroup.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qactiongroup.h
+	<QtGui/qaction.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qapplication.h
+	<QtCore/qcoreapplication.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qpoint.h>
+	<QtCore/qsize.h>
+	<QtGui/qcursor.h>
+	<QtGui/qdesktopwidget.h>
+	<QtGui/qwidget.h>
+	<QtGui/qpalette.h>
+	<QtGui/qrgb.h>
+	<QtGui/qtransportauth_qws.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qboxlayout.h
+	<QtGui/qlayout.h>
+	<QtGui/qwidget.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qclipboard.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcursor.h
+	<QtCore/qpoint.h>
+	<QtGui/qwindowdefs.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdesktopwidget.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdrag.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qevent.h
+	<QtGui/qwindowdefs.h>
+	<QtCore/qobject.h>
+	<QtGui/qregion.h>
+	<QtCore/qnamespace.h>
+	<QtCore/qstring.h>
+	<QtGui/qkeysequence.h>
+	<QtCore/qcoreevent.h>
+	<QtGui/qmime.h>
+	<QtGui/qdrag.h>
+	<QtCore/qvariant.h>
+	<QtCore/qmap.h>
+	<QtCore/qset.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qformlayout.h
+	<QtGui/QLayout>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgesture.h
+	<QtCore/qobject.h>
+	<QtCore/qlist.h>
+	<QtCore/qdatetime.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+	<QtCore/qmetatype.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgesturerecognizer.h
+	<QtCore/qglobal.h>
+	<QtCore/qnamespace.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgridlayout.h
+	<QtGui/qlayout.h>
+	<QtGui/qwidget.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qkeysequence.h
+	<QtCore/qnamespace.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlayout.h
+	<QtCore/qobject.h>
+	<QtGui/qlayoutitem.h>
+	<QtGui/qsizepolicy.h>
+	<QtCore/qrect.h>
+	<QtCore/qmargins.h>
+	<limits.h>
+	<QtGui/qboxlayout.h>
+	<QtGui/qgridlayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlayoutitem.h
+	<QtGui/qsizepolicy.h>
+	<QtCore/qrect.h>
+	<limits.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmime.h
+	<QtCore/qmimedata.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpalette.h
+	<QtGui/qwindowdefs.h>
+	<QtGui/qcolor.h>
+	<QtGui/qbrush.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsessionmanager.h
+	<QtCore/qobject.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qstring.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qshortcut.h
+	<QtGui/qwidget.h>
+	<QtGui/qkeysequence.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsizepolicy.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsound.h
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstackedlayout.h
+	<QtGui/qlayout.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtooltip.h
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwhatsthis.h
+	<QtCore/qobject.h>
+	<QtGui/qcursor.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwidget.h
+	<QtGui/qwindowdefs.h>
+	<QtCore/qobject.h>
+	<QtCore/qmargins.h>
+	<QtGui/qpaintdevice.h>
+	<QtGui/qpalette.h>
+	<QtGui/qfont.h>
+	<QtGui/qfontmetrics.h>
+	<QtGui/qfontinfo.h>
+	<QtGui/qsizepolicy.h>
+	<QtGui/qregion.h>
+	<QtGui/qbrush.h>
+	<QtGui/qcursor.h>
+	<QtGui/qkeysequence.h>
+	<QtGui/qevent.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwidgetaction.h
+	<QtGui/qaction.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowdefs.h
+	<QtCore/qobjectdefs.h>
+	<QtCore/qnamespace.h>
+	<QtGui/qmacdefines_mac.h>
+	<QtGui/qwindowdefs_win.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractitemdelegate.h
+	<QtCore/qobject.h>
+	<QtGui/qstyleoption.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractitemview.h
+	<QtGui/qabstractscrollarea.h>
+	<QtCore/qabstractitemmodel.h>
+	<QtGui/qitemselectionmodel.h>
+	<QtGui/qabstractitemdelegate.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qabstractproxymodel.h
+	<QtCore/qabstractitemmodel.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcolumnview.h
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdatawidgetmapper.h
+	"QtCore/qobject.h"
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdirmodel.h
+	<QtCore/qabstractitemmodel.h>
+	<QtCore/qdir.h>
+	<QtGui/qfileiconprovider.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qfileiconprovider.h
+	<QtCore/qfileinfo.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qicon.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qheaderview.h
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qitemdelegate.h
+	<QtGui/qabstractitemdelegate.h>
+	<QtCore/qstring.h>
+	<QtGui/qpixmap.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qitemeditorfactory.h
+	<QtCore/qmetaobject.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qhash.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qitemselectionmodel.h
+	<QtCore/qset.h>
+	<QtCore/qvector.h>
+	<QtCore/qlist.h>
+	<QtCore/qabstractitemmodel.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlistview.h
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qlistwidget.h
+	<QtGui/qlistview.h>
+	<QtCore/qvariant.h>
+	<QtCore/qvector.h>
+	<QtGui/qitemselectionmodel.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qproxymodel.h
+	<QtCore/qabstractitemmodel.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsortfilterproxymodel.h
+	<QtGui/qabstractproxymodel.h>
+	<QtCore/qregexp.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstandarditemmodel.h
+	<QtCore/qabstractitemmodel.h>
+	<QtGui/qbrush.h>
+	<QtGui/qfont.h>
+	<QtGui/qicon.h>
+	<QtCore/qdatastream.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstringlistmodel.h
+	<QtCore/qstringlist.h>
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstyleditemdelegate.h
+	<QtGui/qabstractitemdelegate.h>
+	<QtCore/qstring.h>
+	<QtGui/qpixmap.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtableview.h
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtablewidget.h
+	<QtGui/qtableview.h>
+	<QtCore/qvariant.h>
+	<QtCore/qvector.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtreeview.h
+	<QtGui/qabstractitemview.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtreewidget.h
+	<QtGui/qtreeview.h>
+	<QtGui/qtreewidgetitemiterator.h>
+	<QtCore/qvariant.h>
+	<QtCore/qvector.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtreewidgetitemiterator.h
+	<QtCore/qglobal.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qbrush.h
+	<QtCore/qpair.h>
+	<QtCore/qpoint.h>
+	<QtCore/qvector.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qcolor.h>
+	<QtGui/qmatrix.h>
+	<QtGui/qtransform.h>
+	<QtGui/qimage.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcolor.h
+	<QtGui/qrgb.h>
+	<QtCore/qnamespace.h>
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcolormap.h
+	<QtCore/qatomic.h>
+	<QtGui/qrgb.h>
+	<QtCore/qvector.h>
+	<QtGui/qwindowdefs.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdrawutil.h
+	<QtCore/qnamespace.h>
+	<QtCore/qstring.h>
+	<QtCore/qmargins.h>
+	<QtGui/qpixmap.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmatrix.h
+	<QtGui/qpolygon.h>
+	<QtGui/qregion.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qline.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+	<QtGui/qwmatrix.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpaintdevice.h
+	<QtGui/qwindowdefs.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpaintengine.h
+	<QtCore/qnamespace.h>
+	<QtCore/qobjectdefs.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qpainter.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpainter.h
+	<QtCore/qnamespace.h>
+	<QtCore/qrect.h>
+	<QtCore/qpoint.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qpixmap.h>
+	<QtGui/qimage.h>
+	<QtGui/qtextoption.h>
+	<QtGui/qdrawutil.h>
+	<QtGui/qpolygon.h>
+	<QtGui/qpen.h>
+	<QtGui/qbrush.h>
+	<QtGui/qmatrix.h>
+	<QtGui/qtransform.h>
+	<QtGui/qfontinfo.h>
+	<QtGui/qfontmetrics.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpainterpath.h
+	<QtGui/qmatrix.h>
+	<QtCore/qglobal.h>
+	<QtCore/qrect.h>
+	<QtCore/qline.h>
+	<QtCore/qvector.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpen.h
+	<QtGui/qcolor.h>
+	<QtGui/qbrush.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qpolygon.h
+	<QtCore/qvector.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprintengine.h
+	<QtCore/qvariant.h>
+	<QtGui/qprinter.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprinter.h
+	<QtCore/qstring.h>
+	<QtCore/qscopedpointer.h>
+	<QtGui/qpaintdevice.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qprinterinfo.h
+	<QtGui/QPrinter>
+	<QtCore/QList>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qregion.h
+	<QtCore/qatomic.h>
+	<QtCore/qrect.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qdatastream.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qrgb.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstylepainter.h
+	<QtGui/qpainter.h>
+	<QtGui/qstyle.h>
+	<QtGui/qwidget.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qtransform.h
+	<QtGui/qmatrix.h>
+	<QtGui/qpainterpath.h>
+	<QtGui/qpolygon.h>
+	<QtGui/qregion.h>
+	<QtGui/qwindowdefs.h>
+	<QtCore/qline.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwmatrix.h
+	<QtGui/qmatrix.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsymbianevent.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcdestyle.h
+	<QtGui/qmotifstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcleanlooksstyle.h
+	<QtGui/qwindowsstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcommonstyle.h
+	<QtGui/qstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgtkstyle.h
+	<QtGui/QCleanlooksStyle>
+	<QtGui/QPalette>
+	<QtGui/QFont>
+	<QtGui/QFileDialog>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmotifstyle.h
+	<QtGui/qcommonstyle.h>
+	<QtCore/qpointer.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qplastiquestyle.h
+	<QtGui/qwindowsstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qproxystyle.h
+	<QtGui/QCommonStyle>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qs60style.h
+	<QtGui/qcommonstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstyle.h
+	<QtCore/qobject.h>
+	<QtCore/qrect.h>
+	<QtCore/qsize.h>
+	<QtGui/qicon.h>
+	<QtGui/qpixmap.h>
+	<QtGui/qpalette.h>
+	<QtGui/qsizepolicy.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstylefactory.h
+	<QtCore/qstringlist.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstyleoption.h
+	<QtCore/qvariant.h>
+	<QtGui/qabstractspinbox.h>
+	<QtGui/qicon.h>
+	<QtGui/qmatrix.h>
+	<QtGui/qslider.h>
+	<QtGui/qstyle.h>
+	<QtGui/qtabbar.h>
+	<QtGui/qtabwidget.h>
+	<QtGui/qrubberband.h>
+	<QtGui/qframe.h>
+	<QtCore/qabstractitemmodel.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qstyleplugin.h
+	<QtCore/qplugin.h>
+	<QtCore/qfactoryinterface.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowscestyle.h
+	<QtGui/qwindowsstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowsmobilestyle.h
+	<QtGui/qwindowsstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowsstyle.h
+	<QtGui/qcommonstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowsvistastyle.h
+	<QtGui/qwindowsxpstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qwindowsxpstyle.h
+	<QtGui/qwindowsstyle.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qkeyeventtransition.h
+	<QtCore/qeventtransition.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qmouseeventtransition.h
+	<QtCore/qeventtransition.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qgraphicseffect.h
+	<QtCore/qobject.h>
+	<QtCore/qpoint.h>
+	<QtCore/qrect.h>
+	<QtGui/qcolor.h>
+	<QtGui/qbrush.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qcompleter.h
+	<QtCore/qobject.h>
+	<QtCore/qpoint.h>
+	<QtCore/qstring.h>
+	<QtCore/qabstractitemmodel.h>
+	<QtCore/qrect.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qdesktopservices.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qsystemtrayicon.h
+	<QtCore/qobject.h>
+	<QtGui/qicon.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qundogroup.h
+	<QtCore/qobject.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qundostack.h
+	<QtCore/qobject.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/qundoview.h
+	<QtGui/qlistview.h>
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/QtNetwork
+	<QtCore/QtCore>
+	"qabstractnetworkcache.h"
+	"qftp.h"
+	"qhttp.h"
+	"qnetworkaccessmanager.h"
+	"qnetworkcookie.h"
+	"qnetworkcookiejar.h"
+	"qnetworkdiskcache.h"
+	"qnetworkreply.h"
+	"qnetworkrequest.h"
+	"qauthenticator.h"
+	"qhostaddress.h"
+	"qhostinfo.h"
+	"qnetworkinterface.h"
+	"qnetworkproxy.h"
+	"qurlinfo.h"
+	"qabstractsocket.h"
+	"qlocalserver.h"
+	"qlocalsocket.h"
+	"qtcpserver.h"
+	"qtcpsocket.h"
+	"qudpsocket.h"
+	"qssl.h"
+	"qsslcertificate.h"
+	"qsslcipher.h"
+	"qsslconfiguration.h"
+	"qsslerror.h"
+	"qsslkey.h"
+	"qsslsocket.h"
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qabstractnetworkcache.h
+	<QtCore/qobject.h>
+	<QtCore/qshareddata.h>
+	<QtCore/qpair.h>
+	<QtNetwork/qnetworkrequest.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qftp.h
+	<QtCore/qstring.h>
+	<QtNetwork/qurlinfo.h>
+	<QtCore/qobject.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qhttp.h
+	<QtCore/qobject.h>
+	<QtCore/qstringlist.h>
+	<QtCore/qmap.h>
+	<QtCore/qpair.h>
+	<QtCore/qscopedpointer.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkaccessmanager.h
+	<QtCore/QObject>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkcookie.h
+	<QtCore/QSharedDataPointer>
+	<QtCore/QList>
+	<QtCore/QMetaType>
+	<QtCore/QObject>
+	<QtNetwork/QNetworkCookieJar>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkcookiejar.h
+	<QtCore/QObject>
+	<QtCore/QUrl>
+	<QtNetwork/QNetworkCookie>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkdiskcache.h
+	<QtNetwork/qabstractnetworkcache.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkreply.h
+	<QtCore/QIODevice>
+	<QtCore/QString>
+	<QtCore/QVariant>
+	<QtNetwork/QNetworkRequest>
+	<QtNetwork/QNetworkAccessManager>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkrequest.h
+	<QtCore/QSharedDataPointer>
+	<QtCore/QString>
+	<QtCore/QUrl>
+	<QtCore/QVariant>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qauthenticator.h
+	<QtCore/qstring.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qhostaddress.h
+	<QtCore/qpair.h>
+	<QtCore/qstring.h>
+	<QtCore/qscopedpointer.h>
+	<QtNetwork/qabstractsocket.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qhostinfo.h
+	<QtCore/qlist.h>
+	<QtCore/qscopedpointer.h>
+	<QtNetwork/qhostaddress.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkinterface.h
+	<QtCore/qshareddata.h>
+	<QtCore/qscopedpointer.h>
+	<QtNetwork/qhostaddress.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qnetworkproxy.h
+	<QtNetwork/qhostaddress.h>
+	<QtCore/qshareddata.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qurlinfo.h
+	<QtCore/qdatetime.h>
+	<QtCore/qstring.h>
+	<QtCore/qiodevice.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qabstractsocket.h
+	<QtCore/qiodevice.h>
+	<QtCore/qobject.h>
+	<QtCore/qdebug.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qlocalserver.h
+	<QtNetwork/qabstractsocket.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qlocalsocket.h
+	<QtCore/qiodevice.h>
+	<QtNetwork/qabstractsocket.h>
+	<QtCore/qdebug.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qtcpserver.h
+	<QtCore/qobject.h>
+	<QtNetwork/qabstractsocket.h>
+	<QtNetwork/qhostaddress.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qtcpsocket.h
+	<QtNetwork/qabstractsocket.h>
+	<QtCore/qvariant.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qudpsocket.h
+	<QtNetwork/qabstractsocket.h>
+	<QtNetwork/qhostaddress.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qssl.h
+	<QtCore/qglobal.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslcertificate.h
+	<QtCore/qnamespace.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qcryptographichash.h>
+	<QtCore/qregexp.h>
+	<QtCore/qsharedpointer.h>
+	<QtNetwork/qssl.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslcipher.h
+	<QtCore/qstring.h>
+	<QtCore/qscopedpointer.h>
+	<QtNetwork/qssl.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslconfiguration.h
+	<QtCore/qshareddata.h>
+	<QtNetwork/qsslsocket.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslerror.h
+	<QtCore/qvariant.h>
+	<QtNetwork/qsslcertificate.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslkey.h
+	<QtCore/qnamespace.h>
+	<QtCore/qbytearray.h>
+	<QtCore/qsharedpointer.h>
+	<QtNetwork/qssl.h>
+
+1275452613 /Library/Frameworks/QtNetwork.framework/Versions/4/Headers/qsslsocket.h
+	<QtCore/qlist.h>
+	<QtCore/qregexp.h>
+	<QtNetwork/qtcpsocket.h>
+	<QtNetwork/qsslerror.h>
+
+1264161646 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/main.cpp
+	<QApplication>
+	"visuCFS.h"
+	"glwidget.h"
+
+1275452613 /Library/Frameworks/QtGui.framework/Versions/4/Headers/QApplication
+	"qapplication.h"
+
+1269245404 /Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/visuCFS.h
+	"ui_window.h"
+	"lightmaps.h"
+
+1267612645 /Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/ui_visuCFS.h
+	<QtCore/QVariant>
+	<QtGui/QAction>
+	<QtGui/QApplication>
+	<QtGui/QButtonGroup>
+	<QtGui/QHeaderView>
+	<QtGui/QLCDNumber>
+	<QtGui/QLabel>
+	<QtGui/QLineEdit>
+	<QtGui/QPushButton>
+	<QtGui/QRadioButton>
+	<QtGui/QSlider>
+	<QtGui/QWidget>
+	"glwidget.h"
+
+1267631450 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/glwidget.cpp
+	<iostream>
+	"glwidget.h"
+
+1269420478 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/moc_lightmaps.cpp
+	"lightmaps.h"
+
+1269420482 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/moc_visuCFS.cpp
+	"visuCFS.h"
+
+1267789177 source:/Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/visuCFS.cpp
+	<QtGui>
+	<QGLWidget>
+	"visuCFS.h"
+	"glwidget.h"
+
+1269423535 /Users/kaempf/EPFL/Visualisation Tool for Complex Fenestration Systems/visuCFS/ui_window.h
+	<QtCore/QVariant>
+	<QtGui/QAction>
+	<QtGui/QApplication>
+	<QtGui/QButtonGroup>
+	<QtGui/QHeaderView>
+	<QtGui/QLCDNumber>
+	<QtGui/QLabel>
+	<QtGui/QLineEdit>
+	<QtGui/QPushButton>
+	<QtGui/QRadioButton>
+	<QtGui/QSlider>
+	<QtGui/QWidget>
+	"glwidget.h"
+
+1267450564 source:/Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/lightmaps.cpp
+	"lightmaps.h"
+
+1267452724 /Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/lightmaps.h
+	<QtCore>
+	<QtGui>
+	<QtNetwork>
+	"sym_iap_util.h"
+	<cmath>
+	<iostream>
+
+1264161646 source:/Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/main.cpp
+	<QApplication>
+	"visuCFS.h"
+	"glwidget.h"
+
+1269245404 /Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/visuCFS.h
+	"ui_window.h"
+	"lightmaps.h"
+
+1282727252 /Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/ui_window.h
+	<QtCore/QVariant>
+	<QtGui/QAction>
+	<QtGui/QApplication>
+	<QtGui/QButtonGroup>
+	<QtGui/QDial>
+	<QtGui/QGroupBox>
+	<QtGui/QHeaderView>
+	<QtGui/QLCDNumber>
+	<QtGui/QLabel>
+	<QtGui/QLineEdit>
+	<QtGui/QPushButton>
+	<QtGui/QRadioButton>
+	<QtGui/QSlider>
+	<QtGui/QWidget>
+	"glwidget.h"
+
+1276172642 /Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/glwidget.h
+	<QGLWidget>
+	<QtOpenGL>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1280407730 source:/Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/glwidget.cpp
+	<iostream>
+	"glwidget.h"
+
+1276177248 source:/Volumes/Untitled/Visualisation Tool for Complex Fenestration Systems/visuCFS/visuCFS.cpp
+	<QtGui>
+	<QGLWidget>
+	"visuCFS.h"
+	"glwidget.h"
+
