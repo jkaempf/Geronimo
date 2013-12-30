@@ -39,7 +39,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>180</y>
+     <y>160</y>
      <width>46</width>
      <height>14</height>
     </rect>
@@ -60,7 +60,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>180</y>
+     <y>160</y>
      <width>46</width>
      <height>14</height>
     </rect>
@@ -81,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>320</y>
+     <y>290</y>
      <width>31</width>
      <height>16</height>
     </rect>
@@ -98,45 +98,6 @@
     <string>Hour</string>
    </property>
   </widget>
-  <widget class="QSlider" name="hourSlider">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>320</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="minimum">
-    <number>0</number>
-   </property>
-   <property name="maximum">
-    <number>23</number>
-   </property>
-   <property name="pageStep">
-    <number>2</number>
-   </property>
-   <property name="value">
-    <number>0</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="tickPosition">
-    <enum>QSlider::TicksAbove</enum>
-   </property>
-   <property name="tickInterval">
-    <number>1</number>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="month">
    <property name="enabled">
     <bool>true</bool>
@@ -144,14 +105,14 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>180</y>
+     <y>160</y>
      <width>41</width>
      <height>20</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">
@@ -171,14 +132,14 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>180</y>
+     <y>160</y>
      <width>41</width>
      <height>20</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">
@@ -280,7 +241,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLineEdit" name="latitude">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>60</y>
      <width>41</width>
      <height>20</height>
@@ -288,7 +249,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">
@@ -301,7 +262,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLineEdit" name="longitude">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>80</y>
      <width>41</width>
      <height>20</height>
@@ -309,7 +270,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">
@@ -322,7 +283,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLineEdit" name="meridian">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>100</y>
      <width>41</width>
      <height>20</height>
@@ -330,7 +291,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="font">
     <font>
-     <pointsize>9</pointsize>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="toolTip">
@@ -380,57 +341,6 @@ p, li { white-space: pre-wrap; }
      <width>600</width>
      <height>600</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLCDNumber" name="hour">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>350</y>
-     <width>41</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
-   <property name="smallDecimalPoint">
-    <bool>true</bool>
-   </property>
-   <property name="numDigits">
-    <number>2</number>
-   </property>
-   <property name="segmentStyle">
-    <enum>QLCDNumber::Flat</enum>
-   </property>
-   <property name="intValue" stdset="0">
-    <number>0</number>
-   </property>
-  </widget>
-  <widget class="QLCDNumber" name="orientation">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>130</y>
-     <width>41</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="numDigits">
-    <number>3</number>
-   </property>
-   <property name="segmentStyle">
-    <enum>QLCDNumber::Flat</enum>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_map">
@@ -540,9 +450,9 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>480</y>
+     <y>410</y>
      <width>191</width>
-     <height>171</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="font">
@@ -703,13 +613,43 @@ p, li { white-space: pre-wrap; }
      <string>mkillum</string>
     </property>
    </widget>
+   <widget class="QPlainTextEdit" name="mkillumParameters">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>171</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>RADIANCE mkillum parameters</string>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="documentTitle">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>350</y>
-     <width>31</width>
+     <x>120</x>
+     <y>290</y>
+     <width>81</width>
      <height>16</height>
     </rect>
    </property>
@@ -719,32 +659,14 @@ p, li { white-space: pre-wrap; }
     </font>
    </property>
    <property name="text">
-    <string>0 h</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_11">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>350</y>
-     <width>31</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>23 h</string>
+    <string>h (local time)</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="predefinedDay">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
+     <y>190</y>
      <width>191</width>
      <height>91</height>
     </rect>
@@ -815,17 +737,17 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="illuminance">
+  <widget class="QGroupBox" name="falsecolor">
    <property name="geometry">
     <rect>
      <x>850</x>
-     <y>60</y>
+     <y>50</y>
      <width>181</width>
-     <height>91</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="title">
-    <string>Illuminance (lx)</string>
+    <string>False Color Image</string>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -1004,6 +926,35 @@ p, li { white-space: pre-wrap; }
      <enum>Qt::RightToLeft</enum>
     </property>
    </widget>
+   <widget class="QRadioButton" name="illuminance">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Illuminance</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="bluminance">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>90</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Bluminance</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QComboBox" name="comboBox_analysisMode">
    <property name="geometry">
@@ -1097,9 +1048,9 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>849</x>
-     <y>160</y>
+     <y>170</y>
      <width>181</width>
-     <height>211</height>
+     <height>201</height>
     </rect>
    </property>
    <property name="title">
@@ -1272,7 +1223,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>390</y>
+     <y>320</y>
      <width>191</width>
      <height>81</height>
     </rect>
@@ -1296,7 +1247,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <pointsize>9</pointsize>
+      <pointsize>8</pointsize>
      </font>
     </property>
     <property name="whatsThis">
@@ -1519,6 +1470,12 @@ p, li { white-space: pre-wrap; }
       <height>71</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>RADIANCE rendering parameters</string>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
@@ -1555,6 +1512,42 @@ p, li { white-space: pre-wrap; }
      <string>High</string>
     </property>
    </widget>
+  </widget>
+  <widget class="QLineEdit" name="orientation">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>130</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="hour">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>290</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
  </widget>
  <customwidgets>
@@ -1594,22 +1587,6 @@ p, li { white-space: pre-wrap; }
  </resources>
  <connections>
   <connection>
-   <sender>hourSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>hour</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>190</x>
-     <y>310</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>150</x>
-     <y>340</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_map</sender>
    <signal>clicked()</signal>
    <receiver>VisuCFS</receiver>
@@ -1626,22 +1603,6 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>orientationDial</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>orientation</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>204</x>
-     <y>141</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>140</x>
-     <y>151</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>predefinedDay</sender>
    <signal>toggled(bool)</signal>
    <receiver>month</receiver>
@@ -1649,11 +1610,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>77</x>
-     <y>287</y>
+     <y>277</y>
     </hint>
     <hint type="destinationlabel">
      <x>75</x>
-     <y>182</y>
+     <y>172</y>
     </hint>
    </hints>
   </connection>
@@ -1665,11 +1626,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>30</x>
-     <y>289</y>
+     <y>279</y>
     </hint>
     <hint type="destinationlabel">
      <x>171</x>
-     <y>181</y>
+     <y>171</y>
     </hint>
    </hints>
   </connection>
@@ -1681,7 +1642,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>63</x>
-     <y>443</y>
+     <y>373</y>
     </hint>
     <hint type="destinationlabel">
      <x>86</x>
@@ -1697,7 +1658,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>133</x>
-     <y>230</y>
+     <y>220</y>
     </hint>
     <hint type="destinationlabel">
      <x>216</x>
@@ -1713,7 +1674,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>106</x>
-     <y>250</y>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>218</x>
@@ -1729,7 +1690,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>53</x>
-     <y>270</y>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>68</x>
@@ -1836,7 +1797,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>glare</sender>
    <signal>toggled(bool)</signal>
-   <receiver>illuminance</receiver>
+   <receiver>falsecolor</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1857,7 +1818,7 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>162</x>
-     <y>440</y>
+     <y>370</y>
     </hint>
     <hint type="destinationlabel">
      <x>219</x>
@@ -1898,10 +1859,10 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>illuminance</sender>
+   <sender>falsecolor</sender>
    <signal>toggled(bool)</signal>
    <receiver>VisuCFS</receiver>
-   <slot>setIlluminance(bool)</slot>
+   <slot>setFalseColor(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>986</x>
@@ -2025,6 +1986,118 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>bluminance</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setBluminance(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>973</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>842</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>illuminance</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setIlluminance(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>923</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>841</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>orientation</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setSiteOrientation(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>orientationDial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setSiteOrientation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hour</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setHour(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>301</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>175</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mkillum</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mkillumParameters</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>417</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>156</x>
+     <y>605</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mkillumParameters</sender>
+   <signal>textChanged()</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setRadianceParametersMkillum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>599</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>592</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>getPosition()</slot>
@@ -2051,5 +2124,11 @@ p, li { white-space: pre-wrap; }
   <slot>setDetail()</slot>
   <slot>setVariability()</slot>
   <slot>setIndirect()</slot>
+  <slot>setFalseColor(bool)</slot>
+  <slot>setBluminance(bool)</slot>
+  <slot>setSiteOrientation(QString)</slot>
+  <slot>setSiteOrientation(int)</slot>
+  <slot>setHour(int)</slot>
+  <slot>setHour(QString)</slot>
  </slots>
 </ui>

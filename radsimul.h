@@ -61,7 +61,8 @@ private:
     // about the site
     double latitudeN, longitudeW, meridianW;
     int month, day;
-    int hour, siteOrientation;
+    float hour;
+    int siteOrientation;
 
     // about the calculation parameters
     bool skyChanged, octreeChanged;
@@ -70,8 +71,8 @@ private:
     int model;
 
     // illuminance & daylight calculation
-    bool illum, dl;
-    float maxIlluminance;
+    bool falsecolor, illuminance, bluminance, dl;
+    float maxValue; // max value for the color scale
 
     // prism2 approximation of the BTDF (with Radiance)
     bool prism2;
@@ -116,7 +117,7 @@ public:
     map<string,float> glareIndices;
     void setModel(int value) { this->model = value; octreeChanged=true; }
     // gets the maxIlluminance
-    float getMaxIlluminance() { return maxIlluminance; }
+    float getMaxValue() { return maxValue; }
 
     // this sets the glare calculation and empties the glareIndices
     void setGlare(bool value) { this->glare = value; glareIndices.clear(); }
@@ -135,9 +136,11 @@ public slots:
     void setMeridian(QString meridian) { this->meridianW = -15.*meridian.toDouble(); skyChanged=true; }
     void setMonth(QString month) { this->month = month.toInt(); skyChanged=true; }
     void setDay(QString day) { this->day = day.toInt(); skyChanged=true; }
-    void setHour(int hour) { this->hour = hour; skyChanged=true; }
+    void setHour(float hour) { this->hour = hour; skyChanged=true; }
     void setSiteOrientation(int siteOrientation) { this->siteOrientation = siteOrientation; skyChanged=true; }
-    void setIlluminance(bool illum) { this->illum = illum; maxIlluminance = 0.f; }
+    void setFalseColor(bool falsecolor) { this->falsecolor = falsecolor; maxValue = 0.f; }
+    void setIlluminance(bool illuminance) { this->illuminance = illuminance; maxValue = 0.f; }
+    void setBluminance(bool bluminance) { this->bluminance = bluminance; maxValue = 0.f; }
     void setDaylight(bool dl) { this->dl = dl; DF_values.clear(); skyChanged=true; }
     // sets the approximation of the BTDF
     void setPrism2(bool prism2) { this->prism2 = prism2; octreeChanged=true; }

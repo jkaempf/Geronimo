@@ -12,7 +12,7 @@ class MaForme : public QWidget {
 public:
     MaForme(QWidget *parent = 0);
     ~MaForme() { if (w != NULL) delete w; }
-    void setMaxIlluminance();
+    void setMaxValue();
     void setDFImage();
     void setDFToolTip(QString value) {
 #ifndef QT_NO_TOOLTIP
@@ -30,16 +30,20 @@ public slots:
     void setSummerSolstice(bool value);
     void setWinterSolstice(bool value);
     void setSpringEquinox(bool value);
+    void setHour(QString value);
+    void setSiteOrientation(int value);
+    void setSiteOrientation(QString text);
 
     void setModeChanged(int value);
-    void setIlluminance(bool value) { radSimul.setIlluminance(value); setMaxIlluminance(); }
-    void setDaylightFactor(bool value) { radSimul.setDaylight(value); ui.dfLabel->clear(); }
+    void setFalseColor(bool value) { radSimul.setFalseColor(value); radSimul.setIlluminance(ui.illuminance->isChecked()); radSimul.setBluminance(ui.bluminance->isChecked()); setMaxValue(); }
+    void setIlluminance(bool value) { radSimul.setIlluminance(value); setMaxValue(); }
+    void setBluminance(bool value) { radSimul.setBluminance(value); setMaxValue(); }
+    void setDaylightFactor(bool value) { radSimul.setDaylight(value); radSimul.setLogScale(ui.logScale->isChecked()); ui.dfLabel->clear(); }
     void setDFRequiredIlluminance() { radSimul.setDFReqIllum(ui.reqIlluminance->text()); setDFImage(); setDFToolTip(radSimul.getDFmsg()); }
     void setLogScale(bool value) { radSimul.setLogScale(value); setDFImage(); setDFToolTip(radSimul.getDFmsg()); }
     void setRadianceParameters();
-/*  ancienne version, sans les 4 méthodes qui suivent
     void setRadianceParametersMkillum();
-*/
+
     void setQuality() { setPredefinedRadianceParameters(); }
     void setDetail() { setPredefinedRadianceParameters(); }
     void setVariability() { setPredefinedRadianceParameters(); }

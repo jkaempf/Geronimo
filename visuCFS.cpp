@@ -39,8 +39,6 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     connect(ui.meridian, SIGNAL(textChanged(QString)), &radSimul, SLOT(setMeridian(QString)));
     connect(ui.month, SIGNAL(textChanged(QString)), &radSimul, SLOT(setMonth(QString)));
     connect(ui.day, SIGNAL(textChanged(QString)), &radSimul, SLOT(setDay(QString)));
-    connect(ui.hourSlider, SIGNAL(valueChanged(int)), &radSimul, SLOT(setHour(int)));
-    connect(ui.orientationDial, SIGNAL(valueChanged(int)), &radSimul, SLOT(setSiteOrientation(int)));
     // the connections of the window elements to create the octree
     connect(ui.mkillum, SIGNAL(toggled(bool)), &radSimul, SLOT(setMkillum(bool)));
     connect(ui.prism2, SIGNAL(toggled(bool)), &radSimul, SLOT(setPrism2(bool)));
@@ -53,23 +51,21 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     ui.orientationDial->setValue(0);
     ui.month->setText("1");
     ui.day->setText("1");
-    ui.hourSlider->setValue(12);
+    ui.hour->setText("12");
     ui.lineEdit_Indirect->setText("1");
     //setModelChanged(ui.comboBox_model->currentIndex());
     setModeChanged(ui.comboBox_analysisMode->currentIndex());
     ui.radianceParameters->setPlainText("-u -ds .1 -ab 2 -av 0 0 0 -ad 256 -as 128 -aa .2 -ar 32 -dc 0.75 -dp 4096 -dj 0.9 -st 0.01 -dt 0.05 -lr 10 -lw 0.002");
-    //setRadianceParameters();
-#ifdef MKILLUM_OLD
-    ui.radianceParameters_mkillum->setPlainText("-dr 1 -ab 1 -ds .02 -ad 128 -as 32 -aa .2 -dj .1 -dt .5 -dc .25 -lr 30 -lw 0.01");
-#endif
+    ui.mkillumParameters->setVisible(false);
+    ui.mkillumParameters->setPlainText("-dr 1 -ab 1 -ds .02 -ad 128 -as 32 -aa .2 -dj .1 -dt .5 -dc .25 -lr 30 -lw 0.01");
     ui.reqIlluminance->setText("300");
     ui.logScale->setChecked(true);
 
 }
 
-void MaForme::setMaxIlluminance() {
+void MaForme::setMaxValue() {
 
-    float value = radSimul.getMaxIlluminance();
+    float value = radSimul.getMaxValue();
     if (value > 0.f) {
         ui.lineEdit_c0->setText(QString::number(value,'f',0));
         ui.lineEdit_c1->setText(QString::number(value*0.9f,'f',0));
@@ -164,32 +160,40 @@ void MaForme::setSpringEquinox(bool value) {
     }
 }
 
+void MaForme::setHour(QString text) {
+    radSimul.setHour(text.toFloat());
+}
+
+void MaForme::setSiteOrientation(int value) {
+    ui.orientation->setText(QString::number(value));
+}
+
+void MaForme::setSiteOrientation(QString text) {
+    // make sure that we are within 360° range
+    int value = text.toInt()%360;
+    ui.orientationDial->setValue(value);
+    radSimul.setSiteOrientation(value);
+}
+
 void MaForme::setModeChanged(int value) {
 
     if (value == 0) {
         // make things disappear
-        ui.illuminance->setHidden(true);
+        ui.falsecolor->setHidden(true);
         ui.daylightFactor->setHidden(true);
         ui.glare->setHidden(true);
         ui.radianceParameters->setHidden(true);
-#ifdef MKILLUM_OLD
-        ui.labelRadianceParam_mkillum->setHidden(true);
-        ui.radianceParameters_mkillum->setHidden(true);
-#else
+        ui.mkillumParameters->setDisabled(true);
         ui.renderingSettings->setHidden(true);
-#endif
     }
     else if (value == 1) {
         // make things disapepar
-        ui.illuminance->setVisible(true);
+        ui.falsecolor->setVisible(true);
         ui.daylightFactor->setVisible(true);
         ui.glare->setVisible(true);
         ui.radianceParameters->setVisible(true);
         ui.radianceParameters->setDisabled(true);
-#ifdef MKILLUM_OLD
-        ui.labelRadianceParam_mkillum->setHidden(true);
-        ui.radianceParameters_mkillum->setHidden(true);
-#else
+        ui.mkillumParameters->setDisabled(true);
         ui.renderingSettings->setVisible(true);
         ui.label_Quality->setDisabled(false);
         ui.label_Detail->setDisabled(false);
@@ -199,19 +203,15 @@ void MaForme::setModeChanged(int value) {
         ui.horizontalSlider_Detail->setDisabled(false);
         ui.horizontalSlider_Variability->setDisabled(false);
         ui.lineEdit_Indirect->setDisabled(false);
-#endif
     }
     else {
         // make things appear
-        ui.illuminance->setVisible(true);
+        ui.falsecolor->setVisible(true);
         ui.daylightFactor->setVisible(true);
         ui.glare->setVisible(true);
         ui.radianceParameters->setVisible(true);
         ui.radianceParameters->setDisabled(false);
-#ifdef MKILLUM_OLD
-        ui.labelRadianceParam_mkillum->setHidden(false);
-        ui.radianceParameters_mkillum->setHidden(false);
-#else
+        ui.mkillumParameters->setDisabled(false);
         ui.renderingSettings->setVisible(true);
         ui.label_Quality->setDisabled(true);
         ui.label_Detail->setDisabled(true);
@@ -221,7 +221,6 @@ void MaForme::setModeChanged(int value) {
         ui.horizontalSlider_Detail->setDisabled(true);
         ui.horizontalSlider_Variability->setDisabled(true);
         ui.lineEdit_Indirect->setDisabled(true);
-#endif
     }
 }
 
@@ -340,13 +339,11 @@ void MaForme::setRadianceParameters() {
 
 }
 
-/*
 void MaForme::setRadianceParametersMkillum() {
 
-    radSimul.setRadianceParametersMkillum(ui.radianceParameters_mkillum->toPlainText());
+    radSimul.setRadianceParametersMkillum(ui.mkillumParameters->toPlainText());
 
 }
-*/
 
 void MaForme::radianceSimulation_clicked()
 {
@@ -399,7 +396,7 @@ void MaForme::releaseWindow() {
 void MaForme::loadSimulationResults() {
 
     // sets the max illuminance
-    if (ui.illuminance->isChecked()) setMaxIlluminance();
+    if (ui.illuminance->isChecked() || ui.bluminance->isChecked()) setMaxValue();
     // sets the DF results
     if (ui.daylightFactor->isChecked()) { setDFImage(); setDFToolTip(radSimul.getDFmsg()); }
     // set the glare results

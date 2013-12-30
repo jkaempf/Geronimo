@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'window.ui'
 **
-** Created: Mon 23. Dec 22:44:13 2013
+** Created: Mon 30. Dec 17:36:26 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -19,7 +19,6 @@
 #include <QtGui/QDial>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHeaderView>
-#include <QtGui/QLCDNumber>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPlainTextEdit>
@@ -37,7 +36,6 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
-    QSlider *hourSlider;
     QLineEdit *month;
     QLineEdit *day;
     QPushButton *pushButton_radSimul;
@@ -49,8 +47,6 @@ public:
     QLineEdit *meridian;
     QLabel *label_10;
     GLWidget *widget;
-    QLCDNumber *hour;
-    QLCDNumber *orientation;
     QPushButton *pushButton_map;
     QDial *orientationDial;
     QLabel *label_5;
@@ -62,13 +58,13 @@ public:
     QLabel *label_14;
     QRadioButton *bsdf;
     QCheckBox *mkillum;
+    QPlainTextEdit *mkillumParameters;
     QLabel *label_6;
-    QLabel *label_11;
     QGroupBox *predefinedDay;
     QRadioButton *summerSolstice;
     QRadioButton *winterSolstice;
     QRadioButton *springEquinox;
-    QGroupBox *illuminance;
+    QGroupBox *falsecolor;
     QLineEdit *lineEdit_c1;
     QLineEdit *lineEdit_c2;
     QLineEdit *lineEdit_c3;
@@ -81,6 +77,8 @@ public:
     QLabel *label_19;
     QLabel *label_20;
     QLineEdit *lineEdit_c0;
+    QRadioButton *illuminance;
+    QRadioButton *bluminance;
     QComboBox *comboBox_analysisMode;
     QComboBox *comboBox_model;
     QLabel *label_21;
@@ -110,6 +108,8 @@ public:
     QPlainTextEdit *radianceParameters;
     QLabel *label_26;
     QLabel *label_27;
+    QLineEdit *orientation;
+    QLineEdit *hour;
 
     void setupUi(QWidget *VisuCFS)
     {
@@ -128,45 +128,35 @@ public:
         VisuCFS->setWindowIcon(icon);
         label_2 = new QLabel(VisuCFS);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(20, 180, 46, 14));
+        label_2->setGeometry(QRect(20, 160, 46, 14));
         QFont font;
         font.setPointSize(9);
         label_2->setFont(font);
         label_2->setLayoutDirection(Qt::RightToLeft);
         label_3 = new QLabel(VisuCFS);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(130, 180, 46, 14));
+        label_3->setGeometry(QRect(130, 160, 46, 14));
         label_3->setFont(font);
         label_3->setLayoutDirection(Qt::RightToLeft);
         label_4 = new QLabel(VisuCFS);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(20, 320, 31, 16));
+        label_4->setGeometry(QRect(20, 290, 31, 16));
         label_4->setFont(font);
         label_4->setLayoutDirection(Qt::LeftToRight);
-        hourSlider = new QSlider(VisuCFS);
-        hourSlider->setObjectName(QString::fromUtf8("hourSlider"));
-        hourSlider->setEnabled(true);
-        hourSlider->setGeometry(QRect(70, 320, 131, 21));
-        hourSlider->setFont(font);
-        hourSlider->setMinimum(0);
-        hourSlider->setMaximum(23);
-        hourSlider->setPageStep(2);
-        hourSlider->setValue(0);
-        hourSlider->setOrientation(Qt::Horizontal);
-        hourSlider->setTickPosition(QSlider::TicksAbove);
-        hourSlider->setTickInterval(1);
         month = new QLineEdit(VisuCFS);
         month->setObjectName(QString::fromUtf8("month"));
         month->setEnabled(true);
-        month->setGeometry(QRect(70, 180, 41, 20));
-        month->setFont(font);
+        month->setGeometry(QRect(70, 160, 41, 20));
+        QFont font1;
+        font1.setPointSize(8);
+        month->setFont(font1);
         month->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         month->setReadOnly(false);
         day = new QLineEdit(VisuCFS);
         day->setObjectName(QString::fromUtf8("day"));
         day->setEnabled(true);
-        day->setGeometry(QRect(170, 180, 41, 20));
-        day->setFont(font);
+        day->setGeometry(QRect(170, 160, 41, 20));
+        day->setFont(font1);
         day->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         day->setReadOnly(false);
         pushButton_radSimul = new QPushButton(VisuCFS);
@@ -187,18 +177,18 @@ public:
         label_9->setFont(font);
         latitude = new QLineEdit(VisuCFS);
         latitude->setObjectName(QString::fromUtf8("latitude"));
-        latitude->setGeometry(QRect(110, 60, 41, 20));
-        latitude->setFont(font);
+        latitude->setGeometry(QRect(120, 60, 41, 20));
+        latitude->setFont(font1);
         latitude->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         longitude = new QLineEdit(VisuCFS);
         longitude->setObjectName(QString::fromUtf8("longitude"));
-        longitude->setGeometry(QRect(110, 80, 41, 20));
-        longitude->setFont(font);
+        longitude->setGeometry(QRect(120, 80, 41, 20));
+        longitude->setFont(font1);
         longitude->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         meridian = new QLineEdit(VisuCFS);
         meridian->setObjectName(QString::fromUtf8("meridian"));
-        meridian->setGeometry(QRect(110, 100, 41, 20));
-        meridian->setFont(font);
+        meridian->setGeometry(QRect(120, 100, 41, 20));
+        meridian->setFont(font1);
         meridian->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_10 = new QLabel(VisuCFS);
         label_10->setObjectName(QString::fromUtf8("label_10"));
@@ -207,21 +197,6 @@ public:
         widget = new GLWidget(VisuCFS);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(230, 20, 600, 600));
-        hour = new QLCDNumber(VisuCFS);
-        hour->setObjectName(QString::fromUtf8("hour"));
-        hour->setGeometry(QRect(110, 350, 41, 23));
-        hour->setFont(font);
-        hour->setFrameShape(QFrame::Box);
-        hour->setSmallDecimalPoint(true);
-        hour->setNumDigits(2);
-        hour->setSegmentStyle(QLCDNumber::Flat);
-        hour->setProperty("intValue", QVariant(0));
-        orientation = new QLCDNumber(VisuCFS);
-        orientation->setObjectName(QString::fromUtf8("orientation"));
-        orientation->setGeometry(QRect(110, 130, 41, 23));
-        orientation->setFont(font);
-        orientation->setNumDigits(3);
-        orientation->setSegmentStyle(QLCDNumber::Flat);
         pushButton_map = new QPushButton(VisuCFS);
         pushButton_map->setObjectName(QString::fromUtf8("pushButton_map"));
         pushButton_map->setGeometry(QRect(170, 60, 41, 23));
@@ -250,7 +225,7 @@ public:
         label_5->setAlignment(Qt::AlignCenter);
         btdfMethod = new QGroupBox(VisuCFS);
         btdfMethod->setObjectName(QString::fromUtf8("btdfMethod"));
-        btdfMethod->setGeometry(QRect(20, 480, 191, 171));
+        btdfMethod->setGeometry(QRect(20, 410, 191, 241));
         btdfMethod->setFont(font);
         btdfMethod->setFlat(false);
         btdfMethod->setCheckable(false);
@@ -289,17 +264,19 @@ public:
         mkillum = new QCheckBox(btdfMethod);
         mkillum->setObjectName(QString::fromUtf8("mkillum"));
         mkillum->setGeometry(QRect(130, 0, 70, 17));
+        mkillumParameters = new QPlainTextEdit(btdfMethod);
+        mkillumParameters->setObjectName(QString::fromUtf8("mkillumParameters"));
+        mkillumParameters->setGeometry(QRect(10, 160, 171, 71));
+        mkillumParameters->setFont(font1);
+        mkillumParameters->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        mkillumParameters->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         label_6 = new QLabel(VisuCFS);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(60, 350, 31, 16));
+        label_6->setGeometry(QRect(120, 290, 81, 16));
         label_6->setFont(font);
-        label_11 = new QLabel(VisuCFS);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setGeometry(QRect(180, 350, 31, 16));
-        label_11->setFont(font);
         predefinedDay = new QGroupBox(VisuCFS);
         predefinedDay->setObjectName(QString::fromUtf8("predefinedDay"));
-        predefinedDay->setGeometry(QRect(20, 210, 191, 91));
+        predefinedDay->setGeometry(QRect(20, 190, 191, 91));
         predefinedDay->setFont(font);
         predefinedDay->setCheckable(true);
         predefinedDay->setChecked(false);
@@ -316,58 +293,65 @@ public:
         springEquinox->setObjectName(QString::fromUtf8("springEquinox"));
         springEquinox->setGeometry(QRect(30, 60, 121, 17));
         springEquinox->setAutoExclusive(true);
-        illuminance = new QGroupBox(VisuCFS);
-        illuminance->setObjectName(QString::fromUtf8("illuminance"));
-        illuminance->setGeometry(QRect(850, 60, 181, 91));
-        illuminance->setCheckable(true);
-        illuminance->setChecked(false);
-        lineEdit_c1 = new QLineEdit(illuminance);
+        falsecolor = new QGroupBox(VisuCFS);
+        falsecolor->setObjectName(QString::fromUtf8("falsecolor"));
+        falsecolor->setGeometry(QRect(850, 50, 181, 111));
+        falsecolor->setCheckable(true);
+        falsecolor->setChecked(false);
+        lineEdit_c1 = new QLineEdit(falsecolor);
         lineEdit_c1->setObjectName(QString::fromUtf8("lineEdit_c1"));
         lineEdit_c1->setGeometry(QRect(50, 40, 41, 20));
         lineEdit_c1->setLayoutDirection(Qt::RightToLeft);
         lineEdit_c1->setReadOnly(true);
-        lineEdit_c2 = new QLineEdit(illuminance);
+        lineEdit_c2 = new QLineEdit(falsecolor);
         lineEdit_c2->setObjectName(QString::fromUtf8("lineEdit_c2"));
         lineEdit_c2->setGeometry(QRect(50, 60, 41, 20));
         lineEdit_c2->setLayoutDirection(Qt::RightToLeft);
         lineEdit_c2->setReadOnly(true);
-        lineEdit_c3 = new QLineEdit(illuminance);
+        lineEdit_c3 = new QLineEdit(falsecolor);
         lineEdit_c3->setObjectName(QString::fromUtf8("lineEdit_c3"));
         lineEdit_c3->setGeometry(QRect(100, 20, 41, 20));
         lineEdit_c3->setLayoutDirection(Qt::RightToLeft);
         lineEdit_c3->setReadOnly(true);
-        lineEdit_c4 = new QLineEdit(illuminance);
+        lineEdit_c4 = new QLineEdit(falsecolor);
         lineEdit_c4->setObjectName(QString::fromUtf8("lineEdit_c4"));
         lineEdit_c4->setGeometry(QRect(100, 40, 41, 20));
         lineEdit_c4->setLayoutDirection(Qt::RightToLeft);
         lineEdit_c4->setReadOnly(true);
-        lineEdit_c5 = new QLineEdit(illuminance);
+        lineEdit_c5 = new QLineEdit(falsecolor);
         lineEdit_c5->setObjectName(QString::fromUtf8("lineEdit_c5"));
         lineEdit_c5->setGeometry(QRect(100, 60, 41, 20));
         lineEdit_c5->setLayoutDirection(Qt::RightToLeft);
         lineEdit_c5->setReadOnly(true);
-        label_15 = new QLabel(illuminance);
+        label_15 = new QLabel(falsecolor);
         label_15->setObjectName(QString::fromUtf8("label_15"));
         label_15->setGeometry(QRect(10, 40, 46, 13));
-        label_16 = new QLabel(illuminance);
+        label_16 = new QLabel(falsecolor);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setGeometry(QRect(10, 60, 46, 13));
-        label_17 = new QLabel(illuminance);
+        label_17 = new QLabel(falsecolor);
         label_17->setObjectName(QString::fromUtf8("label_17"));
         label_17->setGeometry(QRect(150, 20, 46, 13));
-        label_18 = new QLabel(illuminance);
+        label_18 = new QLabel(falsecolor);
         label_18->setObjectName(QString::fromUtf8("label_18"));
         label_18->setGeometry(QRect(150, 40, 46, 13));
-        label_19 = new QLabel(illuminance);
+        label_19 = new QLabel(falsecolor);
         label_19->setObjectName(QString::fromUtf8("label_19"));
         label_19->setGeometry(QRect(150, 60, 46, 13));
-        label_20 = new QLabel(illuminance);
+        label_20 = new QLabel(falsecolor);
         label_20->setObjectName(QString::fromUtf8("label_20"));
         label_20->setGeometry(QRect(10, 20, 46, 13));
-        lineEdit_c0 = new QLineEdit(illuminance);
+        lineEdit_c0 = new QLineEdit(falsecolor);
         lineEdit_c0->setObjectName(QString::fromUtf8("lineEdit_c0"));
         lineEdit_c0->setGeometry(QRect(50, 20, 41, 20));
         lineEdit_c0->setLayoutDirection(Qt::RightToLeft);
+        illuminance = new QRadioButton(falsecolor);
+        illuminance->setObjectName(QString::fromUtf8("illuminance"));
+        illuminance->setGeometry(QRect(10, 90, 82, 17));
+        illuminance->setChecked(true);
+        bluminance = new QRadioButton(falsecolor);
+        bluminance->setObjectName(QString::fromUtf8("bluminance"));
+        bluminance->setGeometry(QRect(100, 90, 82, 17));
         comboBox_analysisMode = new QComboBox(VisuCFS);
         comboBox_analysisMode->setObjectName(QString::fromUtf8("comboBox_analysisMode"));
         comboBox_analysisMode->setGeometry(QRect(930, 20, 101, 22));
@@ -379,7 +363,7 @@ public:
         label_21->setGeometry(QRect(850, 20, 81, 16));
         daylightFactor = new QGroupBox(VisuCFS);
         daylightFactor->setObjectName(QString::fromUtf8("daylightFactor"));
-        daylightFactor->setGeometry(QRect(849, 160, 181, 211));
+        daylightFactor->setGeometry(QRect(849, 170, 181, 201));
         daylightFactor->setCheckable(true);
         daylightFactor->setChecked(false);
         dfLabel = new QLabel(daylightFactor);
@@ -423,12 +407,12 @@ public:
         glare_lineEdit->setReadOnly(true);
         groupBox = new QGroupBox(VisuCFS);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(20, 390, 191, 81));
+        groupBox->setGeometry(QRect(20, 320, 191, 81));
         groupBox->setFont(font);
         filesDirectory = new QLineEdit(groupBox);
         filesDirectory->setObjectName(QString::fromUtf8("filesDirectory"));
         filesDirectory->setGeometry(QRect(10, 20, 171, 20));
-        filesDirectory->setFont(font);
+        filesDirectory->setFont(font1);
         pushButton_browse = new QPushButton(groupBox);
         pushButton_browse->setObjectName(QString::fromUtf8("pushButton_browse"));
         pushButton_browse->setGeometry(QRect(10, 50, 75, 23));
@@ -494,11 +478,19 @@ public:
         label_27 = new QLabel(renderingSettings);
         label_27->setObjectName(QString::fromUtf8("label_27"));
         label_27->setGeometry(QRect(150, 20, 21, 16));
+        orientation = new QLineEdit(VisuCFS);
+        orientation->setObjectName(QString::fromUtf8("orientation"));
+        orientation->setGeometry(QRect(120, 130, 41, 20));
+        orientation->setFont(font1);
+        orientation->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        hour = new QLineEdit(VisuCFS);
+        hour->setObjectName(QString::fromUtf8("hour"));
+        hour->setGeometry(QRect(70, 290, 41, 20));
+        hour->setFont(font1);
+        hour->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         retranslateUi(VisuCFS);
-        QObject::connect(hourSlider, SIGNAL(valueChanged(int)), hour, SLOT(display(int)));
         QObject::connect(pushButton_map, SIGNAL(clicked()), VisuCFS, SLOT(getPosition()));
-        QObject::connect(orientationDial, SIGNAL(valueChanged(int)), orientation, SLOT(display(int)));
         QObject::connect(predefinedDay, SIGNAL(toggled(bool)), month, SLOT(setDisabled(bool)));
         QObject::connect(predefinedDay, SIGNAL(toggled(bool)), day, SLOT(setDisabled(bool)));
         QObject::connect(pushButton_browse, SIGNAL(clicked()), VisuCFS, SLOT(getPath()));
@@ -511,11 +503,11 @@ public:
         QObject::connect(comboBox_model, SIGNAL(currentIndexChanged(int)), VisuCFS, SLOT(setModelChanged(int)));
         QObject::connect(glare, SIGNAL(toggled(bool)), VisuCFS, SLOT(setGlareRiskCalculation(bool)));
         QObject::connect(glare, SIGNAL(toggled(bool)), daylightFactor, SLOT(setDisabled(bool)));
-        QObject::connect(glare, SIGNAL(toggled(bool)), illuminance, SLOT(setDisabled(bool)));
+        QObject::connect(glare, SIGNAL(toggled(bool)), falsecolor, SLOT(setDisabled(bool)));
         QObject::connect(pushButton_convert, SIGNAL(clicked()), VisuCFS, SLOT(convertBTDF_clicked()));
         QObject::connect(pushButton_radSimul, SIGNAL(clicked()), VisuCFS, SLOT(radianceSimulation_clicked()));
         QObject::connect(comboBox_glare, SIGNAL(currentIndexChanged(int)), VisuCFS, SLOT(setGlareRiskIndex()));
-        QObject::connect(illuminance, SIGNAL(toggled(bool)), VisuCFS, SLOT(setIlluminance(bool)));
+        QObject::connect(falsecolor, SIGNAL(toggled(bool)), VisuCFS, SLOT(setFalseColor(bool)));
         QObject::connect(logScale, SIGNAL(toggled(bool)), VisuCFS, SLOT(setLogScale(bool)));
         QObject::connect(reqIlluminance, SIGNAL(editingFinished()), VisuCFS, SLOT(setDFRequiredIlluminance()));
         QObject::connect(daylightFactor, SIGNAL(toggled(bool)), VisuCFS, SLOT(setDaylightFactor(bool)));
@@ -523,6 +515,13 @@ public:
         QObject::connect(horizontalSlider_Detail, SIGNAL(valueChanged(int)), VisuCFS, SLOT(setDetail()));
         QObject::connect(horizontalSlider_Variability, SIGNAL(valueChanged(int)), VisuCFS, SLOT(setVariability()));
         QObject::connect(lineEdit_Indirect, SIGNAL(textChanged(QString)), VisuCFS, SLOT(setIndirect()));
+        QObject::connect(bluminance, SIGNAL(toggled(bool)), VisuCFS, SLOT(setBluminance(bool)));
+        QObject::connect(illuminance, SIGNAL(toggled(bool)), VisuCFS, SLOT(setIlluminance(bool)));
+        QObject::connect(orientation, SIGNAL(textChanged(QString)), VisuCFS, SLOT(setSiteOrientation(QString)));
+        QObject::connect(orientationDial, SIGNAL(valueChanged(int)), VisuCFS, SLOT(setSiteOrientation(int)));
+        QObject::connect(hour, SIGNAL(textChanged(QString)), VisuCFS, SLOT(setHour(QString)));
+        QObject::connect(mkillum, SIGNAL(toggled(bool)), mkillumParameters, SLOT(setVisible(bool)));
+        QObject::connect(mkillumParameters, SIGNAL(textChanged()), VisuCFS, SLOT(setRadianceParametersMkillum()));
 
         QMetaObject::connectSlotsByName(VisuCFS);
     } // setupUi
@@ -588,19 +587,27 @@ public:
         label_14->setText(QString());
         bsdf->setText(QApplication::translate("VisuCFS", "CFS BSDF", 0, QApplication::UnicodeUTF8));
         mkillum->setText(QApplication::translate("VisuCFS", "mkillum", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("VisuCFS", "0 h", 0, QApplication::UnicodeUTF8));
-        label_11->setText(QApplication::translate("VisuCFS", "23 h", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        mkillumParameters->setToolTip(QApplication::translate("VisuCFS", "RADIANCE mkillum parameters", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        mkillumParameters->setWhatsThis(QString());
+#endif // QT_NO_WHATSTHIS
+        mkillumParameters->setDocumentTitle(QString());
+        label_6->setText(QApplication::translate("VisuCFS", "h (local time)", 0, QApplication::UnicodeUTF8));
         predefinedDay->setTitle(QApplication::translate("VisuCFS", "predefined day", 0, QApplication::UnicodeUTF8));
         summerSolstice->setText(QApplication::translate("VisuCFS", "Summer Solstice", 0, QApplication::UnicodeUTF8));
         winterSolstice->setText(QApplication::translate("VisuCFS", "Winter Solstice", 0, QApplication::UnicodeUTF8));
         springEquinox->setText(QApplication::translate("VisuCFS", "Spring Equinox", 0, QApplication::UnicodeUTF8));
-        illuminance->setTitle(QApplication::translate("VisuCFS", "Illuminance (lx)", 0, QApplication::UnicodeUTF8));
+        falsecolor->setTitle(QApplication::translate("VisuCFS", "False Color Image", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("VisuCFS", "90%", 0, QApplication::UnicodeUTF8));
         label_16->setText(QApplication::translate("VisuCFS", "70%", 0, QApplication::UnicodeUTF8));
         label_17->setText(QApplication::translate("VisuCFS", "50%", 0, QApplication::UnicodeUTF8));
         label_18->setText(QApplication::translate("VisuCFS", "30%", 0, QApplication::UnicodeUTF8));
         label_19->setText(QApplication::translate("VisuCFS", "10%", 0, QApplication::UnicodeUTF8));
         label_20->setText(QApplication::translate("VisuCFS", "100%", 0, QApplication::UnicodeUTF8));
+        illuminance->setText(QApplication::translate("VisuCFS", "Illuminance", 0, QApplication::UnicodeUTF8));
+        bluminance->setText(QApplication::translate("VisuCFS", "Bluminance", 0, QApplication::UnicodeUTF8));
         comboBox_analysisMode->clear();
         comboBox_analysisMode->insertItems(0, QStringList()
          << QApplication::translate("VisuCFS", "Basic", 0, QApplication::UnicodeUTF8)
@@ -647,6 +654,12 @@ public:
         label_Variability->setText(QApplication::translate("VisuCFS", "Variability", 0, QApplication::UnicodeUTF8));
         label_Indirect->setText(QApplication::translate("VisuCFS", "Indirect", 0, QApplication::UnicodeUTF8));
         lineEdit_Indirect->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        radianceParameters->setToolTip(QApplication::translate("VisuCFS", "RADIANCE rendering parameters", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        radianceParameters->setWhatsThis(QString());
+#endif // QT_NO_WHATSTHIS
         radianceParameters->setPlainText(QString());
         label_26->setText(QApplication::translate("VisuCFS", "Low", 0, QApplication::UnicodeUTF8));
         label_27->setText(QApplication::translate("VisuCFS", "High", 0, QApplication::UnicodeUTF8));

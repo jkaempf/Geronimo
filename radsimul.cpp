@@ -19,7 +19,8 @@ void ShellCommand::run()
 RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
 
     // start with an illum=false (normal view)
-    illum = false;
+    illuminance = false;
+    bluminance = false;
     dl = false;
     prism2 = false;
     mkillum = false;
@@ -30,7 +31,7 @@ RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
     model = 0;
 
     // maxIlluminance set to zero
-    maxIlluminance = 0.f;
+    maxValue = 0.f;
 
     // DF calculation, number of measurement points
     xSubDivMax = 20;
@@ -110,7 +111,7 @@ void RadianceSimulation::run() {
     */
     string renderingOptions = radianceParameters.toStdString();
 
-    if (!illum) {
+    if (!falsecolor) {
         // visual case, with human eye filter
         command = "rpict -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
                   + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
@@ -141,13 +142,13 @@ void RadianceSimulation::run() {
                   + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
                   + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
                   + " " + renderingOptions + " base_" + toString(model) + "_1.oct > base_" + toString(model) + "_I.hdr";
-        shellcmd.addCommand(command,"Ray-tracing an illuminance image");
+        shellcmd.addCommand(command,"Ray-tracing an irradiance image");
         //cout << command << endl;
         //system(command.c_str());
 
         // gets the maximum and minimum points
         command = "pextrem -o base_" + toString(model) + "_I.hdr > extrema.dat";
-        shellcmd.addCommand(command,"Getting the extrema in the illuminance image");
+        shellcmd.addCommand(command,"Getting the extrema in the irradiance image");
         //cout << command << endl;
         //system(command.c_str());
 
@@ -161,14 +162,29 @@ void RadianceSimulation::run() {
         for (unsigned int i=0; i<extrema.size()/5; ++i) {
             cout << "red: " << extrema[i*5+2] << "\tgreen: " << extrema[i*5+3] << "\tblue: " << extrema[i*5+4] << endl;
         }
-        maxIlluminance = 179.f*(extrema[7]*.27f+extrema[8]*.67f+extrema[9]*.06f);
-        cout << "maximum illuminance: " << maxIlluminance << " lx" << endl;
+
+        // selection of the weights (RGB) for illuminance or bluminance
+        vector<float> weights;
+        if (illuminance) {
+            weights.push_back(0.27f);
+            weights.push_back(0.67f);
+            weights.push_back(0.06f);
+            maxValue = 179.f*(extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2]);
+            cout << "maximum illuminance: " << maxValue << " lx" << endl;
+        }
+        else { // bluminance
+            weights.push_back(-0.0346f);
+            weights.push_back(0.232f);
+            weights.push_back(0.558f);
+            maxValue = extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2];
+            cout << "maximum bluminance: " << maxValue << " W/m2" << endl;
+        }
 
         // writes the scale of the illuminance contours, pc0.cal
         fstream output("pc0.cal", ios::out | ios::binary | ios::trunc);
         output << "PI : 3.14159265358979323846 ;" << endl;
-        output << "scale : " << 179.f*(extrema[7]*.27f+extrema[8]*.67f+extrema[9]*.06f) << " ;" << endl;
-        output << "mult : " << 179.f << " ;" << endl;
+        output << "scale : " << maxValue << " ;" << endl;
+        output << "mult : " << toString(illuminance ? 179.f : 1.f) << " ;" << endl;
         output << "ndivs : " << 5 << " ;\n" << endl;
 
         output << "or(a,b) : if(a,a,b);"  << endl;
@@ -220,9 +236,14 @@ void RadianceSimulation::run() {
 
         // writes the second part of the file (pc1.cal)
         output.open("pc1.cal", ios::out | ios::binary | ios::trunc);
-        output << "norm : mult/scale/le(1);\n" << endl;
 
-        output << "v = map(li(1)*norm);\n" << endl;
+        // JK - 30.12.2013 - suppression du
+        //output << "norm : mult/scale/le(1);\n" << endl;
+        output << "norm : mult/scale/(re(1)*" << weights[0] << "+ge(1)*" << weights[1]<< "+be(1)*" << weights[2] << ");\n" << endl;
+
+        /// li(1) donne la brightness de l'image, le(1) donne le multiplicateur de l'image (white efficacy)
+        //output << "v = map(li(1)*norm);\n" << endl; .27f+extrema[8]*.67f+extrema[9]*.06f
+        output << "v = map((ri(1)*" << weights[0] << "+gi(1)*" << weights[1] << "+bi(1)*" << weights[2] << ")*norm);\n" << endl;
 
         output << "vleft = map(li(1,-1,0)*norm);" << endl;
         output << "vright = map(li(1,1,0)*norm);" << endl;

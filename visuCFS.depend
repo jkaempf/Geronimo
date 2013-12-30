@@ -4753,12 +4753,12 @@
 	"visuCFS.h"
 	"glwidget.h"
 
-1311757728 c:\kaemco\geronimo\visucfs.h
+1388419082 c:\kaemco\geronimo\visucfs.h
 	"ui_window.h"
 	"lightmaps.h"
 	"radsimul.h"
 
-1387835053 c:\kaemco\geronimo\ui_window.h
+1388421386 c:\kaemco\geronimo\ui_window.h
 	<QtCore/QVariant>
 	<QtGui/QAction>
 	<QtGui/QApplication>
@@ -4768,7 +4768,6 @@
 	<QtGui/QDial>
 	<QtGui/QGroupBox>
 	<QtGui/QHeaderView>
-	<QtGui/QLCDNumber>
 	<QtGui/QLabel>
 	<QtGui/QLineEdit>
 	<QtGui/QPlainTextEdit>
@@ -4796,7 +4795,7 @@
 	<cmath>
 	<iostream>
 
-1387828220 c:\kaemco\geronimo\radsimul.h
+1388417245 c:\kaemco\geronimo\radsimul.h
 	<QThread>
 	<QPixmap>
 	<vector>
@@ -4808,11 +4807,11 @@
 1267450564 source:c:\kaemco\geronimo\lightmaps.cpp
 	"lightmaps.h"
 
-1387832155 source:c:\kaemco\geronimo\radsimul.cpp
+1388410788 source:c:\kaemco\geronimo\radsimul.cpp
 	"radsimul.h"
 	"glwidget.h"
 
-1387816239 source:c:\kaemco\geronimo\visucfs.cpp
+1388420019 source:c:\kaemco\geronimo\visucfs.cpp
 	<QtGui>
 	<QGLWidget>
 	"visuCFS.h"
