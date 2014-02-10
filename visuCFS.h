@@ -68,6 +68,8 @@ public slots:
     void releaseWindow();
     void loadSimulationResults();
 
+    void setMaxValue(QString textValue);
+
  private:
 
     Ui::VisuCFS ui;

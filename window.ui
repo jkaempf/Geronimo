@@ -935,6 +935,9 @@ p, li { white-space: pre-wrap; }
       <height>17</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>vlambda weighted irradiance (lx)</string>
+    </property>
     <property name="text">
      <string>Illuminance</string>
     </property>
@@ -950,6 +953,9 @@ p, li { white-space: pre-wrap; }
       <width>82</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>clambda weighted irradiance (W/m²)</string>
     </property>
     <property name="text">
      <string>Bluminance</string>
@@ -2098,6 +2104,22 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>lineEdit_c0</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>VisuCFS</receiver>
+   <slot>setMaxValue(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>928</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1043</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>getPosition()</slot>
@@ -2130,5 +2152,6 @@ p, li { white-space: pre-wrap; }
   <slot>setSiteOrientation(int)</slot>
   <slot>setHour(int)</slot>
   <slot>setHour(QString)</slot>
+  <slot>setMaxValue(QString)</slot>
  </slots>
 </ui>

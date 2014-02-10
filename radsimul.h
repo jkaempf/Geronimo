@@ -118,6 +118,7 @@ public:
     void setModel(int value) { this->model = value; octreeChanged=true; }
     // gets the maxIlluminance
     float getMaxValue() { return maxValue; }
+    void setMaxValue(float value) { maxValue = value; }
 
     // this sets the glare calculation and empties the glareIndices
     void setGlare(bool value) { this->glare = value; glareIndices.clear(); }

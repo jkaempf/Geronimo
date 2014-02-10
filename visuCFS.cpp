@@ -85,6 +85,29 @@ void MaForme::setMaxValue() {
 
 }
 
+void MaForme::setMaxValue(QString textValue) {
+
+    float value = textValue.toFloat();
+    radSimul.setMaxValue(value);
+    if (value > 0.f) {
+        ui.lineEdit_c0->setText(QString::number(value,'f',0));
+        ui.lineEdit_c1->setText(QString::number(value*0.9f,'f',0));
+        ui.lineEdit_c2->setText(QString::number(value*0.7f,'f',0));
+        ui.lineEdit_c3->setText(QString::number(value*0.5f,'f',0));
+        ui.lineEdit_c4->setText(QString::number(value*0.3f,'f',0));
+        ui.lineEdit_c5->setText(QString::number(value*0.1f,'f',0));
+    }
+    else {
+        ui.lineEdit_c0->setText("");
+        ui.lineEdit_c1->setText("");
+        ui.lineEdit_c2->setText("");
+        ui.lineEdit_c3->setText("");
+        ui.lineEdit_c4->setText("");
+        ui.lineEdit_c5->setText("");
+    }
+
+}
+
 void MaForme::setDFImage() {
 
     //ui.dfLabel->setPixmap(QString::fromStdString("mesh_" + toString(ui.comboBox_model->currentIndex()) + ".bmp"));

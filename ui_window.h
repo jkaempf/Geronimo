@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'window.ui'
 **
-** Created: Mon 30. Dec 17:36:26 2013
+** Created: Sun 26. Jan 19:19:24 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -522,6 +522,7 @@ public:
         QObject::connect(hour, SIGNAL(textChanged(QString)), VisuCFS, SLOT(setHour(QString)));
         QObject::connect(mkillum, SIGNAL(toggled(bool)), mkillumParameters, SLOT(setVisible(bool)));
         QObject::connect(mkillumParameters, SIGNAL(textChanged()), VisuCFS, SLOT(setRadianceParametersMkillum()));
+        QObject::connect(lineEdit_c0, SIGNAL(textChanged(QString)), VisuCFS, SLOT(setMaxValue(QString)));
 
         QMetaObject::connectSlotsByName(VisuCFS);
     } // setupUi
@@ -606,7 +607,13 @@ public:
         label_18->setText(QApplication::translate("VisuCFS", "30%", 0, QApplication::UnicodeUTF8));
         label_19->setText(QApplication::translate("VisuCFS", "10%", 0, QApplication::UnicodeUTF8));
         label_20->setText(QApplication::translate("VisuCFS", "100%", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        illuminance->setToolTip(QApplication::translate("VisuCFS", "vlambda weighted irradiance (lx)", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         illuminance->setText(QApplication::translate("VisuCFS", "Illuminance", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        bluminance->setToolTip(QApplication::translate("VisuCFS", "clambda weighted irradiance (W/m\302\262)", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         bluminance->setText(QApplication::translate("VisuCFS", "Bluminance", 0, QApplication::UnicodeUTF8));
         comboBox_analysisMode->clear();
         comboBox_analysisMode->insertItems(0, QStringList()

@@ -19,6 +19,7 @@ void ShellCommand::run()
 RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
 
     // start with an illum=false (normal view)
+    falsecolor = false;
     illuminance = false;
     bluminance = false;
     dl = false;
@@ -169,14 +170,16 @@ void RadianceSimulation::run() {
             weights.push_back(0.27f);
             weights.push_back(0.67f);
             weights.push_back(0.06f);
-            maxValue = 179.f*(extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2]);
+            if (maxValue <= 0.f)
+                maxValue = 179.f*(extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2]);
             cout << "maximum illuminance: " << maxValue << " lx" << endl;
         }
         else { // bluminance
             weights.push_back(-0.0346f);
             weights.push_back(0.232f);
             weights.push_back(0.558f);
-            maxValue = extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2];
+            if (maxValue <= 0.f)
+                maxValue = extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2];
             cout << "maximum bluminance: " << maxValue << " W/m2" << endl;
         }
 
@@ -237,12 +240,11 @@ void RadianceSimulation::run() {
         // writes the second part of the file (pc1.cal)
         output.open("pc1.cal", ios::out | ios::binary | ios::trunc);
 
-        // JK - 30.12.2013 - suppression du
+        // JK - 30.12.2013 - suppression du li(1) et le(1)
+        // li(1) donne la brightness du pixel courant de l'image, et le(1) donne l'exposition de l'image
         //output << "norm : mult/scale/le(1);\n" << endl;
         output << "norm : mult/scale/(re(1)*" << weights[0] << "+ge(1)*" << weights[1]<< "+be(1)*" << weights[2] << ");\n" << endl;
-
-        /// li(1) donne la brightness de l'image, le(1) donne le multiplicateur de l'image (white efficacy)
-        //output << "v = map(li(1)*norm);\n" << endl; .27f+extrema[8]*.67f+extrema[9]*.06f
+        //output << "v = map(li(1)*norm);\n" << endl;
         output << "v = map((ri(1)*" << weights[0] << "+gi(1)*" << weights[1] << "+bi(1)*" << weights[2] << ")*norm);\n" << endl;
 
         output << "vleft = map(li(1,-1,0)*norm);" << endl;

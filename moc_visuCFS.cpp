@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'visuCFS.h'
 **
-** Created: Mon 30. Dec 17:36:26 2013
+** Created: Sun 26. Jan 19:19:24 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MaForme[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      32,   14, // methods
+      33,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -63,6 +63,7 @@ static const uint qt_meta_data_MaForme[] = {
      672,  649,    8,    8, 0x0a,
      702,    8,    8,    8, 0x0a,
      718,    8,    8,    8, 0x0a,
+     752,  742,    8,    8, 0x0a,
 
        0        // eod
 };
@@ -88,6 +89,7 @@ static const char qt_meta_stringdata_MaForme[] = {
     "errorState,description\0"
     "displayTaskState(int,QString)\0"
     "releaseWindow()\0loadSimulationResults()\0"
+    "textValue\0setMaxValue(QString)\0"
 };
 
 void MaForme::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -128,6 +130,7 @@ void MaForme::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 29: _t->displayTaskState((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 30: _t->releaseWindow(); break;
         case 31: _t->loadSimulationResults(); break;
+        case 32: _t->setMaxValue((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -165,9 +168,9 @@ int MaForme::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 32)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 32;
+        _id -= 33;
     }
     return _id;
 }
