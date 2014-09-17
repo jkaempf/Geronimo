@@ -125,7 +125,11 @@ void GLWidget::paintGL()
                   vu[0], vu[1], vu[2]);
 
         // loads the list of objects
+        glScalef(scale,scale,scale);
         glCallList(object);
+
+        // sends the view to visuCFS
+        emit(view(vp[0],vp[1],vp[2],vd[0],vd[1],vd[2]));
 
     }
     else {
@@ -371,12 +375,11 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event)
 
 void GLWidget::wheelEvent(QWheelEvent *event)
 {
-
     wheelRot += event->delta();
     image = false;
     updateGL();
     wheelRot = 0;
-
+    event->accept();
 }
 
 void GLWidget::displayImage(QString filename)

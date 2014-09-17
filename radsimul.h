@@ -6,6 +6,7 @@
 #include <cstring>
 #include <map>
 #include <iostream>
+#include <stdint.h>
 
 using namespace std;
 
@@ -70,8 +71,8 @@ private:
     // the model itself
     int model;
 
-    // illuminance & daylight calculation
-    bool falsecolor, illuminance, bluminance, dl;
+    // luminance & daylight calculation
+    bool falsecolor, luminance, bluminance, dl;
     float maxValue; // max value for the color scale
 
     // prism2 approximation of the BTDF (with Radiance)
@@ -99,6 +100,10 @@ private:
     int width, height;
     double vp[3], vd[3], vu[3];
     double xMin, xMax, yMin, yMax, zMin, zMax;
+    float scale;
+
+    // files for the materials
+    QString bsdf_file, prism2_file, glass_transmissivity;
 
 public:
 
@@ -131,6 +136,11 @@ public:
         this->xMin = xyzMinMax[0]; this->xMax = xyzMinMax[1]; this->yMin = xyzMinMax[2]; this->yMax = xyzMinMax[3]; this->zMin = xyzMinMax[4]; this->zMax = xyzMinMax[5];
     }
 
+    void setBSDF_file(QString textValue) { bsdf_file=textValue; }
+    void setPrism2_file(QString textValue) { prism2_file=textValue; }
+    void setGlass_transmissivity(QString textValue) { glass_transmissivity=textValue; }
+    void setScale(float scale) { this->scale = scale; octreeChanged=true; }
+
 public slots:
     void setLatitude(QString latitude) { this->latitudeN = latitude.toDouble(); skyChanged=true; }
     void setLongitude(QString longitude) { this->longitudeW = -longitude.toDouble(); skyChanged=true; }
@@ -140,7 +150,7 @@ public slots:
     void setHour(float hour) { this->hour = hour; skyChanged=true; }
     void setSiteOrientation(int siteOrientation) { this->siteOrientation = siteOrientation; skyChanged=true; }
     void setFalseColor(bool falsecolor) { this->falsecolor = falsecolor; maxValue = 0.f; }
-    void setIlluminance(bool illuminance) { this->illuminance = illuminance; maxValue = 0.f; }
+    void setLuminance(bool luminance) { this->luminance = luminance; maxValue = 0.f; }
     void setBluminance(bool bluminance) { this->bluminance = bluminance; maxValue = 0.f; }
     void setDaylight(bool dl) { this->dl = dl; DF_values.clear(); skyChanged=true; }
     // sets the approximation of the BTDF

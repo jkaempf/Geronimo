@@ -60,6 +60,8 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     ui.mkillumParameters->setPlainText("-dr 1 -ab 1 -ds .02 -ad 128 -as 32 -aa .2 -dj .1 -dt .5 -dc .25 -lr 30 -lw 0.01");
     ui.reqIlluminance->setText("300");
     ui.logScale->setChecked(true);
+    ui.lineEdit_glass->setText("0.88");
+    ui.lineEdit_scale->setText("1");
 
 }
 
@@ -126,6 +128,34 @@ void MaForme::getPath()
 
     if (!directoryName.isEmpty())
         ui.filesDirectory->setText(directoryName);
+
+}
+
+void MaForme::getFileBSDF()
+{
+
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Window XML File"),
+        QString::null,
+        tr("XML file (*.xml)"));
+
+    if (!fileName.isEmpty())
+        ui.lineEdit_bsdf->setText(fileName);
+
+}
+
+void MaForme::getFilePrism2()
+{
+
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        tr("Open Prism2 CAL file"),
+        QString::null,
+        tr("CAL file (*.cal)"));
+
+    if (!fileName.isEmpty())
+        ui.lineEdit_prism2->setText(fileName);
 
 }
 
@@ -418,8 +448,8 @@ void MaForme::releaseWindow() {
 
 void MaForme::loadSimulationResults() {
 
-    // sets the max illuminance
-    if (ui.illuminance->isChecked() || ui.bluminance->isChecked()) setMaxValue();
+    // sets the max luminance
+    if (ui.luminance->isChecked() || ui.bluminance->isChecked()) setMaxValue();
     // sets the DF results
     if (ui.daylightFactor->isChecked()) { setDFImage(); setDFToolTip(radSimul.getDFmsg()); }
     // set the glare results
@@ -430,4 +460,14 @@ void MaForme::loadSimulationResults() {
     // puts back the window in enabled mode
     this->setDisabled(false);
 
+}
+
+void MaForme::setView(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz) {
+    // writes the coordinates in the front window
+    ui.lineEdit_vpx->setText(QString::number(vpx,'f',2));
+    ui.lineEdit_vpy->setText(QString::number(vpy,'f',2));
+    ui.lineEdit_vpz->setText(QString::number(vpz,'f',2));
+    ui.lineEdit_vdx->setText(QString::number(vdx,'f',2));
+    ui.lineEdit_vdy->setText(QString::number(vdy,'f',2));
+    ui.lineEdit_vdz->setText(QString::number(vdz,'f',2));
 }

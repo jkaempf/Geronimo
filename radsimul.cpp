@@ -20,7 +20,7 @@ RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
 
     // start with an illum=false (normal view)
     falsecolor = false;
-    illuminance = false;
+    luminance = false;
     bluminance = false;
     dl = false;
     prism2 = false;
@@ -69,27 +69,68 @@ void RadianceSimulation::run() {
     }
     if (skyChanged || octreeChanged) {
 
-        // preparation of the octree
-        string approx = "GLASS";
-        if (prism2) approx = "PRISM2"; // prism2, the -f is for frozen octree (no references to the files)
-        else if (bsdf) approx = "BSDF";
+        command = "xform -s " + toString(scale) + " ./base_" + toString(model) + ".rad > base.rad";
+        shellcmd.addCommand(command,"Scaling of the model");
+        //cout << command << endl;
+        //system(command.c_str());
+
+        command = "xform -s " + toString(scale) + " ./window_" + toString(model) + ".rad > window.rad";
+        shellcmd.addCommand(command,"Scaling of the CFS");
+        //cout << command << endl;
+        //system(command.c_str());
+
+        // preparation of the octree, including the materials definition
+        fstream output("material.rad", ios::out | ios::binary | ios::trunc);
+        if (prism2) {
+            output << "void prism2 cfs\n"
+                   << "9 coef1 dx1 dy1 dz1 coef2 dx2 dy2 dz2 " << prism2_file.toStdString() << "\n"
+                   << "0\n"
+                   << "3 0 0 1" << endl;
+        }
+        else if (bsdf) {
+            output << "void BSDF cfs\n"
+                   << "6 0 " << bsdf_file.toStdString() << " 0 0 1 .\n"
+                   << "0\n"
+                   << "0" << endl;
+            /*
+            # BSDF material definition (Radiance 4.1a)
+            #	mod BSDF id
+            #	6+ thick BSDFfile ux uy uz funcfile transform
+            #	0
+            #	0|3|6|9
+            #		rfdif gfdif bfdif
+            #		rbdif gbdif bbdif
+            #		rtdif gtdif btdif
+
+            # about the function file Greg said:
+            # You don't really need a function file -- it's only if your up vector changes over the surface or something that you'd even need one.  I use '.' in place of the function file and constant values for the thickness (usually "0") and up vector (usually "0 0 1").  The coordinate mapping is part of the BSDF file.
+            */
+        }
+        else {
+            output << "void glass cfs\n"
+                   << "0\n"
+                   << "0\n"
+                   << "3 " << glass_transmissivity.toStdString() << " " << glass_transmissivity.toStdString() << " " << glass_transmissivity.toStdString() << endl;
+        }
+        output.close();
+
         // test if mkillum should be used or not
         if (mkillum) {
-            command = "oconv skyR.rad skyglow.rad base_" + toString(model) + ".rad window" + approx + "_" + toString(model) + ".rad > base_" + toString(model) + "_0.oct";
+            command = "oconv skyR.rad skyglow.rad base.rad material.rad window.rad > base_" + toString(model) + "_0.oct";
             shellcmd.addCommand(command,QString::fromStdString("Preparation of the main octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
-            command = "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" window" + approx + "_" + toString(model) + ".rad > illums_" + toString(model) + ".rad";
+            command = "mkillum " + radianceParametersMkillum.toStdString() + " base_" + toString(model) + "_0.oct \"<\" material.rad window.rad > illums_" + toString(model) + ".rad";
             shellcmd.addCommand(command,QString::fromStdString("Preparation of the secondary sources (mkillum)"));
             //cout << command << endl;
             //system(command.c_str());
-            command = "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
+            command = "oconv -f skyR.rad skyglow.rad base.rad illums_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
             shellcmd.addCommand(command,QString::fromStdString("Preparation of the secondary octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
         }
         else {
-            command = "oconv -f skyR.rad skyglow.rad base_" + toString(model) + ".rad window" + approx + "_" + toString(model) + ".rad > base_" + toString(model) + "_1.oct";
+            command = "oconv -f skyR.rad skyglow.rad base.rad material.rad window.rad > base_" + toString(model) + "_1.oct";
             shellcmd.addCommand(command,QString::fromStdString("Preparation of the octree (oconv)"));
             //cout << command << endl;
             //system(command.c_str());
@@ -112,17 +153,18 @@ void RadianceSimulation::run() {
     */
     string renderingOptions = radianceParameters.toStdString();
 
+    // creates the image in .hdr format
+    command = "rpict -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
+              + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
+              + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
+              + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
+              + " " + renderingOptions + " base_" + toString(model) + "_1.oct > base_" + toString(model) + ".hdr";
+    shellcmd.addCommand(command,"Ray-tracing a radiance image (rpict)");
+    //cout << command << endl;
+    //system(command.c_str());
+
     if (!falsecolor) {
         // visual case, with human eye filter
-        command = "rpict -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
-                  + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
-                  + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
-                  + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
-                  + " " + renderingOptions + " base_" + toString(model) + "_1.oct > base_" + toString(model) + ".hdr";
-        shellcmd.addCommand(command,"Ray-tracing a radiance image (rpict)");
-        //cout << command << endl;
-        //system(command.c_str());
-
         if (!glare) {
             // sets the exposure to human eye
             command = "pcond -h base_" + toString(model) + ".hdr > base_" + toString(model) + "_H.hdr";
@@ -137,19 +179,9 @@ void RadianceSimulation::run() {
         }
     }
     else if (!glare) {
-        // illuminance case, create an illuminance image, -dv
-        command = "rpict -i -t 10 -pa " + toString((float) width/height) + " -x " + toString(width) + " -y " + toString(height)
-                  + " -vtv -vp " + toString(vp[0]) + " " + toString(vp[1]) + " " + toString(vp[2])
-                  + " -vd " + toString(vd[0]) + " " + toString(vd[1]) + " " + toString(vd[2])
-                  + " -vu " + toString(vu[0]) + " " + toString(vu[1]) + " " + toString(vu[2])
-                  + " " + renderingOptions + " base_" + toString(model) + "_1.oct > base_" + toString(model) + "_I.hdr";
-        shellcmd.addCommand(command,"Ray-tracing an irradiance image");
-        //cout << command << endl;
-        //system(command.c_str());
-
         // gets the maximum and minimum points
-        command = "pextrem -o base_" + toString(model) + "_I.hdr > extrema.dat";
-        shellcmd.addCommand(command,"Getting the extrema in the irradiance image");
+        command = "pextrem -o base_" + toString(model) + ".hdr > extrema.dat";
+        shellcmd.addCommand(command,"Getting the extrema in the radiance image");
         //cout << command << endl;
         //system(command.c_str());
 
@@ -164,15 +196,15 @@ void RadianceSimulation::run() {
             cout << "red: " << extrema[i*5+2] << "\tgreen: " << extrema[i*5+3] << "\tblue: " << extrema[i*5+4] << endl;
         }
 
-        // selection of the weights (RGB) for illuminance or bluminance
+        // selection of the weights (RGB) for luminance or bluminance
         vector<float> weights;
-        if (illuminance) {
+        if (luminance) {
             weights.push_back(0.27f);
             weights.push_back(0.67f);
             weights.push_back(0.06f);
             if (maxValue <= 0.f)
                 maxValue = 179.f*(extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2]);
-            cout << "maximum illuminance: " << maxValue << " lx" << endl;
+            cout << "maximum luminance: " << maxValue << " cd/m2" << endl;
         }
         else { // bluminance
             weights.push_back(-0.0346f);
@@ -180,14 +212,14 @@ void RadianceSimulation::run() {
             weights.push_back(0.558f);
             if (maxValue <= 0.f)
                 maxValue = extrema[7]*weights[0]+extrema[8]*weights[1]+extrema[9]*weights[2];
-            cout << "maximum bluminance: " << maxValue << " W/m2" << endl;
+            cout << "maximum bluminance: " << maxValue << " W/(m2 sr)" << endl;
         }
 
-        // writes the scale of the illuminance contours, pc0.cal
+        // writes the scale of the luminance contours, pc0.cal
         fstream output("pc0.cal", ios::out | ios::binary | ios::trunc);
         output << "PI : 3.14159265358979323846 ;" << endl;
         output << "scale : " << maxValue << " ;" << endl;
-        output << "mult : " << toString(illuminance ? 179.f : 1.f) << " ;" << endl;
+        output << "mult : " << toString(luminance ? 179.f : 1.f) << " ;" << endl;
         output << "ndivs : " << 5 << " ;\n" << endl;
 
         output << "or(a,b) : if(a,a,b);"  << endl;
@@ -259,14 +291,14 @@ void RadianceSimulation::run() {
         output << "ba = bi(nfiles);" << endl;
         output.close();
 
-        // uses the falsecolor to produce illuminance contours, -f pc0.cal -e in=isconta
-        command = "pcomb -f pc0.cal -f pc1.cal base_" + toString(model) + "_I.hdr > base_" + toString(model) + "_IF.hdr";
+        // uses the falsecolor to produce luminance contours, -f pc0.cal -e in=isconta
+        command = "pcomb -f pc0.cal -f pc1.cal base_" + toString(model) + ".hdr > base_" + toString(model) + "_F.hdr";
         shellcmd.addCommand(command,"Preparation of the falsecolor image");
         //cout << command << endl;
         //system(command.c_str());
 
         // transforms the final image in bmp
-        command = "ra_bmp base_" + toString(model) + "_IF.hdr base_" + toString(model) + ".bmp";
+        command = "ra_bmp base_" + toString(model) + "_F.hdr base_" + toString(model) + ".bmp";
         shellcmd.addCommand(command,"Conversion of the image to BMP format");
         //cout << command << endl;
         //system(command.c_str());

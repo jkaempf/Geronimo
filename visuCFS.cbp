@@ -7,12 +7,13 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\Geronimo" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="bin\Debug\" />
-				<Option object_output="obj\Debug\" />
+				<Option output="bin/Debug/Geronimo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug/" />
+				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
@@ -42,9 +43,9 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\Geronimo" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="bin\Release\" />
-				<Option object_output="obj\Release\" />
+				<Option output="bin/Release/Geronimo" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Release/" />
+				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -52,7 +53,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="-static -static-libgcc" />
+					<Add option="-static -static-libgcc -static-libstdc++" />
 					<Add library="mingw32" />
 					<Add library="qtmain" />
 					<Add library="QtOpenGL4" />
@@ -78,19 +79,19 @@
 				</Linker>
 			</Target>
 			<Environment>
-				<Variable name="QT" value="C:\Qt\4.8.2" />
+				<Variable name="QT" value="C:\Qt\4.8.6" />
 			</Environment>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="$QT\include" />
-			<Add directory="$QT\include\QtCore" />
-			<Add directory="$QT\include\QtGui" />
-			<Add directory="$QT\include\QtOpenGL" />
-			<Add directory="$QT\include\QtNetwork" />
+			<Add directory="$QT/include" />
+			<Add directory="$QT/include/QtCore" />
+			<Add directory="$QT/include/QtGui" />
+			<Add directory="$QT/include/QtOpenGL" />
+			<Add directory="$QT/include/QtNetwork" />
 		</Compiler>
 		<Linker>
-			<Add directory="$QT\lib" />
+			<Add directory="$QT/lib" />
 		</Linker>
 		<ExtraCommands>
 			<Add before="$QT\bin\uic window.ui -o ui_window.h" />

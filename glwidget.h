@@ -99,6 +99,12 @@ public:
     vector<double> getBoundingBox() { vector<double> bb; bb.push_back(xMin); bb.push_back(xMax); bb.push_back(yMin); bb.push_back(yMax);
                                       bb.push_back(zMin); bb.push_back(zMax); return bb; }
 
+    void setScale(float scale) { this->scale = scale; image=false; updateGL(); }
+
+signals:
+
+    void view(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz);
+
 protected:
 
     void initializeGL();
@@ -120,6 +126,7 @@ private:
     int dx, dy;
     float phi, theta;
     int wheelRot;
+    float scale;
 
     // textures and images
     GLuint textureImage;

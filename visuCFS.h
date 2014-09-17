@@ -23,6 +23,8 @@ public:
 public slots:
 
     void getPath();
+    void getFileBSDF();
+    void getFilePrism2();
     void setModelChanged(int value) { ui.widget->setModel(value); radSimul.setModel(value); }
     void setPosition(qreal latitude, qreal longitude);
     void getPosition();
@@ -35,8 +37,8 @@ public slots:
     void setSiteOrientation(QString text);
 
     void setModeChanged(int value);
-    void setFalseColor(bool value) { radSimul.setFalseColor(value); radSimul.setIlluminance(ui.illuminance->isChecked()); radSimul.setBluminance(ui.bluminance->isChecked()); setMaxValue(); }
-    void setIlluminance(bool value) { radSimul.setIlluminance(value); setMaxValue(); }
+    void setFalseColor(bool value) { radSimul.setFalseColor(value); radSimul.setLuminance(ui.luminance->isChecked()); radSimul.setBluminance(ui.bluminance->isChecked()); setMaxValue(); }
+    void setLuminance(bool value) { radSimul.setLuminance(value); setMaxValue(); }
     void setBluminance(bool value) { radSimul.setBluminance(value); setMaxValue(); }
     void setDaylightFactor(bool value) { radSimul.setDaylight(value); radSimul.setLogScale(ui.logScale->isChecked()); ui.dfLabel->clear(); }
     void setDFRequiredIlluminance() { radSimul.setDFReqIllum(ui.reqIlluminance->text()); setDFImage(); setDFToolTip(radSimul.getDFmsg()); }
@@ -69,6 +71,14 @@ public slots:
     void loadSimulationResults();
 
     void setMaxValue(QString textValue);
+
+    void setFileBSDF(QString textValue) { radSimul.setBSDF_file(textValue); }
+    void setFilePrism2(QString textValue) { radSimul.setPrism2_file(textValue); }
+    void setGlassTransmissivity(QString textValue) { radSimul.setGlass_transmissivity(textValue); }
+
+    void setView(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz);
+    void setScale(QString scale) { ui.widget->setScale(scale.toFloat()); radSimul.setScale(scale.toFloat()); }
+    void setScale() { ui.widget->setScale(ui.lineEdit_scale->text().toFloat()); radSimul.setScale(ui.lineEdit_scale->text().toFloat()); }
 
  private:
 
