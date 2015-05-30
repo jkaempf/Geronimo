@@ -56,11 +56,11 @@
 					<Add option="-static -static-libgcc -static-libstdc++" />
 					<Add library="mingw32" />
 					<Add library="qtmain" />
-					<Add library="QtOpenGL4" />
-					<Add library="QtNetwork4" />
+					<Add library="Qt5OpenGL" />
+					<Add library="Qt5Network" />
 					<Add library="opengl32" />
 					<Add library="glu32" />
-					<Add library="QtGui4" />
+					<Add library="Qt5Gui" />
 					<Add library="gdi32" />
 					<Add library="comdlg32" />
 					<Add library="oleaut32" />
@@ -68,7 +68,7 @@
 					<Add library="winmm" />
 					<Add library="winspool" />
 					<Add library="msimg32" />
-					<Add library="QtCore4" />
+					<Add library="Qt5Core" />
 					<Add library="kernel32" />
 					<Add library="user32" />
 					<Add library="shell32" />
@@ -76,10 +76,12 @@
 					<Add library="ole32" />
 					<Add library="advapi32" />
 					<Add library="ws2_32" />
+					<Add library="Qt5Widgets" />
+					<Add library="Qt5WebKitWidgets" />
 				</Linker>
 			</Target>
 			<Environment>
-				<Variable name="QT" value="C:\Qt\4.8.6" />
+				<Variable name="QT" value="C:\Qt\5.4\mingw491_32" />
 			</Environment>
 		</Build>
 		<Compiler>
@@ -89,6 +91,8 @@
 			<Add directory="$QT/include/QtGui" />
 			<Add directory="$QT/include/QtOpenGL" />
 			<Add directory="$QT/include/QtNetwork" />
+			<Add directory="$QT/include/QtWidgets" />
+			<Add directory="$QT/include/QtWebKitWidgets" />
 		</Compiler>
 		<Linker>
 			<Add directory="$QT/lib" />
@@ -97,17 +101,13 @@
 			<Add before="$QT\bin\uic window.ui -o ui_window.h" />
 			<Add before="$QT\bin\moc radsimul.h -o moc_radsimul.cpp" />
 			<Add before="$QT\bin\moc glwidget.h -o moc_glwidget.cpp" />
-			<Add before="$QT\bin\moc lightmaps.h -o moc_lightmaps.cpp" />
 			<Add before="$QT\bin\moc visuCFS.h -o moc_visuCFS.cpp" />
 			<Add before="$QT\bin\rcc visuCFS.qrc -o qrc_visuCFS.cpp" />
 		</ExtraCommands>
 		<Unit filename="glwidget.cpp" />
 		<Unit filename="glwidget.h" />
-		<Unit filename="lightmaps.cpp" />
-		<Unit filename="lightmaps.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="moc_glwidget.cpp" />
-		<Unit filename="moc_lightmaps.cpp" />
 		<Unit filename="moc_radsimul.cpp" />
 		<Unit filename="moc_visuCFS.cpp" />
 		<Unit filename="qrc_visuCFS.cpp" />

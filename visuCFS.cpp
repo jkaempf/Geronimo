@@ -23,7 +23,7 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     ui.lineEdit_c5->setPalette(p);
 
     // setup the lightmap
-    w = NULL;
+    ///w = NULL;
 
     // connections for the signal/slots
     // the shellcmd
@@ -169,13 +169,20 @@ void MaForme::setPosition(qreal latitude, qreal longitude)
 void MaForme::getPosition()
 {
 
-    if ( w == NULL) {
-        w = new LightMaps(ui.latitude->text().toDouble(), ui.longitude->text().toDouble());
-        connect( w->m_normalMap, SIGNAL( positionChanged(qreal,qreal) ), this, SLOT( setPosition(qreal,qreal) ) );
-        w->setWindowTitle("OpenStreetMap");
-    }
-    w->resize(600, 450);
-    w->show();
+//    QWebView *webView = new QWebView(this);
+//    webView->resize(600,450);
+//    webView->move(10,10);
+//    QString gMapURL = "England"; // this is where you want to point
+//    gMapURL = "http://maps.google.com.sg/maps?q="+gMapURL+"&oe=utf-8&rls=org.mozilla:en-US:official&client=firefox-a&um=1&ie=UTF-8&hl=en&sa=N&tab=wl";
+//    webView->setUrl(QUrl(gMapURL));
+
+//    if ( w == NULL) {
+//        w = new LightMaps(ui.latitude->text().toDouble(), ui.longitude->text().toDouble());
+//        connect( w->m_normalMap, SIGNAL( positionChanged(qreal,qreal) ), this, SLOT( setPosition(qreal,qreal) ) );
+//        w->setWindowTitle("OpenStreetMap");
+//    }
+//    w->resize(600, 450);
+//    webView->show();
 
 }
 

@@ -1,8 +1,10 @@
 #ifndef VISUCFS_H
 #define VISUCFS_H
 
+#include <QWebView>
+
 #include "ui_window.h"
-#include "lightmaps.h"
+///#include "lightmaps.h"
 #include "radsimul.h"
 
 class MaForme : public QWidget {
@@ -11,12 +13,12 @@ class MaForme : public QWidget {
 
 public:
     MaForme(QWidget *parent = 0);
-    ~MaForme() { if (w != NULL) delete w; }
+    ~MaForme() { /*if (w != NULL) delete w;*/ }
     void setMaxValue();
     void setDFImage();
     void setDFToolTip(QString value) {
 #ifndef QT_NO_TOOLTIP
-        ui.dfLabel->setToolTip(QApplication::translate("VisuCFS", value.toStdString().c_str(), 0, QApplication::UnicodeUTF8));
+        ui.dfLabel->setToolTip(QApplication::translate("VisuCFS", value.toStdString().c_str(), 0));
 #endif // QT_NO_TOOLTIP
     }
 
@@ -83,7 +85,7 @@ public slots:
  private:
 
     Ui::VisuCFS ui;
-    LightMaps *w;
+    ///LightMaps *w;
     ShellCommand shellcmd;
     RadianceSimulation radSimul;
 
