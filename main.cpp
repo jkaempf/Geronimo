@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QCoreApplication>
 
 #include "visuCFS.h"
 #include "glwidget.h"

@@ -4,6 +4,15 @@
 
 TEMPLATE = app
 TARGET = Geronimo
+
+CONFIG(release, debug|release) {
+    DESTDIR = release/bin
+    OBJECTS_DIR = release/obj
+} else {
+    DESTDIR = debug/bin
+    OBJECTS_DIR = debug/obj
+}
+
 DEPENDPATH += .
 INCLUDEPATH += .
 
@@ -22,6 +31,5 @@ QT+= core \
      gui \
      opengl \
      network \
-     widgets \
-     webkitwidgets
+     widgets
      

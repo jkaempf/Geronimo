@@ -136,9 +136,9 @@ public:
         this->xMin = xyzMinMax[0]; this->xMax = xyzMinMax[1]; this->yMin = xyzMinMax[2]; this->yMax = xyzMinMax[3]; this->zMin = xyzMinMax[4]; this->zMax = xyzMinMax[5];
     }
 
-    void setBSDF_file(QString textValue) { bsdf_file=textValue; }
-    void setPrism2_file(QString textValue) { prism2_file=textValue; }
-    void setGlass_transmissivity(QString textValue) { glass_transmissivity=textValue; }
+    void setBSDF_file(QString textValue) { bsdf_file=textValue; octreeChanged=true; }
+    void setPrism2_file(QString textValue) { prism2_file=textValue; octreeChanged=true; }
+    void setGlass_transmissivity(QString textValue) { glass_transmissivity=textValue; octreeChanged=true; }
     void setScale(float scale) { this->scale = scale; octreeChanged=true; }
 
 public slots:

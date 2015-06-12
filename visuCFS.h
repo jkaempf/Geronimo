@@ -1,8 +1,6 @@
 #ifndef VISUCFS_H
 #define VISUCFS_H
 
-#include <QWebView>
-
 #include "ui_window.h"
 ///#include "lightmaps.h"
 #include "radsimul.h"

@@ -5,12 +5,35 @@
 void ShellCommand::run()
 {
     for (size_t cmdIndex=0; cmdIndex < commands.size(); ++cmdIndex) {
-        int errorState = -1;
-        emit(taskState(errorState, descriptions[cmdIndex]));
+
+        QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+#ifdef WIN32
+        env.insert("PATH", env.value("PATH") + ";" + QDir::toNativeSeparators(QDir::currentPath()+"/bin"));
+#else
+        env.insert("PATH", env.value("PATH") + ":" + QDir::toNativeSeparators(QDir::currentPath()+"/bin"));
+#endif
+        QProcess process;
+        process.setProcessEnvironment(env);
         cout << commands[cmdIndex] << endl;
-        errorState = system(commands[cmdIndex].c_str());
-        emit(taskState(errorState, descriptions[cmdIndex]));
-        if (errorState!=0) break;
+#ifdef WIN32
+        QString cmd = "cmd /C " + QString::fromStdString(commands[cmdIndex]);
+#else
+        QString cmd = "sh -c "  + QString::fromStdString(commands[cmdIndex]);
+#endif
+        process.start(cmd); //system(commands[cmdIndex].c_str());
+        if (process.waitForStarted()) {
+            emit(taskState(-1, descriptions[cmdIndex]));
+            process.waitForFinished();
+            emit(taskState(process.exitCode(), descriptions[cmdIndex]));
+            if (process.exitCode()!=0) {
+                cout << "Standard Output: " << process.readAll().toStdString() << endl;
+                break;
+            }
+        }
+        else {
+            emit(taskState(process.exitCode(), descriptions[cmdIndex]));
+            break;
+        }
     }
     commands.clear();
     descriptions.clear();
@@ -83,13 +106,13 @@ void RadianceSimulation::run() {
         fstream output("material.rad", ios::out | ios::binary | ios::trunc);
         if (prism2) {
             output << "void prism2 cfs\n"
-                   << "9 coef1 dx1 dy1 dz1 coef2 dx2 dy2 dz2 " << prism2_file.toStdString() << "\n"
+                   << "9 coef1 dx1 dy1 dz1 coef2 dx2 dy2 dz2 \'" << prism2_file.toLatin1().toStdString() << "\'\n"
                    << "0\n"
                    << "3 0 0 1" << endl;
         }
         else if (bsdf) {
             output << "void BSDF cfs\n"
-                   << "6 0 " << bsdf_file.toStdString() << " 0 0 1 .\n"
+                   << "6 0 '" << bsdf_file.toLatin1().toStdString() << "\' 0 0 1 .\n"
                    << "0\n"
                    << "0" << endl;
             /*
