@@ -84,7 +84,6 @@ public slots:
 
     Ui::VisuCFS ui;
     ///LightMaps *w;
-    ShellCommand shellcmd;
     RadianceSimulation radSimul;
 
     void setPredefinedRadianceParameters();

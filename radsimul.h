@@ -1,5 +1,7 @@
 #include <QThread>
 #include <QPixmap>
+#include <QDialog>
+#include <QPlainTextEdit>
 
 #include <vector>
 #include <algorithm>
@@ -39,10 +41,16 @@ private:
 
     vector<string> commands;
     vector<QString> descriptions;
+    QDialog *commandsWindow;
+    QPlainTextEdit *plainTextEdit;
 
 public:
 
-    ShellCommand() {}
+    ShellCommand();
+    ~ShellCommand() {
+      delete plainTextEdit;
+      delete commandsWindow;
+    }
 
     void addCommand(string command, QString description) { this->commands.push_back(command); this->descriptions.push_back(description); }
 
@@ -51,6 +59,11 @@ public:
 signals:
 
     void taskState(int errorState, QString description);
+    void commandLine(QString);
+
+public slots:
+
+    void showCommandLine(QString commandLine) { plainTextEdit->appendPlainText(commandLine); }
 
 };
 

@@ -2,6 +2,22 @@
 
 #include "glwidget.h"
 
+ShellCommand::ShellCommand():commandsWindow(new QDialog()) {
+
+  if (commandsWindow->objectName().isEmpty())
+      commandsWindow->setObjectName(QStringLiteral("Commands"));
+  commandsWindow->resize(640, 300);
+  plainTextEdit = new QPlainTextEdit(commandsWindow);
+  plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
+  plainTextEdit->setGeometry(QRect(10, 10, 621, 281));
+  plainTextEdit->setReadOnly(true);
+  plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+  commandsWindow->setWindowTitle("Geronimo: commands, LESO-PB/EPFL");
+  commandsWindow->show();
+  connect(this, SIGNAL(commandLine(QString)), this, SLOT(showCommandLine(QString)));
+
+}
+
 void ShellCommand::run()
 {
     for (size_t cmdIndex=0; cmdIndex < commands.size(); ++cmdIndex) {
@@ -20,18 +36,29 @@ void ShellCommand::run()
 #else
         QString cmd = "sh -c "  + QString::fromStdString(commands[cmdIndex]);
 #endif
+        emit(commandLine(cmd));
         process.start(cmd); //system(commands[cmdIndex].c_str());
-        if (process.waitForStarted()) {
+        if (process.waitForStarted(-1)) {
             emit(taskState(-1, descriptions[cmdIndex]));
-            process.waitForFinished();
+            QString msg;
+            do {
+                msg = QString::fromLatin1(process.readAllStandardOutput());
+                if (!msg.isEmpty()) emit(commandLine(msg.remove(QChar::LineFeed).remove(QChar::CarriageReturn)));
+                msg = QString::fromLatin1(process.readAllStandardError());
+                if (!msg.isEmpty()) emit(commandLine(msg.remove(QChar::LineFeed).remove(QChar::CarriageReturn)));
+            }
+            while(!process.waitForFinished(1000));
             emit(taskState(process.exitCode(), descriptions[cmdIndex]));
             if (process.exitCode()!=0) {
-                cout << "Standard Output: " << process.readAll().toStdString() << endl;
+                emit(commandLine(QString::fromLatin1(process.readAllStandardOutput())));
+                emit(commandLine(QString::fromLatin1(process.readAllStandardError())));
                 break;
             }
         }
         else {
             emit(taskState(process.exitCode(), descriptions[cmdIndex]));
+            emit(commandLine(QString::fromLatin1(process.readAllStandardOutput())));
+            emit(commandLine(QString::fromLatin1(process.readAllStandardError())));
             break;
         }
     }
