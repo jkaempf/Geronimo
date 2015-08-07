@@ -1,6 +1,6 @@
 #include <QtGui>
 #include <QGLWidget>
-#include <QtNetwork>
+//#include <QtNetwork>
 
 #include "visuCFS.h"
 #include "glwidget.h"
@@ -461,14 +461,4 @@ void MaForme::loadSimulationResults() {
     // puts back the window in enabled mode
     this->setDisabled(false);
 
-}
-
-void MaForme::setView(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz) {
-    // writes the coordinates in the front window
-    ui.lineEdit_vpx->setText(QString::number(vpx,'f',2));
-    ui.lineEdit_vpy->setText(QString::number(vpy,'f',2));
-    ui.lineEdit_vpz->setText(QString::number(vpz,'f',2));
-    ui.lineEdit_vdx->setText(QString::number(vdx,'f',2));
-    ui.lineEdit_vdy->setText(QString::number(vdy,'f',2));
-    ui.lineEdit_vdz->setText(QString::number(vdz,'f',2));
 }

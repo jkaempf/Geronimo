@@ -99,11 +99,13 @@ public:
     vector<double> getBoundingBox() { vector<double> bb; bb.push_back(xMin); bb.push_back(xMax); bb.push_back(yMin); bb.push_back(yMax);
                                       bb.push_back(zMin); bb.push_back(zMax); return bb; }
 
+    void setViewPoint(double vpx, double vpy, double vpz) { vp[0]=vpx; vp[1]=vpy; vp[2]=vpz; image=false; updateGL(); }
+    void setViewDirection(float phi, float theta) { this->phi = phi; this->theta = theta; image=false; updateGL(); }
     void setScale(float scale) { this->scale = scale; image=false; updateGL(); }
 
 signals:
 
-    void view(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz);
+    void view(float vpx, float vpy, float vpz, float phi, float theta);
 
 protected:
 

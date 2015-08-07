@@ -32,6 +32,9 @@ GLWidget::GLWidget(QWidget *parent):QGLWidget(QGLFormat(QGL::SampleBuffers),pare
     zMax=0.0;
     zMin=0.0;
 
+    // scale
+    scale = 1.f;
+
 }
 
 void GLWidget::initializeGL()
@@ -129,7 +132,7 @@ void GLWidget::paintGL()
         glCallList(object);
 
         // sends the view to visuCFS
-        emit(view(vp[0],vp[1],vp[2],vd[0],vd[1],vd[2]));
+        emit(view(vp[0],vp[1],vp[2],phi,theta));
 
     }
     else {

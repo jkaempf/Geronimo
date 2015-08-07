@@ -36,7 +36,7 @@ void ShellCommand::run()
 #else
         QString cmd = "sh -c "  + QString::fromStdString(commands[cmdIndex]);
 #endif
-        emit(commandLine(cmd));
+        emit(commandLine(QString::fromStdString(commands[cmdIndex])));
         process.start(cmd); //system(commands[cmdIndex].c_str());
         if (process.waitForStarted(-1)) {
             emit(taskState(-1, descriptions[cmdIndex]));
@@ -87,6 +87,9 @@ RadianceSimulation::RadianceSimulation():skyChanged(true),octreeChanged(true) {
     // DF calculation, number of measurement points
     xSubDivMax = 20;
     ySubDivMax = 20;
+
+    // scale by default
+    scale = 1.f;
 
 }
 
@@ -502,7 +505,7 @@ void RadianceSimulation::createDFimage() {
             }
             else {
                 // log scale
-                factorGray = max(log10(DF_values[index+1]/minThresholdValue),0.)/log10(maxValue/minThresholdValue);
+                factorGray = max(log10(DF_values[index+1]/minThresholdValue),0.f)/log10(maxValue/minThresholdValue);
             }
             image.data[index]=(unsigned char)((unsigned int) (static_cast<float>(image.paletteColors-1)*factorGray));
         }

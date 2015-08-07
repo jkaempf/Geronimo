@@ -11,7 +11,7 @@ class MaForme : public QWidget {
 
 public:
     MaForme(QWidget *parent = 0);
-    ~MaForme() { /*if (w != NULL) delete w;*/ }
+    ~MaForme() { radSimul.quit(); /*if (w != NULL) delete w;*/ }
     void setMaxValue();
     void setDFImage();
     void setDFToolTip(QString value) {
@@ -76,8 +76,17 @@ public slots:
     void setFilePrism2(QString textValue) { radSimul.setPrism2_file(textValue); }
     void setGlassTransmissivity(QString textValue) { radSimul.setGlass_transmissivity(textValue); }
 
-    void setView(float vpx, float vpy, float vpz, float vdx, float vdy, float vdz);
-    void setScale(QString scale) { ui.widget->setScale(scale.toFloat()); radSimul.setScale(scale.toFloat()); }
+    void setView(float vpx, float vpy, float vpz, float phi, float theta) {
+        // writes the coordinates in the front window
+        ui.lineEdit_vpx->setText(QString::number(vpx,'f',2));
+        ui.lineEdit_vpy->setText(QString::number(vpy,'f',2));
+        ui.lineEdit_vpz->setText(QString::number(vpz,'f',2));
+        ui.lineEdit_phi->setText(QString::number(phi,'f',0));
+        ui.lineEdit_theta->setText(QString::number(theta,'f',0));
+    }
+    void setViewPoint() { ui.widget->setViewPoint(ui.lineEdit_vpx->text().toFloat(), ui.lineEdit_vpy->text().toFloat(), ui.lineEdit_vpz->text().toFloat()); }
+    void setViewDirection() { ui.widget->setViewDirection(ui.lineEdit_phi->text().toFloat(), ui.lineEdit_theta->text().toFloat()); }
+    //void setScale(QString scale) { ui.widget->setScale(scale.toFloat()); radSimul.setScale(scale.toFloat()); }
     void setScale() { ui.widget->setScale(ui.lineEdit_scale->text().toFloat()); radSimul.setScale(ui.lineEdit_scale->text().toFloat()); }
 
  private:
