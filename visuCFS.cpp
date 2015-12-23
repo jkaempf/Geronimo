@@ -60,6 +60,7 @@ MaForme::MaForme(QWidget *parent):QWidget(parent)
     ui.mkillumParameters->setVisible(false);
     ui.mkillumParameters->setPlainText("-dr 1 -ab 1 -ds .02 -ad 128 -as 32 -aa .2 -dj .1 -dt .5 -dc .25 -lr 30 -lw 0.01");
     ui.reqIlluminance->setText("300");
+    setDFRequiredIlluminance();
     ui.logScale->setChecked(true);
     ui.lineEdit_glass->setText("0.88");
     ui.lineEdit_scale->setText("1");

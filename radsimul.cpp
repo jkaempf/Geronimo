@@ -368,8 +368,9 @@ void RadianceSimulation::run() {
         // measurement points inside the room
         for (unsigned int ySubDiv=1; ySubDiv < (ySubDivMax+1); ++ySubDiv) {
             for (unsigned int xSubDiv=1; xSubDiv < (xSubDivMax+1); ++xSubDiv) {
-                output << xMin+xSubDiv*((xMax-xMin)/(xSubDivMax+1)) << " "
-                       << yMin+ySubDiv*((yMax-yMin)/(ySubDivMax+1)) << " "
+                // note: 0.5 meters to remove from the borders of the room
+                output << xMin+0.5+xSubDiv*((xMax-xMin-1)/(xSubDivMax+1)) << " "
+                       << yMin+0.5+ySubDiv*((yMax-yMin-1)/(ySubDivMax+1)) << " "
                        /// TODO: si le sol n'est pas plat, corriger la normale ainsi que la valeur de Z
                        << zMin+0.8 << " "
                        << "0 0 1" << endl;
@@ -492,6 +493,7 @@ void RadianceSimulation::createDFimage() {
         float externalIlluminance = *DF_values.begin();
         float maxValue = *max_element(DF_values.begin()+1,DF_values.end());
         float minValue = *min_element(DF_values.begin()+1,DF_values.end());
+        float avgValue = accumulate(DF_values.begin()+1,DF_values.end(),0.f)/distance(DF_values.begin()+1,DF_values.end());
 
         // for the log scale, computes the minimum threshold (below is 0 grey scale)
         // the minValue depends on the daylight autonomy
@@ -509,12 +511,13 @@ void RadianceSimulation::createDFimage() {
             }
             image.data[index]=(unsigned char)((unsigned int) (static_cast<float>(image.paletteColors-1)*factorGray));
         }
-        //string meshBMPFilename = "mesh_" + toString(model) + ".bmp";
-        //write_bmp(meshBMPFilename.c_str(), &image);
+        string meshBMPFilename = "mesh_" + toString(model) + ".bmp";
+        write_bmp(meshBMPFilename.c_str(), &image);
         // emits the maxIlluminance on the grid value & the corresponding DF
         DF_msg = "max Illuminance/DF: " +     QString::number(maxValue,'f',0) + " lx/" + QString::number(100.f*maxValue/externalIlluminance,'f',1) + " %"
-                      + "\nmin Illuminance/DF: " + QString::number(minValue,'f',0) + " lx/" + QString::number(100.f*minValue/externalIlluminance,'f',1) + " %"
-                      + "\nthreshold: " +          QString::number(minThresholdValue,'f',0) + " lx/" + QString::number(100.f*FLJmin,'f',1) + " %";
+               + "\navg Illuminance/DF: " + QString::number(avgValue,'f',0) + " lx/" + QString::number(100.f*avgValue/externalIlluminance,'f',1) + " %"
+               + "\nmin Illuminance/DF: " + QString::number(minValue,'f',0) + " lx/" + QString::number(100.f*minValue/externalIlluminance,'f',1) + " %"
+               + "\nthreshold: " +          QString::number(minThresholdValue,'f',0) + " lx/" + QString::number(100.f*FLJmin,'f',1) + " %";
         if (logScale) DF_msg += "\nlog scale";
         else          DF_msg += "\nlinear scale";
 
