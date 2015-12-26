@@ -11,7 +11,7 @@ class MaForme : public QWidget {
 
 public:
     MaForme(QWidget *parent = 0);
-    ~MaForme() { radSimul.quit(); /*if (w != NULL) delete w;*/ }
+    ~MaForme() { /*if (w != NULL) delete w;*/ }
     void setMaxValue();
     void setDFImage();
     void setDFToolTip(QString value) {
@@ -88,6 +88,11 @@ public slots:
     void setViewDirection() { ui.widget->setViewDirection(ui.lineEdit_phi->text().toFloat(), ui.lineEdit_theta->text().toFloat()); }
     //void setScale(QString scale) { ui.widget->setScale(scale.toFloat()); radSimul.setScale(scale.toFloat()); }
     void setScale() { ui.widget->setScale(ui.lineEdit_scale->text().toFloat()); radSimul.setScale(ui.lineEdit_scale->text().toFloat()); }
+
+    void closeEvent(QCloseEvent *event) {
+        radSimul.quit();
+        event->accept();
+    }
 
  private:
 

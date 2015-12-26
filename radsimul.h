@@ -47,14 +47,17 @@ private:
 public:
 
     ShellCommand();
-    void quit() {
-      delete plainTextEdit;
-      commandsWindow->close();
+    ~ShellCommand() {
+        delete plainTextEdit;
+        delete commandsWindow;
     }
 
     void addCommand(string command, QString description) { this->commands.push_back(command); this->descriptions.push_back(description); }
 
     void run();
+    void quit() {
+        commandsWindow->close();
+    }
 
 signals:
 
@@ -121,8 +124,12 @@ private:
 public:
 
     RadianceSimulation();
+
     void run();
-    void quit() { shellcmd.quit(); }
+    void quit() {
+        shellcmd.quit();
+        shellcmd.wait();
+    }
 
     ShellCommand shellcmd;
     // creates the BMP image for DF
