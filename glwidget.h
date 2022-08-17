@@ -1,18 +1,22 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QGLWidget>
-#include <QtOpenGL>
+#include <QOpenGLWidget>
+#include <QOpenGLFunctions>
+#include <QOpenGLTexture>
 
-#include <GL\glu.h>
+#ifdef APPLE
+ #include <OpenGL/glu.h>
+#else
+ #include <GL/glu.h>
+#endif
 
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <limits>
 #include <cfloat>
-
-using namespace std;
+#include <cmath>
 
 class Color {
 
@@ -34,7 +38,7 @@ class Surface {
 
 private:
 
-    vector<float> coordinates;
+    std::vector<float> coordinates;
 
 public:
 
@@ -44,27 +48,27 @@ public:
     unsigned int getnCoordinates() { return coordinates.size(); }
     float getCoordinate(unsigned int i) { return coordinates[i]; }
 
-    float getMinX() { float minX=numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minX=min(minX,coordinates[index*3]); return minX; }
-    float getMaxX() { float maxX=numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxX=max(maxX,coordinates[index*3]); return maxX; }
-    float getMinY() { float minY=numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minY=min(minY,coordinates[index*3+1]); return minY; }
-    float getMaxY() { float maxY=numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxY=max(maxY,coordinates[index*3+1]); return maxY; }
-    float getMinZ() { float minZ=numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minZ=min(minZ,coordinates[index*3+2]); return minZ; }
-    float getMaxZ() { float maxZ=numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxZ=max(maxZ,coordinates[index*3+2]); return maxZ; }
+    float getMinX() { float minX=std::numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minX=std::min(minX,coordinates[index*3]); return minX; }
+    float getMaxX() { float maxX=std::numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxX=std::max(maxX,coordinates[index*3]); return maxX; }
+    float getMinY() { float minY=std::numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minY=std::min(minY,coordinates[index*3+1]); return minY; }
+    float getMaxY() { float maxY=std::numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxY=std::max(maxY,coordinates[index*3+1]); return maxY; }
+    float getMinZ() { float minZ=std::numeric_limits<float>::max(); for (size_t index=0; index<coordinates.size()/3; ++index) minZ=std::min(minZ,coordinates[index*3+2]); return minZ; }
+    float getMaxZ() { float maxZ=std::numeric_limits<float>::min(); for (size_t index=0; index<coordinates.size()/3; ++index) maxZ=std::max(maxZ,coordinates[index*3+2]); return maxZ; }
 
-    float getRangeX() { float minX=numeric_limits<float>::max(), maxX=numeric_limits<float>::min();
-                        for (size_t index=0; index<coordinates.size()/3; ++index) { minX=min(minX,coordinates[index*3]); maxX=max(maxX,coordinates[index*3]); }
+    float getRangeX() { float minX=std::numeric_limits<float>::max(), maxX=std::numeric_limits<float>::min();
+                        for (size_t index=0; index<coordinates.size()/3; ++index) { minX=std::min(minX,coordinates[index*3]); maxX=std::max(maxX,coordinates[index*3]); }
                         return (maxX-minX); }
-    float getRangeY() { float minY=numeric_limits<float>::max(), maxY=numeric_limits<float>::min();
-                        for (size_t index=0; index<coordinates.size()/3; ++index) { minY=min(minY,coordinates[index*3+1]); maxY=max(maxY,coordinates[index*3+1]); }
+    float getRangeY() { float minY=std::numeric_limits<float>::max(), maxY=std::numeric_limits<float>::min();
+                        for (size_t index=0; index<coordinates.size()/3; ++index) { minY=std::min(minY,coordinates[index*3+1]); maxY=std::max(maxY,coordinates[index*3+1]); }
                         return (maxY-minY); }
-    float getRangeZ() { float minZ=numeric_limits<float>::max(), maxZ=numeric_limits<float>::min();
-                        for (size_t index=0; index<coordinates.size()/3; ++index) { minZ=min(minZ,coordinates[index*3+2]); maxZ=max(maxZ,coordinates[index*3+2]); }
+    float getRangeZ() { float minZ=std::numeric_limits<float>::max(), maxZ=std::numeric_limits<float>::min();
+                        for (size_t index=0; index<coordinates.size()/3; ++index) { minZ=std::min(minZ,coordinates[index*3+2]); maxZ=std::max(maxZ,coordinates[index*3+2]); }
                         return (maxZ-minZ); }
 
 };
 
 
-template <typename T> inline string toString(const T &s) {
+template <typename T> inline std::string toString(const T &s) {
 
     std::stringstream ss;
     ss << s;
@@ -73,7 +77,7 @@ template <typename T> inline string toString(const T &s) {
 
 }
 
-class GLWidget : public QGLWidget
+class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
 
     Q_OBJECT
@@ -81,6 +85,7 @@ class GLWidget : public QGLWidget
 public:
 
     GLWidget(QWidget *parent);
+    ~GLWidget();
 
     // elements written in addition to the standard QGLWidget class
     GLuint makeObject(QString radFile);
@@ -93,15 +98,15 @@ public:
     // methods to get the view and the bounding box
     int getWidth() { return this->width(); }
     int getHeight() { return this->height(); }
-    vector<double> getViewPoint() { vector<double> vp_v; for (unsigned int i=0; i<3; ++i) vp_v.push_back(vp[i]); return vp_v; }
-    vector<double> getViewDirection() { vector<double> vd_v; for (unsigned int i=0; i<3; ++i) vd_v.push_back(vd[i]); return vd_v; }
-    vector<double> getViewUp() { vector<double> vu_v; for (unsigned int i=0; i<3; ++i) vu_v.push_back(vu[i]); return vu_v; }
-    vector<double> getBoundingBox() { vector<double> bb; bb.push_back(xMin); bb.push_back(xMax); bb.push_back(yMin); bb.push_back(yMax);
+    std::vector<double> getViewPoint() { std::vector<double> vp_v; for (unsigned int i=0; i<3; ++i) vp_v.push_back(vp[i]); return vp_v; }
+    std::vector<double> getViewDirection() { std::vector<double> vd_v; for (unsigned int i=0; i<3; ++i) vd_v.push_back(vd[i]); return vd_v; }
+    std::vector<double> getViewUp() { std::vector<double> vu_v; for (unsigned int i=0; i<3; ++i) vu_v.push_back(vu[i]); return vu_v; }
+    std::vector<double> getBoundingBox() { std::vector<double> bb; bb.push_back(xMin); bb.push_back(xMax); bb.push_back(yMin); bb.push_back(yMax);
                                       bb.push_back(zMin); bb.push_back(zMax); return bb; }
 
-    void setViewPoint(double vpx, double vpy, double vpz) { vp[0]=vpx; vp[1]=vpy; vp[2]=vpz; image=false; updateGL(); }
-    void setViewDirection(float phi, float theta) { this->phi = phi; this->theta = theta; image=false; updateGL(); }
-    void setScale(float scale) { this->scale = scale; image=false; updateGL(); }
+    void setViewPoint(double vpx, double vpy, double vpz) { vp[0]=vpx; vp[1]=vpy; vp[2]=vpz; image=false; update(); }
+    void setViewDirection(float phi, float theta) { this->phi = phi; this->theta = theta; image=false; update(); }
+    void setScale(float scale) { this->scale = scale; image=false; update(); }
 
 signals:
 
@@ -131,8 +136,8 @@ private:
     float scale;
 
     // textures and images
-    GLuint textureImage;
-    QPixmap pixmap; // image in illuminance
+    QImage imageTexture;
+    QOpenGLTexture *texture=nullptr;
 
     // stores the scene
     GLuint object;
@@ -147,15 +152,15 @@ private:
     GLdouble vp[3],vd[3],vu[3];
 
     // different materials in the file
-    map<string,Color> mapMaterials;
-    vector<pair<string,Surface> > mapSurfaces;
+    std::map<std::string,Color> mapMaterials;
+    std::vector<std::pair<std::string,Surface> > mapSurfaces;
 
     // integer that represents the model itself
     int model;
 
 };
 
-template <typename T> inline T to(const string &s) {
+template <typename T> inline T to(const std::string &s) {
 
     T value;
     std::stringstream ss(s);
@@ -165,12 +170,12 @@ template <typename T> inline T to(const string &s) {
 
 }
 
-template <class T> void load(const string filename, vector<T> &vector) {
+template <class T> void load(const std::string filename, std::vector<T> vector) {
 
-    fstream input (filename.c_str(), ios::in | ios::binary);
-    if (!input.is_open()) throw(string("Error loading file: " + filename));
+    std::fstream input (filename.c_str(), std::ios::in | std::ios::binary);
+    if (!input.is_open()) throw(std::string("Error loading file: " + filename));
 
-    string buffer;
+    std::string buffer;
     do {
         input >> buffer;
         if (input.eof()) break;

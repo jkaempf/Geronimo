@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Geronimo: the CFS Daylighting Wizard, LESO-PB / EPFL</string>
+   <string>Geronimo: the CFS Daylighting Wizard provided by kaemco (www.kaem.co)</string>
   </property>
   <property name="windowIcon">
    <iconset resource="visuCFS.qrc">
@@ -1150,7 +1150,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Required Illuminance (lx)</string>
+     <string>Req. Illuminance (lx)</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="reqIlluminance">

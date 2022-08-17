@@ -6,10 +6,11 @@
 
 int main(int argc, char* argv[])
 {
+
     QApplication app(argc, argv);
 
     MaForme visuCFS;
-    visuCFS.show();
+    visuCFS.showMaximized();
 
     return app.exec();
 }

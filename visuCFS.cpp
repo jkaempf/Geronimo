@@ -1,6 +1,5 @@
 #include <QtGui>
-#include <QGLWidget>
-//#include <QtNetwork>
+#include <QFileDialog>
 
 #include "visuCFS.h"
 #include "glwidget.h"
@@ -125,7 +124,7 @@ void MaForme::getPath()
     QString directoryName = QFileDialog::getExistingDirectory(
         this,
         "Choose a directory to open",
-        QString::null,
+        QString(),
         QFileDialog::ShowDirsOnly);
 
     if (!directoryName.isEmpty())
@@ -139,7 +138,7 @@ void MaForme::getFileBSDF()
     QString fileName = QFileDialog::getOpenFileName(
         this,
         tr("Open Window XML File"),
-        QString::null,
+        QString(),
         tr("XML file (*.xml)"));
 
     if (!fileName.isEmpty())
@@ -153,7 +152,7 @@ void MaForme::getFilePrism2()
     QString fileName = QFileDialog::getOpenFileName(
         this,
         tr("Open Prism2 CAL file"),
-        QString::null,
+        QString(),
         tr("CAL file (*.cal)"));
 
     if (!fileName.isEmpty())

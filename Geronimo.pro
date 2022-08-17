@@ -5,9 +5,11 @@
 # Libraries needed for the compiling (headers) and linking stage
 QT+= core \
      gui \
-     opengl
-	 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets	 
+     widgets
+
+greaterThan(QT_MAJOR_VERSION, 5) {
+    QT += openglwidgets
+}
 
 TARGET = Geronimo
 TEMPLATE = app

@@ -10,8 +10,6 @@
 #include <iostream>
 #include <stdint.h>
 
-using namespace std;
-
 struct Bmpfile_magic {
     unsigned char magic[2];
 };
@@ -39,8 +37,8 @@ class ShellCommand : public QThread
 
 private:
 
-    vector<string> commands;
-    vector<QString> descriptions;
+    std::vector<std::string> commands;
+    std::vector<QString> descriptions;
     QDialog *commandsWindow;
     QPlainTextEdit *plainTextEdit;
 
@@ -52,7 +50,7 @@ public:
         delete commandsWindow;
     }
 
-    void addCommand(string command, QString description) { this->commands.push_back(command); this->descriptions.push_back(description); }
+    void addCommand(std::string command, QString description) { this->commands.push_back(command); this->descriptions.push_back(description); }
 
     void run();
     void quit() {
@@ -107,7 +105,7 @@ private:
     bool logScale;
     QString DF_msg;
     QPixmap DF_image;
-    vector<float> DF_values;
+    std::vector<float> DF_values;
 
     // for glare calculation
     bool glare;
@@ -140,7 +138,7 @@ public:
     QString getDFmsg() { return DF_msg; }
     static void write_bmp(const char *file, Bitmap_image *b);
     // public member to be accessed
-    map<string,float> glareIndices;
+    std::map<std::string,float> glareIndices;
     void setModel(int value) { this->model = value; octreeChanged=true; }
     // gets the maxIlluminance
     float getMaxValue() { return maxValue; }
@@ -152,8 +150,8 @@ public:
     void setRadianceParametersMkillum(QString param) { this->radianceParametersMkillum = param; octreeChanged=true; }
     // methods to set the elements from the view
     void setImageSize(int width, int height) { this->width=width; this->height=height; }
-    void setView(vector<double> vp, vector<double> vd, vector<double> vu) { for (unsigned int i=0;i<3;++i) { this->vp[i]=vp[i]; this->vd[i]=vd[i]; this->vu[i]=vu[i]; } }
-    void setBoundingBox(vector<double> xyzMinMax) {
+    void setView(std::vector<double> vp, std::vector<double> vd, std::vector<double> vu) { for (unsigned int i=0;i<3;++i) { this->vp[i]=vp[i]; this->vd[i]=vd[i]; this->vu[i]=vu[i]; } }
+    void setBoundingBox(std::vector<double> xyzMinMax) {
         this->xMin = xyzMinMax[0]; this->xMax = xyzMinMax[1]; this->yMin = xyzMinMax[2]; this->yMax = xyzMinMax[3]; this->zMin = xyzMinMax[4]; this->zMax = xyzMinMax[5];
     }
 

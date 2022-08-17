@@ -1,8 +1,13 @@
 #include <iostream>
+#include <QFile>
+#include <QTextStream>
+#include <QMouseEvent>
+#include <QWheelEvent>
+#include <QOpenGLTexture>
 
 #include "glwidget.h"
-
-GLWidget::GLWidget(QWidget *parent):QGLWidget(QGLFormat(QGL::SampleBuffers),parent),parent(parent),dx(0),dy(0),phi(270.f),theta(0.f),wheelRot(0),textureImage(0),image(false) {
+//wheelRot(0),textureImage(0),
+GLWidget::GLWidget(QWidget *parent):QOpenGLWidget(parent),parent(parent),dx(0),dy(0),phi(270.f),theta(0.f),wheelRot(0),image(false) {
 
     // the view point
     vp[0] = 1.725;
@@ -14,7 +19,7 @@ GLWidget::GLWidget(QWidget *parent):QGLWidget(QGLFormat(QGL::SampleBuffers),pare
     vd[1] = cos(theta*M_PI/180.)*sin(phi*M_PI/180.);
     vd[2] = sin(theta*M_PI/180.);
 
-    cout << "vd: (" << vd[0] << ", " << vd[1] << ", " << vd[2] << ")" << endl;
+    std::cout << "vd: (" << vd[0] << ", " << vd[1] << ", " << vd[2] << ")" << std::endl;
 
     // the view up
     vu[0] = 0.;
@@ -37,8 +42,17 @@ GLWidget::GLWidget(QWidget *parent):QGLWidget(QGLFormat(QGL::SampleBuffers),pare
 
 }
 
+GLWidget::~GLWidget() {
+
+    if (texture) delete texture;
+
+}
+
 void GLWidget::initializeGL()
 {
+     // initialise the OpenGL context
+     initializeOpenGLFunctions();
+
      glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
      glShadeModel(GL_FLAT);
 
@@ -95,7 +109,7 @@ void GLWidget::paintGL()
         // defines the projection matrix
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glScalef(1.0, (float) this->width() / this->height(), 1.0); // scaling to counterbalance the effect of the screen
+        glScalef(1.0, static_cast<float>(this->width() / this->height()), 1.0); // scaling to counterbalance the effect of the screen
         glFrustum(xmin, xmax, ymin, ymax, zmin, zmax);
 
         // defines the view to the model
@@ -140,7 +154,7 @@ void GLWidget::paintGL()
         // defines the projection matrix
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        gluOrtho2D(0, pixmap.width(), 0, pixmap.height());
+        gluOrtho2D(0, imageTexture.width(), 0, imageTexture.height());
 
         // defines the view to the model
         glMatrixMode(GL_MODELVIEW);
@@ -149,15 +163,15 @@ void GLWidget::paintGL()
         // bind the texture
         glEnable(GL_TEXTURE_2D);
         glColor3f(1.f,1.f,1.f);
-        glBindTexture(GL_TEXTURE_2D, textureImage);
+        texture->bind();
 
         // creates a polygon of dimension 1 and 1 with the texture applied
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glBegin(GL_QUADS);
           glTexCoord2f(0.0f, 0.0f); glVertex3f( 0.f, 0.f,  0.f);
-          glTexCoord2f(1.0f, 0.0f); glVertex3f( pixmap.width(), 0.f,  0.f);
-          glTexCoord2f(1.0f, 1.0f); glVertex3f( pixmap.width(), pixmap.height(), 0.f);
-          glTexCoord2f(0.0f, 1.0f); glVertex3f( 0.f, pixmap.height(), 0.f);
+          glTexCoord2f(1.0f, 0.0f); glVertex3f( imageTexture.width(), 0.f,  0.f);
+          glTexCoord2f(1.0f, 1.0f); glVertex3f( imageTexture.width(), imageTexture.height(), 0.f);
+          glTexCoord2f(0.0f, 1.0f); glVertex3f( 0.f, imageTexture.height(), 0.f);
         glEnd();
         glDisable(GL_TEXTURE_2D);
 
@@ -176,16 +190,16 @@ GLuint GLWidget::makeObject(QString radFile)
 
         if (file1.open(QIODevice::ReadOnly | QIODevice::Text)) {
 
-            cout << "Reading RAD file..." << endl;
+            std::cout << "Reading RAD file..." << std::endl;
 
             QTextStream in1(&file1);
             do {
 
                  QString wordy;
                  in1 >> wordy; // clé de lecture
-                 cout << "First word of the line: " << wordy.toStdString() << endl;
+                 std::cout << "First word of the line: " << wordy.toStdString() << std::endl;
 
-                 if ( wordy[0] == '#' ) in1.readLine();
+                 if ( wordy.isEmpty() || wordy[0] == '#' ) in1.readLine();
                  else if ( wordy == "void" ) { // définition de matériaux
                      in1 >> wordy; // material type
                      if (wordy == "alias") { // définition d'un alias
@@ -193,7 +207,7 @@ GLuint GLWidget::makeObject(QString radFile)
                          in1 >> newOne;
                          in1 >> oldOne;
                          qDebug("Material %s alias of %s", newOne.toStdString().c_str(), oldOne.toStdString().c_str());
-                         mapMaterials.insert( pair<string,Color>(newOne.toStdString(), mapMaterials.at(oldOne.toStdString())) );
+                         mapMaterials.insert( std::pair<std::string,Color>(newOne.toStdString(), mapMaterials.at(oldOne.toStdString())) );
                      }
                      else {
                          QString label, red, green, blue;
@@ -208,7 +222,7 @@ GLuint GLWidget::makeObject(QString radFile)
                          unsigned int nbArgs = wordy.toUInt();
                          for (unsigned int i=0; i<nbArgs-3; ++i) in1 >> wordy;
                          // material creation
-                         mapMaterials.insert( pair<string,Color>(label.toStdString(), Color(red.toFloat(), green.toFloat(), blue.toFloat())) );
+                         mapMaterials.insert( std::pair<std::string,Color>(label.toStdString(), Color(red.toFloat(), green.toFloat(), blue.toFloat())) );
                      }
                  }
                  else if (wordy == "inherit") { // définition d'un alias
@@ -217,12 +231,12 @@ GLuint GLWidget::makeObject(QString radFile)
                      in1 >> newOne;
                      in1 >> oldOne;
                      qDebug("Material %s alias of %s", newOne.toStdString().c_str(), oldOne.toStdString().c_str());
-                     mapMaterials.insert( pair<string,Color>(newOne.toStdString(), mapMaterials.at(oldOne.toStdString())) );
+                     mapMaterials.insert( std::pair<std::string,Color>(newOne.toStdString(), mapMaterials.at(oldOne.toStdString())) );
                  }
                  else if ( mapMaterials.find(wordy.toStdString()) != mapMaterials.end() ) {
                     QString label = wordy; // label of the material
                     // found a material in the set... and creates the corresponding polygon
-                    mapSurfaces.push_back( pair<string,Surface>( label.toStdString(), Surface() ) );
+                    mapSurfaces.push_back( std::pair<std::string,Surface>( label.toStdString(), Surface() ) );
                     in1 >> wordy; // polygon
                     if ( wordy == "polygon" ) {
                         in1 >> wordy; // label of the polygon
@@ -244,8 +258,8 @@ GLuint GLWidget::makeObject(QString radFile)
 
     }
 
-    cout << "Materials loaded: " << mapMaterials.size() << endl;
-    cout << "Surfaces loaded: " << mapSurfaces.size() << endl;
+    std::cout << "Materials loaded: " << mapMaterials.size() << std::endl;
+    std::cout << "Surfaces loaded: " << mapSurfaces.size() << std::endl;
 
     // calculation of the bounding box
     if (!mapSurfaces.empty()) {
@@ -257,7 +271,7 @@ GLuint GLWidget::makeObject(QString radFile)
         zMax = mapSurfaces.begin()->second.getMaxZ();
         zMin = mapSurfaces.begin()->second.getMinZ();
 
-        for (vector<pair<string,Surface> >::iterator it = mapSurfaces.begin()+1; it != mapSurfaces.end(); ++it) {
+        for (std::vector<std::pair<std::string,Surface> >::iterator it = mapSurfaces.begin()+1; it != mapSurfaces.end(); ++it) {
             xMax = qMax(static_cast<float>(xMax), it->second.getMaxX());
             xMin = qMin(static_cast<float>(xMin), it->second.getMinX());
             yMax = qMax(static_cast<float>(yMax), it->second.getMaxY());
@@ -275,7 +289,7 @@ GLuint GLWidget::makeObject(QString radFile)
         zMax=0.0;
         zMin=0.0;
     }
-    cout << "Bounding box: (" << xMin << "," << xMax << ") - (" << yMin << "," << yMax << ") - (" << zMin << "," << zMax << ")" << endl;
+    std::cout << "Bounding box: (" << xMin << "," << xMax << ") - (" << yMin << "," << yMax << ") - (" << zMin << "," << zMax << ")" << std::endl;
 
     // start of the list
     GLuint list = glGenLists(1);
@@ -283,7 +297,7 @@ GLuint GLWidget::makeObject(QString radFile)
 
     // Draw the surfaces
     glPolygonMode(GL_FRONT_AND_BACK , GL_FILL); // remplissage
-    for (vector<pair<string,Surface> >::iterator it=mapSurfaces.begin(); it != mapSurfaces.end(); ++it) {
+    for (std::vector<std::pair<std::string,Surface> >::iterator it=mapSurfaces.begin(); it != mapSurfaces.end(); ++it) {
         if ( it->second.getnCoordinates()/3 == 3 ) { // triangle
             glBegin(GL_TRIANGLES);
             glColor3f((mapMaterials.at(it->first)).getRed(),(mapMaterials.at(it->first)).getGreen(),(mapMaterials.at(it->first)).getBlue());
@@ -360,11 +374,11 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event)
 {
-     dx = event->x() - lastPos.x();
-     dy = event->y() - lastPos.y();
+     dx = event->position().x() - lastPos.x();
+     dy = event->position().y() - lastPos.y();
      lastPos = event->pos();
 
-     updateGL();
+     update();
 
 }
 
@@ -373,14 +387,14 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event)
       // set to zero the rotations
       dx = 0;
       dy = 0;
-
+      event->accept();
 }
 
 void GLWidget::wheelEvent(QWheelEvent *event)
 {
-    wheelRot += event->delta();
+    wheelRot += event->angleDelta().y();
     image = false;
-    updateGL();
+    repaint();
     wheelRot = 0;
     event->accept();
 }
@@ -388,16 +402,16 @@ void GLWidget::wheelEvent(QWheelEvent *event)
 void GLWidget::displayImage(QString filename)
 {
     // creates a texture with the filename
-    pixmap.load(filename);
-    std::cout << "map size x: " << pixmap.width() << "\ty: " << pixmap.height() << std::endl;
+    imageTexture.load(filename);
+    std::cout << "Texture size x: " << imageTexture.width() << "\ty: " << imageTexture.height() << std::endl;
 
-    textureImage = bindTexture(pixmap, GL_TEXTURE_2D);
+    texture = new QOpenGLTexture(imageTexture.mirrored());
 
     image = true;
 
     std::cout << "Texture created and binded" << std::endl;
     // updates the screen
-    updateGL();
+    update();
 
 }
 
@@ -405,7 +419,7 @@ void GLWidget::setModel(int value) {
 
     this->model = value;
     deleteObject();
-    initializeGL();
-    updateGL();
+    object = makeObject(QString::fromStdString("base_" + toString(model) + ".rad"));
+    update();
 
 }
